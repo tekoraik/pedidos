@@ -1,0 +1,32 @@
+2013/10/01 18:04:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/empresa".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/empresa')
+#1 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/empresa
+---
+2013/10/01 18:17:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "categorias/index".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('categorias/inde...')
+#1 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/categorias/index
+---
+2013/10/01 18:17:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "categorias".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('categorias')
+#1 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/categorias/
+---
+2013/10/01 18:31:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "categories".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('categories')
+#1 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/categories
+---
