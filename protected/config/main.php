@@ -20,7 +20,7 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		
+		'admin',
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'2310',
@@ -45,12 +45,12 @@ return array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
 			'rules'=>array(
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 				'gii'=>'gii',
           		'gii/<controller:\w+>'=>'gii/<controller>',
           		'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>', 
+				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
+				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
 		/*

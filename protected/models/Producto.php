@@ -40,6 +40,7 @@ class Producto extends CActiveRecord
 			array('nombre, slug, descripcion_corta', 'length', 'max'=>100),
 			array('precio', 'length', 'max'=>10),
 			array('descripcion_larga', 'safe'),
+			array('id_empresa', 'validaEsMismaEmpresa'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, nombre, slug, descripcion_corta, descripcion_larga, precio, id_empresa, id_categoria', 'safe', 'on'=>'search'),
@@ -75,7 +76,15 @@ class Producto extends CActiveRecord
 			'id_categoria' => 'Categoria',
 		);
 	}
-
+	/**
+	 * Comprueba la restricción de que un producto debe ser de la misma empresa que la categoria
+	 * This is the 'validaEsMismaEmpresa' validator as declared in rules().
+	 */
+	public function validaEsMismaEmpresa($attribute,$params)
+	{
+		if ($this->categoria && $this->id_empresa != $this->categoria->id_empresa)
+	      $this->addError($attribute, 'La empresa debe ser igual que la empresa de la categoria ('.$this->categoria->empresa->nombre.')');
+	}
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

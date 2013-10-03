@@ -30,3 +30,412 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/pedidos/categories
 ---
+2013/10/03 19:22:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/producto".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/producto
+---
+2013/10/03 19:23:25 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`pedidos`.`producto`, CONSTRAINT `fk_producto_empresa` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: UPDATE `producto` SET `id`=:yp0, `nombre`=:yp1, `slug`=:yp2, `descripcion_corta`=:yp3, `descripcion_larga`=:yp4, `precio`=:yp5, `id_empresa`=:yp6, `id_categoria`=:yp7 WHERE `producto`.`id`=1.
+in /var/www/pedidos/protected/controllers/ProductoController.php (97)
+in /var/www/pedidos/index.php (13)
+2013/10/03 19:23:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`pedidos`.`producto`, CONSTRAINT `fk_producto_empresa` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: UPDATE `producto` SET `id`=:yp0, `nombre`=:yp1, `slug`=:yp2, `descripcion_corta`=:yp3, `descripcion_larga`=:yp4, `precio`=:yp5, `id_empresa`=:yp6, `id_categoria`=:yp7 WHERE `producto`.`id`=1' in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1751): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(1127): CActiveRecord->updateByPk('1', Array)
+#2 /var/www/yii/framework/db/ar/CActiveRecord.php(809): CActiveRecord->update(NULL)
+#3 /var/www/pedidos/protected/controllers/ProductoController.php(97): CActiveRecord->save()
+#4 [internal function]: ProductoController->actionUpdate('1')
+#5 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ProductoController), Array)
+#6 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProductoController), Object(ReflectionMethod), Array)
+#7 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#14 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#16 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('producto/update')
+#17 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/pedidos/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/pedidos/producto/update/1
+HTTP_REFERER=http://localhost/pedidos/producto/update/1
+---
+2013/10/03 19:24:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/producto".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/producto
+---
+2013/10/03 19:25:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/producto".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/producto
+---
+2013/10/03 19:25:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/producto".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/producto
+---
+2013/10/03 19:26:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/producto".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/producto
+---
+2013/10/03 19:26:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/producto".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/producto
+---
+2013/10/03 19:28:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "productoAdmin/index".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('productoAdmin/i...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/producto
+---
+2013/10/03 19:28:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "productoAdmin/index".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('productoAdmin/i...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/producto
+---
+2013/10/03 19:28:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/producto".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/producto
+---
+2013/10/03 19:28:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/producto".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/producto
+---
+2013/10/03 19:28:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin
+---
+2013/10/03 19:28:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/categoria".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/categoria')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/categoria
+---
+2013/10/03 19:29:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/categoria".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/categoria')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/categoria
+---
+2013/10/03 19:29:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/categoria".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/categoria')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/categoria
+---
+2013/10/03 19:29:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/categoria".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/categoria')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/categoria
+---
+2013/10/03 19:29:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin
+---
+2013/10/03 19:31:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "producto".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('producto')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('producto')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/producto')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/pedidos/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pedidos/test/site/producto
+---
+2013/10/03 19:35:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "producto".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('producto')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('producto')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/producto')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/pedidos/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pedidos/test/site/producto
+---
+2013/10/03 20:03:52 [error] [php] Creating default object from empty value (/var/www/pedidos/protected/modules/admin/AdminModule.php:23)
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/
+in /var/www/pedidos/protected/modules/admin/AdminModule.php (23)
+in /var/www/pedidos/index.php (13)
+2013/10/03 20:03:53 [error] [php] Creating default object from empty value (/var/www/pedidos/protected/modules/admin/AdminModule.php:23)
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/
+in /var/www/pedidos/protected/modules/admin/AdminModule.php (23)
+in /var/www/pedidos/index.php (13)
+2013/10/03 20:03:53 [error] [php] Creating default object from empty value (/var/www/pedidos/protected/modules/admin/AdminModule.php:23)
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/
+in /var/www/pedidos/protected/modules/admin/AdminModule.php (23)
+in /var/www/pedidos/index.php (13)
+2013/10/03 20:03:55 [error] [php] Creating default object from empty value (/var/www/pedidos/protected/modules/admin/AdminModule.php:23)
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/
+in /var/www/pedidos/protected/modules/admin/AdminModule.php (23)
+in /var/www/pedidos/index.php (13)
+2013/10/03 20:16:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/categoria/index".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/categoria...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/categoria/index
+HTTP_REFERER=http://localhost/pedidos/admin/producto/index
+---
+2013/10/03 20:16:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/categoria/index".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/categoria...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/categoria/index
+HTTP_REFERER=http://localhost/pedidos/admin/producto/index
+---
+2013/10/03 20:26:28 [error] [php] Object of class Empresa could not be converted to string (/var/www/yii/framework/web/helpers/CHtml.php:2517)
+Stack trace:
+#0 /var/www/pedidos/protected/modules/admin/views/categoria/_form.php(45): CActiveForm->dropDownList()
+#1 /var/www/yii/framework/web/CBaseController.php(126): require()
+#2 /var/www/yii/framework/web/CBaseController.php(95): CategoriaController->renderInternal()
+#3 /var/www/yii/framework/web/CController.php(869): CategoriaController->renderFile()
+#4 /var/www/pedidos/protected/modules/admin/views/categoria/create.php(18): CategoriaController->renderPartial()
+#5 /var/www/yii/framework/web/CBaseController.php(126): require()
+#6 /var/www/yii/framework/web/CBaseController.php(95): CategoriaController->renderInternal()
+#7 /var/www/yii/framework/web/CController.php(869): CategoriaController->renderFile()
+#8 /var/www/yii/framework/web/CController.php(782): CategoriaController->renderPartial()
+#9 /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php(79): CategoriaController->render()
+#10 /var/www/yii/framework/web/actions/CInlineAction.php(49): CategoriaController->actionCreate()
+#11 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /var/www/yii/framework/web/filters/CFilterChain.php(133): CategoriaController->runAction()
+#13 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#14 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#15 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CategoriaController->filterAccessControl()
+#16 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#17 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#18 /var/www/yii/framework/web/CController.php(265): CategoriaController->runActionWithFilters()
+#19 /var/www/yii/framework/web/CWebApplication.php(282): CategoriaController->run()
+#20 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#21 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#22 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/categoria/create
+in /var/www/pedidos/protected/modules/admin/views/categoria/_form.php (45)
+in /var/www/pedidos/protected/modules/admin/views/categoria/create.php (18)
+in /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php (79)
+2013/10/03 20:34:00 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/modules/admin/views/categoria/_view.php:21)
+Stack trace:
+#0 /var/www/yii/framework/zii/widgets/CListView.php(291): CategoriaController->renderFile()
+#1 /var/www/yii/framework/zii/widgets/CBaseListView.php(167): CListView->renderItems()
+#2 unknown(0): CListView->renderSection()
+#3 /var/www/yii/framework/zii/widgets/CBaseListView.php(150): preg_replace_callback()
+#4 /var/www/yii/framework/zii/widgets/CBaseListView.php(135): CListView->renderContent()
+#5 /var/www/yii/framework/web/CBaseController.php(181): CListView->run()
+#6 /var/www/pedidos/protected/modules/admin/views/categoria/index.php(20): CategoriaController->widget()
+#7 /var/www/yii/framework/web/CBaseController.php(126): require()
+#8 /var/www/yii/framework/web/CBaseController.php(95): CategoriaController->renderInternal()
+#9 /var/www/yii/framework/web/CController.php(869): CategoriaController->renderFile()
+#10 /var/www/yii/framework/web/CController.php(782): CategoriaController->renderPartial()
+#11 /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php(128): CategoriaController->render()
+#12 /var/www/yii/framework/web/actions/CInlineAction.php(49): CategoriaController->actionIndex()
+#13 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#14 /var/www/yii/framework/web/filters/CFilterChain.php(133): CategoriaController->runAction()
+#15 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#16 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#17 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CategoriaController->filterAccessControl()
+#18 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#19 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#20 /var/www/yii/framework/web/CController.php(265): CategoriaController->runActionWithFilters()
+#21 /var/www/yii/framework/web/CWebApplication.php(282): CategoriaController->run()
+#22 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#23 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#24 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/categoria/index
+in /var/www/pedidos/protected/modules/admin/views/categoria/_view.php (21)
+in /var/www/pedidos/protected/modules/admin/views/categoria/index.php (20)
+in /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php (128)
+2013/10/03 20:45:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "test/producto/create".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('test/producto/c...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/test/producto/create
+HTTP_REFERER=http://localhost/pedidos/test/producto
+---
+2013/10/03 21:08:26 [error] [exception.CException] exception 'CException' with message 'Property "CActiveForm.model" is not defined.' in /var/www/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/yii/framework/web/CWidgetFactory.php(161): CComponent->__set('model', Object(Producto))
+#1 /var/www/yii/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(ProductoController), 'CActiveForm', Array)
+#2 /var/www/yii/framework/web/CBaseController.php(180): CBaseController->createWidget('CActiveForm', Array)
+#3 /var/www/pedidos/protected/modules/admin/views/producto/_form.php(35): CBaseController->widget('CActiveForm', Array)
+#4 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/pedido...')
+#5 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pedido...', Array, true)
+#6 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pedido...', Array, true)
+#7 /var/www/pedidos/protected/modules/admin/views/producto/create.php(18): CController->renderPartial('_form', Array)
+#8 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/pedido...')
+#9 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pedido...', Array, true)
+#10 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pedido...', Array, true)
+#11 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('create', Array, true)
+#12 /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php(79): CController->render('create', Array)
+#13 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProductoController->actionCreate()
+#14 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#23 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto/...')
+#24 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#25 /var/www/pedidos/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/pedidos/admin/producto/create
+---
+2013/10/03 21:10:38 [error] [php] Undefined variable: model (/var/www/pedidos/protected/components/widgets/CopyFieldAsSlug.php:8)
+Stack trace:
+#0 /var/www/yii/framework/web/CBaseController.php(126): require()
+#1 /var/www/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#2 /var/www/yii/framework/web/CController.php(869): ProductoController->renderFile()
+#3 /var/www/pedidos/protected/modules/admin/views/producto/create.php(18): ProductoController->renderPartial()
+#4 /var/www/yii/framework/web/CBaseController.php(126): require()
+#5 /var/www/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#6 /var/www/yii/framework/web/CController.php(869): ProductoController->renderFile()
+#7 /var/www/yii/framework/web/CController.php(782): ProductoController->renderPartial()
+#8 /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php(79): ProductoController->render()
+#9 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProductoController->actionCreate()
+#10 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#12 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#14 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#16 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#18 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#19 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#20 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/producto/create
+in /var/www/pedidos/protected/components/widgets/CopyFieldAsSlug.php (8)
+in /var/www/pedidos/protected/modules/admin/views/producto/_form.php (35)
+in /var/www/pedidos/protected/modules/admin/views/producto/create.php (18)
+2013/10/03 21:17:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/index".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/index')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/index
+HTTP_REFERER=http://localhost/pedidos/admin/producto/admin
+---
+2013/10/03 21:17:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/index".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/index')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/index
+HTTP_REFERER=http://localhost/pedidos/admin/producto/admin
+---
+2013/10/03 21:38:41 [error] [php] include(validaEsMismaEmpresa.php): failed to open stream: No such file or directory (/var/www/yii/framework/YiiBase.php:432)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 /var/www/yii/framework/YiiBase.php(303): class_exists()
+#2 /var/www/yii/framework/validators/CValidator.php(186): import()
+#3 /var/www/yii/framework/base/CModel.php(287): createValidator()
+#4 /var/www/yii/framework/base/CModel.php(260): Producto->createValidators()
+#5 /var/www/yii/framework/base/CModel.php(304): Producto->getValidators()
+#6 /var/www/yii/framework/web/helpers/CHtml.php(1508): Producto->isAttributeRequired()
+#7 /var/www/yii/framework/web/widgets/CActiveForm.php(597): activeLabelEx()
+#8 /var/www/pedidos/protected/modules/admin/views/producto/_form.php(23): CActiveForm->labelEx()
+#9 /var/www/yii/framework/web/CBaseController.php(126): require()
+#10 /var/www/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#11 /var/www/yii/framework/web/CController.php(869): ProductoController->renderFile()
+#12 /var/www/pedidos/protected/modules/admin/views/producto/create.php(18): ProductoController->renderPartial()
+#13 /var/www/yii/framework/web/CBaseController.php(126): require()
+#14 /var/www/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#15 /var/www/yii/framework/web/CController.php(869): ProductoController->renderFile()
+#16 /var/www/yii/framework/web/CController.php(782): ProductoController->renderPartial()
+#17 /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php(79): ProductoController->render()
+#18 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProductoController->actionCreate()
+#19 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#20 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#21 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#22 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#23 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#24 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#25 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#26 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#27 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#28 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#29 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#30 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/producto/create
+in /var/www/pedidos/protected/modules/admin/views/producto/_form.php (23)
+in /var/www/pedidos/protected/modules/admin/views/producto/create.php (18)
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (79)

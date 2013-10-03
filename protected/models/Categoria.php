@@ -67,8 +67,8 @@ class Categoria extends CActiveRecord
 			'id' => 'ID',
 			'nombre' => 'Nombre',
 			'slug' => 'Slug',
-			'id_padre' => 'Id Padre',
-			'id_empresa' => 'Id Empresa',
+			'id_padre' => 'Categoria Padre',
+			'id_empresa' => 'Empresa',
 		);
 	}
 
