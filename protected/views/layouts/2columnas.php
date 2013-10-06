@@ -35,32 +35,32 @@
     <body>
         <div id="contenido">
             <header>
-                <img src="<?php echo Yii::app()->getBaseUrl(); ?>/img/logo.png" width="200" style="float: left;" />
-              
-            </header>
-            <div class="menu-principal">
-                <nav>
+              <!--<img src="<?php echo Yii::app()->getBaseUrl(); ?>/img/logo.png" width="200" style="float: left;" />-->
+              <aside>
+                  
+              </aside>
+              <div class="menu-principal">
+               <nav>
                     <ul class="menu-principal">
-                        <li class="selected">
-                            <a href="#">¿Quienes somos?</a>
+                        <li>
+                            <a href="#">Perifericos</a>
                         </li>
                         <li>
-                            <a href="#">Servicios</a>
+                            <a href="#">Almacenamiento</a>
                         </li>
                         <li>
-                            <a href="#">Telecomunicaciones</a>
+                            <a href="#">Portatiles</a>
                         </li>
                         <li>
-                            <a href="#">Energia</a>
-                        </li>
-                        <li>
-                            <a href="#">Contactar</a>
+                            <a href="#">Componentes</a>
                         </li>
                     
                     </ul>
                     
                 </nav>
             </div>
+            </header>
+            
             
             
             <div id="izquierda">

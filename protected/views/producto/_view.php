@@ -27,9 +27,9 @@
         <p class="detalle">
             <?php echo CHtml::link(CHtml::encode("Ver detalle"), array('view', 'id'=>$data->id)); ?>
         </p>
-        <button class="button al-pedido">
+        <a class="button pedir">
             Añadir al pedido
-        </button>
+        </a>
     </div>
 	
 

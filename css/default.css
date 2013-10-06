@@ -1,4 +1,4 @@
-<style type="text/css">
+
 .button {
     -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
     -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -45,7 +45,8 @@
     top:1px;
 }
 
-.button .pedir {
+.button.pedir {
+    cursor: pointer;
     -moz-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
     -webkit-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
     box-shadow:inset 0px 1px 0px 0px #d9fbbe;
@@ -80,13 +81,13 @@
     text-align:center;
     text-shadow:1px 1px 0px #86ae47;
 }
-.button .pedir:hover {
+.button.pedir:hover {
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a5cc52), color-stop(1, #b8e356) );
     background:-moz-linear-gradient( center top, #a5cc52 5%, #b8e356 100% );
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5cc52', endColorstr='#b8e356');
     background-color:#a5cc52;
 }
-.button .pedir:active {
+.button.pedir:active {
     position:relative;
     top:1px;
 }
