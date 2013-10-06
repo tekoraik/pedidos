@@ -1,8 +1,15 @@
 <?php
+/**
+  * Test for a test
+  *
+  * @author Jose Luis Orta
+  */
 class TestTest extends CDbTestCase
 {
-    
- 
+	/**
+	 * SetUp of the test
+	 *
+	 */
  	public function setUp() {
  		
  	}

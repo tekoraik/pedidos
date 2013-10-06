@@ -48,8 +48,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		'nombre',
 		'slug',
-		'id_padre',
-		'id_empresa',
+		array(            // display 'create_time' using an expression
+            'name'=>'padre',
+            'value'=>'$data->getNombrePadre()',
+        ),
+		array(            // display 'create_time' using an expression
+            'name'=>'empresa',
+            'value'=>'$data->getNombreEmpresa()',
+        ),
 		array(
 			'class'=>'CButtonColumn',
 		),

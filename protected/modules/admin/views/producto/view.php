@@ -27,6 +27,7 @@ $this->menu=array(
 		'descripcion_corta',
 		'descripcion_larga',
 		'precio',
+		'imagen',
 		'id_empresa',
 		'id_categoria',
 	),

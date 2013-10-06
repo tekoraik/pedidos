@@ -3,35 +3,38 @@
 /* @var $data Producto */
 ?>
 
-<div class="view">
+<div class="producto view box">
+    
+    <div class="contenedor-imagen">
+        <?php if ($data->imagen): ?>
+        <img class="imagen" src="<?php echo Yii::app()->getBaseUrl(); ?>/img/productos/<?php echo $data->imagen; ?>" />
+        <?php endif; ?>
+        <?php if (!$data->imagen): ?>
+        <img class="imagen" src="<?php echo Yii::app()->getBaseUrl(); ?>/img/no-disponible.jpg" />
+        <?php endif; ?>
+    </div>
+    <div class="nombre">
+        <p><?php echo CHtml::encode($data->nombre); ?></p>
+    </div>
+    <div class="precio">
+        <?php echo CHtml::encode($data->precio); ?> €
+    </div>
+    <div class="descripcion-corta">
+        <?php echo CHtml::encode($data->descripcion_corta); ?>
+    </div>
+    
+    <div class="leyenda">
+        <p class="detalle">
+            <?php echo CHtml::link(CHtml::encode("Ver detalle"), array('view', 'id'=>$data->id)); ?>
+        </p>
+        <button class="button al-pedido">
+            Añadir al pedido
+        </button>
+    </div>
+	
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+	
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('nombre')); ?>:</b>
-	<?php echo CHtml::encode($data->nombre); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('slug')); ?>:</b>
-	<?php echo CHtml::encode($data->slug); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('descripcion_corta')); ?>:</b>
-	<?php echo CHtml::encode($data->descripcion_corta); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('descripcion_larga')); ?>:</b>
-	<?php echo CHtml::encode($data->descripcion_larga); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('precio')); ?>:</b>
-	<?php echo CHtml::encode($data->precio); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_empresa')); ?>:</b>
-	<?php echo CHtml::encode($data->id_empresa); ?>
-	<br />
 
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id_categoria')); ?>:</b>

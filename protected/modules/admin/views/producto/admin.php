@@ -51,6 +51,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'descripcion_corta',
 		'descripcion_larga',
 		'precio',
+		'imagen',
 		/*
 		'id_empresa',
 		'id_categoria',

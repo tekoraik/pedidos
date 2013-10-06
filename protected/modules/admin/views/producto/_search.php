@@ -40,7 +40,12 @@
 		<?php echo $form->label($model,'precio'); ?>
 		<?php echo $form->textField($model,'precio',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
-
+	
+    <div class="row">
+        <?php echo $form->label($model,'imagen'); ?>
+        <?php echo $form->textField($model,'imagen',array('size'=>60,'maxlength'=>255)); ?>
+    </div>
+    
 	<div class="row">
 		<?php echo $form->label($model,'id_empresa'); ?>
 		<?php echo $form->textField($model,'id_empresa'); ?>

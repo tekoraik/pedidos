@@ -439,3 +439,859 @@ REQUEST_URI=/pedidos/admin/producto/create
 in /var/www/pedidos/protected/modules/admin/views/producto/_form.php (23)
 in /var/www/pedidos/protected/modules/admin/views/producto/create.php (18)
 in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (79)
+2013/10/05 20:09:02 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "index".' in /var/www/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('index', NULL, true)
+#1 /var/www/pedidos/protected/controllers/SiteController.php(32): CController->render('index')
+#2 /var/www/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#3 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('')
+#7 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#8 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/pedidos/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/pedidos/
+---
+2013/10/06 01:58:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/img/ui-menu-degree.png".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('css/img/ui-menu...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/css/img/ui-menu-degree.png
+HTTP_REFERER=http://localhost/pedidos/
+---
+2013/10/06 01:58:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/img/ui-header-degree.png".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('css/img/ui-head...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/css/img/ui-header-degree.png
+HTTP_REFERER=http://localhost/pedidos/
+---
+2013/10/06 19:04:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('img')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/asesor...')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/pedidos/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pedidos/site/img/asesoria.jpg
+HTTP_REFERER=http://localhost/pedidos/site/index
+---
+2013/10/06 19:04:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('img')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/asesor...')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/pedidos/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pedidos/site/img/asesoria2.jpg
+HTTP_REFERER=http://localhost/pedidos/site/index
+---
+2013/10/06 19:04:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('img')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/logo.p...')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/pedidos/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pedidos/site/img/logo.png
+HTTP_REFERER=http://localhost/pedidos/site/index
+---
+2013/10/06 19:22:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('img')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/logo.p...')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/pedidos/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pedidos/site/img/logo.png
+HTTP_REFERER=http://localhost/pedidos/site/login
+---
+2013/10/06 19:22:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('img')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/asesor...')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/pedidos/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pedidos/site/img/asesoria2.jpg
+HTTP_REFERER=http://localhost/pedidos/site/login
+---
+2013/10/06 19:22:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('img')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/asesor...')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/pedidos/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pedidos/site/img/asesoria.jpg
+HTTP_REFERER=http://localhost/pedidos/site/login
+---
+2013/10/06 19:22:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('img')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/logo.p...')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/pedidos/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pedidos/site/img/logo.png
+HTTP_REFERER=http://localhost/pedidos/site/login
+---
+2013/10/06 19:22:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('img')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/asesor...')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/pedidos/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pedidos/site/img/asesoria2.jpg
+HTTP_REFERER=http://localhost/pedidos/site/login
+---
+2013/10/06 19:22:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "img".' in /var/www/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(270): CController->missingAction('img')
+#1 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('img')
+#2 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/img/asesor...')
+#3 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/pedidos/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pedidos/site/img/asesoria.jpg
+HTTP_REFERER=http://localhost/pedidos/site/login
+---
+2013/10/06 19:45:46 [warning] [application] Failed to set unsafe attribute "image" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (72)
+in /var/www/pedidos/index.php (13)
+2013/10/06 19:45:46 [error] [exception.CException] exception 'CException' with message 'Property "Producto.image" is not defined.' in /var/www/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(161): CComponent->__set('image', '.png')
+#1 /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php(75): CActiveRecord->__set('image', '.png')
+#2 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProductoController->actionCreate()
+#3 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#12 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto/...')
+#13 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/pedidos/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/pedidos/admin/producto/create
+HTTP_REFERER=http://localhost/pedidos/admin/producto/create
+---
+2013/10/06 19:46:12 [warning] [application] Failed to set unsafe attribute "image" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (72)
+in /var/www/pedidos/index.php (13)
+2013/10/06 19:46:12 [error] [php] move_uploaded_file(/var/www/pedidos/protected/../img/products/.png): failed to open stream: Permission denied (/var/www/yii/framework/web/CUploadedFile.php:198)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProductoController->actionCreate()
+#1 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#3 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#9 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#10 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/producto/create
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (77)
+in /var/www/pedidos/index.php (13)
+2013/10/06 19:46:39 [warning] [application] Failed to set unsafe attribute "image" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (72)
+in /var/www/pedidos/index.php (13)
+2013/10/06 19:46:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'prueba' for key 'slug_UNIQUE'. The SQL statement executed was: INSERT INTO `producto` (`nombre`, `slug`, `descripcion_corta`, `descripcion_larga`, `precio`, `id_empresa`, `id_categoria`, `imagen`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7).
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (76)
+in /var/www/pedidos/index.php (13)
+2013/10/06 19:46:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'prueba' for key 'slug_UNIQUE'. The SQL statement executed was: INSERT INTO `producto` (`nombre`, `slug`, `descripcion_corta`, `descripcion_larga`, `precio`, `id_empresa`, `id_categoria`, `imagen`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7)' in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1080): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php(76): CActiveRecord->save()
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProductoController->actionCreate()
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto/...')
+#14 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /var/www/pedidos/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/pedidos/admin/producto/create
+HTTP_REFERER=http://localhost/pedidos/admin/producto/create
+---
+2013/10/06 19:47:06 [warning] [application] Failed to set unsafe attribute "image" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (72)
+in /var/www/pedidos/index.php (13)
+2013/10/06 19:47:35 [error] [exception.CException] exception 'CException' with message 'Property "Producto.image" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('image')
+#1 /var/www/pedidos/protected/modules/admin/views/producto/_form.php(66): CActiveRecord->__get('image')
+#2 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/pedido...')
+#3 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pedido...', Array, true)
+#4 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pedido...', Array, true)
+#5 /var/www/pedidos/protected/modules/admin/views/producto/update.php(21): CController->renderPartial('_form', Array)
+#6 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/pedido...')
+#7 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pedido...', Array, true)
+#8 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pedido...', Array, true)
+#9 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('update', Array, true)
+#10 /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php(109): CController->render('update', Array)
+#11 [internal function]: ProductoController->actionUpdate('6')
+#12 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ProductoController), Array)
+#13 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProductoController), Object(ReflectionMethod), Array)
+#14 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#23 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto/...')
+#24 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#25 /var/www/pedidos/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/pedidos/admin/producto/update/id/6
+HTTP_REFERER=http://localhost/pedidos/admin/producto/view/id/6
+---
+2013/10/06 19:48:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/productos/.png".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('img/productos/....')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/img/productos/.png
+HTTP_REFERER=http://localhost/pedidos/admin/producto/update/id/6
+---
+2013/10/06 19:48:28 [warning] [application] Failed to set unsafe attribute "image" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (102)
+in /var/www/pedidos/index.php (13)
+2013/10/06 19:48:28 [error] [exception.CException] exception 'CException' with message 'Property "Producto.image" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('image')
+#1 /var/www/yii/framework/validators/CFileValidator.php(166): CActiveRecord->__get('image')
+#2 /var/www/yii/framework/validators/CValidator.php(213): CFileValidator->validateAttribute(Object(Producto), 'image')
+#3 /var/www/yii/framework/base/CModel.php(159): CValidator->validate(Object(Producto), NULL)
+#4 /var/www/yii/framework/db/ar/CActiveRecord.php(808): CModel->validate(NULL)
+#5 /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php(103): CActiveRecord->save()
+#6 [internal function]: ProductoController->actionUpdate('6')
+#7 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ProductoController), Array)
+#8 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProductoController), Object(ReflectionMethod), Array)
+#9 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#16 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#18 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto/...')
+#19 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#20 /var/www/pedidos/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/pedidos/admin/producto/update/id/6
+HTTP_REFERER=http://localhost/pedidos/admin/producto/update/id/6
+---
+2013/10/06 19:49:41 [warning] [application] Failed to set unsafe attribute "image" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (72)
+in /var/www/pedidos/index.php (13)
+2013/10/06 19:49:41 [error] [php] Undefined variable: fileName (/var/www/pedidos/protected/modules/admin/controllers/ProductoController.php:75)
+Stack trace:
+#0 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#1 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#7 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/producto/create
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (75)
+in /var/www/pedidos/index.php (13)
+2013/10/06 19:50:34 [warning] [application] Failed to set unsafe attribute "image" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (72)
+in /var/www/pedidos/index.php (13)
+2013/10/06 19:51:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/productos/1975622113-prueba.png".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('img/productos/1...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/img/productos/1975622113-prueba.png
+HTTP_REFERER=http://localhost/pedidos/admin/producto/update/id/7
+---
+2013/10/06 19:55:56 [warning] [application] Failed to set unsafe attribute "image" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (106)
+in /var/www/pedidos/index.php (13)
+2013/10/06 19:55:56 [error] [exception.CException] exception 'CException' with message 'Property "Producto.image" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('image')
+#1 /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php(112): CActiveRecord->__get('image')
+#2 [internal function]: ProductoController->actionUpdate('7')
+#3 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ProductoController), Array)
+#4 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProductoController), Object(ReflectionMethod), Array)
+#5 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#14 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto/...')
+#15 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /var/www/pedidos/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/pedidos/admin/producto/update/id/7
+HTTP_REFERER=http://localhost/pedidos/admin/producto/update/id/7
+---
+2013/10/06 19:56:40 [warning] [application] Failed to set unsafe attribute "imagen" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (106)
+in /var/www/pedidos/index.php (13)
+2013/10/06 20:35:03 [error] [php] Undefined variable: model (/var/www/pedidos/protected/views/producto/_view.php:9)
+Stack trace:
+#0 /var/www/yii/framework/zii/widgets/CListView.php(291): ProductoController->renderFile()
+#1 /var/www/yii/framework/zii/widgets/CBaseListView.php(167): CListView->renderItems()
+#2 unknown(0): CListView->renderSection()
+#3 /var/www/yii/framework/zii/widgets/CBaseListView.php(150): preg_replace_callback()
+#4 /var/www/yii/framework/zii/widgets/CBaseListView.php(135): CListView->renderContent()
+#5 /var/www/yii/framework/web/CBaseController.php(181): CListView->run()
+#6 /var/www/pedidos/protected/views/producto/index.php(20): ProductoController->widget()
+#7 /var/www/yii/framework/web/CBaseController.php(126): require()
+#8 /var/www/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#9 /var/www/yii/framework/web/CController.php(869): ProductoController->renderFile()
+#10 /var/www/yii/framework/web/CController.php(782): ProductoController->renderPartial()
+#11 /var/www/pedidos/protected/controllers/ProductoController.php(124): ProductoController->render()
+#12 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProductoController->actionIndex()
+#13 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#14 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#15 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#16 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#17 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#18 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#19 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#20 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#21 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#22 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#23 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#24 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/producto
+in /var/www/pedidos/protected/views/producto/_view.php (9)
+in /var/www/pedidos/protected/views/producto/index.php (20)
+in /var/www/pedidos/protected/controllers/ProductoController.php (124)
+2013/10/06 20:35:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "1975622113-prueba.png".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('1975622113-prue...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/1975622113-prueba.png
+HTTP_REFERER=http://localhost/pedidos/producto
+---
+2013/10/06 20:39:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "1975622113-prueba.png".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('1975622113-prue...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/1975622113-prueba.png
+HTTP_REFERER=http://localhost/pedidos/producto
+---
+2013/10/06 20:39:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "no-disponible.jpg".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('no-disponible.j...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/no-disponible.jpg
+HTTP_REFERER=http://localhost/pedidos/producto
+---
+2013/10/06 20:39:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "1975622113-prueba.png".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('1975622113-prue...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/1975622113-prueba.png
+HTTP_REFERER=http://localhost/pedidos/producto
+---
+2013/10/06 20:39:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "no-disponible.jpg".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('no-disponible.j...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/no-disponible.jpg
+HTTP_REFERER=http://localhost/pedidos/producto
+---
+2013/10/06 20:39:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "1975622113-prueba.png".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('1975622113-prue...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/1975622113-prueba.png
+HTTP_REFERER=http://localhost/pedidos/producto
+---
+2013/10/06 20:39:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "no-disponible.jpg".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('no-disponible.j...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/no-disponible.jpg
+HTTP_REFERER=http://localhost/pedidos/producto
+---
+2013/10/06 20:40:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "1975622113-prueba.png".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('1975622113-prue...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/1975622113-prueba.png
+HTTP_REFERER=http://localhost/pedidos/producto
+---
+2013/10/06 20:40:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "1975622113-prueba.png".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('1975622113-prue...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/1975622113-prueba.png
+HTTP_REFERER=http://localhost/pedidos/producto
+---
+2013/10/06 20:41:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/1975622113-prueba.png".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('img/1975622113-...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/img/1975622113-prueba.png
+HTTP_REFERER=http://localhost/pedidos/producto
+---
+2013/10/06 21:26:43 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.empresa" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/base/CModule.php(105): CComponent->__get('empresa')
+#1 /var/www/pedidos/protected/controllers/ProductoController.php(122): CModule->__get('empresa')
+#2 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProductoController->actionIndex()
+#3 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('')
+#12 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('producto')
+#13 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/pedidos/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/pedidos/producto
+---
+2013/10/06 21:27:13 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.empresa" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/base/CModule.php(105): CComponent->__get('empresa')
+#1 /var/www/pedidos/protected/controllers/ProductoController.php(122): CModule->__get('empresa')
+#2 /var/www/yii/framework/web/actions/CInlineAction.php(49): ProductoController->actionIndex()
+#3 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('')
+#12 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('producto')
+#13 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/pedidos/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/pedidos/producto
+---
+2013/10/06 21:29:57 [error] [exception.CException] exception 'CException' with message 'Empresa and its behaviors do not have a method or closure named "model".' in /var/www/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/Empresa.php(17): CComponent->__call('model', Array)
+#1 /var/www/pedidos/protected/components/model/Empresa.php(17): Empresa->model()
+#2 /var/www/yii/framework/base/CModule.php(387): Empresa->init()
+#3 /var/www/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#4 /var/www/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#5 /var/www/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#6 /var/www/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#7 /var/www/pedidos/index.php(13): YiiBase::createWebApplication('/var/www/pedido...')
+#8 {main}
+REQUEST_URI=/pedidos/producto
+---
+2013/10/06 21:31:10 [warning] [application] Failed to set unsafe attribute "imagen" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (106)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:18:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/categorias".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/categoria...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/admin/categorias
+---
+2013/10/06 22:25:50 [error] [php] Use of undefined constant padre - assumed 'padre' (/var/www/yii/framework/base/CComponent.php(612) : eval()'d code:1)
+Stack trace:
+#0 /var/www/yii/framework/zii/widgets/grid/CGridColumn.php(231): CDataColumn->getDataCellContent()
+#1 /var/www/yii/framework/zii/widgets/grid/CGridColumn.php(154): CDataColumn->renderDataCellContent()
+#2 /var/www/yii/framework/zii/widgets/grid/CGridView.php(622): CDataColumn->renderDataCell()
+#3 /var/www/yii/framework/zii/widgets/grid/CGridView.php(578): CGridView->renderTableRow()
+#4 /var/www/yii/framework/zii/widgets/grid/CGridView.php(488): CGridView->renderTableBody()
+#5 /var/www/yii/framework/zii/widgets/CBaseListView.php(167): CGridView->renderItems()
+#6 unknown(0): CGridView->renderSection()
+#7 /var/www/yii/framework/zii/widgets/CBaseListView.php(150): preg_replace_callback()
+#8 /var/www/yii/framework/zii/widgets/CBaseListView.php(135): CGridView->renderContent()
+#9 /var/www/yii/framework/web/CBaseController.php(181): CGridView->run()
+#10 /var/www/pedidos/protected/modules/admin/views/categoria/admin.php(60): CategoriaController->widget()
+#11 /var/www/yii/framework/web/CBaseController.php(126): require()
+#12 /var/www/yii/framework/web/CBaseController.php(95): CategoriaController->renderInternal()
+#13 /var/www/yii/framework/web/CController.php(869): CategoriaController->renderFile()
+#14 /var/www/yii/framework/web/CController.php(782): CategoriaController->renderPartial()
+#15 /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php(143): CategoriaController->render()
+#16 /var/www/yii/framework/web/actions/CInlineAction.php(49): CategoriaController->actionAdmin()
+#17 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#18 /var/www/yii/framework/web/filters/CFilterChain.php(133): CategoriaController->runAction()
+#19 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#20 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#21 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CategoriaController->filterAccessControl()
+#22 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#23 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#24 /var/www/yii/framework/web/CController.php(265): CategoriaController->runActionWithFilters()
+#25 /var/www/yii/framework/web/CWebApplication.php(282): CategoriaController->run()
+#26 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#27 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#28 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/categoria/admin
+in /var/www/pedidos/protected/modules/admin/views/categoria/admin.php (60)
+in /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php (143)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:26:21 [error] [exception.CException] exception 'CException' with message 'Property "Categoria.name" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('name')
+#1 /var/www/yii/framework/base/CComponent.php(612) : eval()'d code(1): CActiveRecord->__get('name')
+#2 /var/www/yii/framework/base/CComponent.php(612): eval()
+#3 /var/www/yii/framework/zii/widgets/grid/CDataColumn.php(142): CComponent->evaluateExpression('$data->padre ? ...', Array)
+#4 /var/www/yii/framework/zii/widgets/grid/CGridColumn.php(231): CDataColumn->getDataCellContent(1)
+#5 /var/www/yii/framework/zii/widgets/grid/CGridColumn.php(154): CGridColumn->renderDataCellContent(1, Object(Categoria))
+#6 /var/www/yii/framework/zii/widgets/grid/CGridView.php(622): CGridColumn->renderDataCell(1)
+#7 /var/www/yii/framework/zii/widgets/grid/CGridView.php(578): CGridView->renderTableRow(1)
+#8 /var/www/yii/framework/zii/widgets/grid/CGridView.php(488): CGridView->renderTableBody()
+#9 /var/www/yii/framework/zii/widgets/CBaseListView.php(167): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 /var/www/yii/framework/zii/widgets/CBaseListView.php(150): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 /var/www/yii/framework/zii/widgets/CBaseListView.php(135): CBaseListView->renderContent()
+#13 /var/www/yii/framework/web/CBaseController.php(181): CBaseListView->run()
+#14 /var/www/pedidos/protected/modules/admin/views/categoria/admin.php(60): CBaseController->widget('zii.widgets.gri...', Array)
+#15 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/pedido...')
+#16 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pedido...', Array, true)
+#17 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pedido...', Array, true)
+#18 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('admin', Array, true)
+#19 /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php(143): CController->render('admin', Array)
+#20 /var/www/yii/framework/web/actions/CInlineAction.php(49): CategoriaController->actionAdmin()
+#21 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#22 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#23 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#24 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#25 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#26 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#27 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#28 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#30 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/categoria...')
+#31 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#32 /var/www/pedidos/index.php(13): CApplication->run()
+#33 {main}
+REQUEST_URI=/pedidos/admin/categoria/admin
+HTTP_REFERER=http://localhost/pedidos/admin/categoria/index
+---
+2013/10/06 22:29:55 [warning] [application] Failed to set unsafe attribute "padre" of "Categoria".
+in /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php (139)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:29:55 [warning] [application] Failed to set unsafe attribute "empresa" of "Categoria".
+in /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php (139)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:30:03 [warning] [application] Failed to set unsafe attribute "padre" of "Categoria".
+in /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php (139)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:30:03 [warning] [application] Failed to set unsafe attribute "empresa" of "Categoria".
+in /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php (139)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:30:05 [warning] [application] Failed to set unsafe attribute "padre" of "Categoria".
+in /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php (139)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:30:05 [warning] [application] Failed to set unsafe attribute "empresa" of "Categoria".
+in /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php (139)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:30:06 [warning] [application] Failed to set unsafe attribute "padre" of "Categoria".
+in /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php (139)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:30:06 [warning] [application] Failed to set unsafe attribute "empresa" of "Categoria".
+in /var/www/pedidos/protected/modules/admin/controllers/CategoriaController.php (139)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:35:54 [error] [php] Undefined variable: fileName (/var/www/pedidos/protected/modules/admin/controllers/ProductoController.php:81)
+Stack trace:
+#0 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#1 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#7 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#8 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/producto/create
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (81)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:36:33 [error] [exception.CException] exception 'CException' with message 'Property "ProductoController.model" is not defined.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/pedidos/protected/modules/admin/views/producto/_form.php(64): CComponent->__get('model')
+#1 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/pedido...')
+#2 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pedido...', Array, true)
+#3 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pedido...', Array, true)
+#4 /var/www/pedidos/protected/modules/admin/views/producto/update.php(21): CController->renderPartial('_form', Array)
+#5 /var/www/yii/framework/web/CBaseController.php(126): require('/var/www/pedido...')
+#6 /var/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pedido...', Array, true)
+#7 /var/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/var/www/pedido...', Array, true)
+#8 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('update', Array, true)
+#9 /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php(123): CController->render('update', Array)
+#10 [internal function]: ProductoController->actionUpdate('8')
+#11 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ProductoController), Array)
+#12 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProductoController), Object(ReflectionMethod), Array)
+#13 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#14 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#16 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#17 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#18 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#20 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#22 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto/...')
+#23 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#24 /var/www/pedidos/index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/pedidos/admin/producto/update/id/8
+HTTP_REFERER=http://localhost/pedidos/admin/producto/view/id/8
+---
+2013/10/06 22:37:12 [warning] [application] Failed to set unsafe attribute "imagen" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (109)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:37:12 [error] [php] move_uploaded_file(): The second argument to copy() function cannot be a directory (/var/www/yii/framework/web/CUploadedFile.php:198)
+Stack trace:
+#0 unknown(0): ProductoController->actionUpdate()
+#1 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#2 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#3 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#5 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#7 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#9 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#11 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#12 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/producto/update/id/8
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (115)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:38:13 [warning] [application] Failed to set unsafe attribute "imagen" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (110)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:38:13 [error] [php] move_uploaded_file(): The second argument to copy() function cannot be a directory (/var/www/yii/framework/web/CUploadedFile.php:198)
+Stack trace:
+#0 unknown(0): ProductoController->actionUpdate()
+#1 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#2 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#3 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#5 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#7 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#9 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#11 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#12 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/producto/update/id/8
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (116)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:38:35 [warning] [application] Failed to set unsafe attribute "imagen" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (109)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:38:35 [error] [php] move_uploaded_file(): The second argument to copy() function cannot be a directory (/var/www/yii/framework/web/CUploadedFile.php:198)
+Stack trace:
+#0 unknown(0): ProductoController->actionUpdate()
+#1 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#2 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#3 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#5 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#7 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#9 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#11 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#12 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/producto/update/id/8
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (115)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:39:06 [warning] [application] Failed to set unsafe attribute "imagen" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (108)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:41:36 [warning] [application] Failed to set unsafe attribute "imagen" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (113)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:41:36 [error] [php] Undefined variable: ouloadedFile (/var/www/pedidos/protected/modules/admin/controllers/ProductoController.php:115)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#3 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#9 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#10 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/producto/update/id/8
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (115)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:41:52 [warning] [application] Failed to set unsafe attribute "imagen" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (113)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:41:52 [error] [php] Undefined variable: ouloadedFile (/var/www/pedidos/protected/modules/admin/controllers/ProductoController.php:115)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#3 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#9 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#10 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/producto/update/id/8
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (115)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:42:31 [warning] [application] Failed to set unsafe attribute "imagen" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (113)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:42:31 [error] [php] Undefined variable: ouloadedFile (/var/www/pedidos/protected/modules/admin/controllers/ProductoController.php:115)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#3 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#9 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#10 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/producto/update/id/8
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (115)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:43:04 [warning] [application] Failed to set unsafe attribute "imagen" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (113)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:43:04 [error] [php] Missing argument 2 for ProductoController::_createImageFileName(), called in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php on line 115 and defined (/var/www/pedidos/protected/modules/admin/controllers/ProductoController.php:93)
+Stack trace:
+#0 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /var/www/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /var/www/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#4 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#6 /var/www/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterAccessControl()
+#7 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#8 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /var/www/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#10 /var/www/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#11 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/pedidos/index.php(13): CWebApplication->run()
+REQUEST_URI=/pedidos/admin/producto/update/id/8
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (93)
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (115)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:43:15 [warning] [application] Failed to set unsafe attribute "imagen" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (113)
+in /var/www/pedidos/index.php (13)
+2013/10/06 22:43:15 [error] [exception.CException] exception 'CException' with message 'Property "Producto.image" is not defined.' in /var/www/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(161): CComponent->__set('image', '1601332916-asus...')
+#1 /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php(115): CActiveRecord->__set('image', '1601332916-asus...')
+#2 [internal function]: ProductoController->actionUpdate('8')
+#3 /var/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ProductoController), Array)
+#4 /var/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProductoController), Object(ReflectionMethod), Array)
+#5 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#12 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#14 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/producto/...')
+#15 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /var/www/pedidos/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/pedidos/admin/producto/update/id/8
+HTTP_REFERER=http://localhost/pedidos/admin/producto/update/id/8
+---
+2013/10/06 22:43:59 [warning] [application] Failed to set unsafe attribute "imagen" of "Producto".
+in /var/www/pedidos/protected/modules/admin/controllers/ProductoController.php (113)
+in /var/www/pedidos/index.php (13)

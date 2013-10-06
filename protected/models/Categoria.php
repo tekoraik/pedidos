@@ -111,4 +111,14 @@ class Categoria extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    public function getNombreEmpresa() {
+        if ($this->empresa) return $this->empresa->nombre;
+        return "";
+    }
+    
+    public function getNombrePadre() {
+        if ($this->padre) return $this->padre->nombre;
+        return "";
+    }
 }

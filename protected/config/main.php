@@ -8,9 +8,9 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Gestión de pedidos',
-
+    'theme'=>'default',
 	// preloading 'log' component
-	'preload'=>array('log', 'bootstrap'),
+	'preload'=>array('log', 'bootstrap', 'empresa'),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -36,6 +36,9 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+		'empresa' => array(
+            'class' => 'application.components.model.EmpresaComponent'
+        ),
 		'bootstrap' => array(
     		'class' => 'application.extensions.booster.components.Bootstrap',
 		),

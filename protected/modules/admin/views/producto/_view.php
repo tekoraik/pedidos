@@ -28,7 +28,11 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('precio')); ?>:</b>
 	<?php echo CHtml::encode($data->precio); ?>
 	<br />
-
+	
+    <b><?php echo CHtml::encode($data->getAttributeLabel('imagen')); ?>:</b>
+    <?php echo CHtml::encode($data->imagen); ?>
+    <br />
+    
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id_empresa')); ?>:</b>
 	<?php echo CHtml::encode($data->id_empresa); ?>
 	<br />

@@ -10,6 +10,7 @@
  * @property string $descripcion_corta
  * @property string $descripcion_larga
  * @property string $precio
+ * @property string $imagen
  * @property integer $id_empresa
  * @property integer $id_categoria
  *
@@ -39,11 +40,13 @@ class Producto extends CActiveRecord
 			array('id_empresa, id_categoria', 'numerical', 'integerOnly'=>true),
 			array('nombre, slug, descripcion_corta', 'length', 'max'=>100),
 			array('precio', 'length', 'max'=>10),
+			array('imagen', 'length', 'max'=>255),
 			array('descripcion_larga', 'safe'),
 			array('id_empresa', 'validaEsMismaEmpresa'),
+			array('imagen', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nombre, slug, descripcion_corta, descripcion_larga, precio, id_empresa, id_categoria', 'safe', 'on'=>'search'),
+			array('id, nombre, slug, descripcion_corta, descripcion_larga, precio, imagen, id_empresa, id_categoria', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -72,6 +75,7 @@ class Producto extends CActiveRecord
 			'descripcion_corta' => 'Descripción corta',
 			'descripcion_larga' => 'Descripción larga',
 			'precio' => 'Precio',
+			'imagen' => 'Imagen',
 			'id_empresa' => 'Empresa',
 			'id_categoria' => 'Categoria',
 		);
@@ -111,7 +115,8 @@ class Producto extends CActiveRecord
 		$criteria->compare('precio',$this->precio,true);
 		$criteria->compare('id_empresa',$this->id_empresa);
 		$criteria->compare('id_categoria',$this->id_categoria);
-
+        $criteria->compare('imagen',$this->imagen,true);
+        
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

@@ -7,7 +7,11 @@ class ProductoController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-
+    public $baseImagePath;
+    public function init() {
+        parent::init();
+        $this->baseImagePath = Yii::app()->basePath.'/../img/productos/';
+    }
 	/**
 	 * @return array action filters
 	 */
@@ -70,15 +74,28 @@ class ProductoController extends Controller
 		if(isset($_POST['Producto']))
 		{
 			$model->attributes=$_POST['Producto'];
-			if($model->save())
+            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+            
+            $fileName = $this->_createImageFileName($model, $uploadedFile);
+            $model->imagen = $fileName;
+			if($model->save()) {
+			    if ($uploadedFile)
+			    $uploadedFile->saveAs($this->baseImagePath.$fileName);
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
 		));
 	}
-
+    
+    private function _createImageFileName($model, $oUploadedFile) {
+        if ($oUploadedFile)
+        return rand(). "-" . $model->slug . "." . strtolower($oUploadedFile->getExtensionName());
+        return "";
+    }
+    
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -94,8 +111,15 @@ class ProductoController extends Controller
 		if(isset($_POST['Producto']))
 		{
 			$model->attributes=$_POST['Producto'];
-			if($model->save())
+            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+            $model->imagen = $this->_createImageFileName($model, $uploadedFile);
+			if($model->save()) {
+			    if(!empty($uploadedFile))  // check if uploaded file is set or not
+                {
+                    $uploadedFile->saveAs($this->baseImagePath.$model->imagen);
+                }
 				$this->redirect(array('view','id'=>$model->id));
+		    }
 		}
 
 		$this->render('update',array(
