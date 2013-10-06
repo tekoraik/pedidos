@@ -33,7 +33,7 @@
     </head>
 
     <body>
-        <div id="contenido">
+        
             <header>
               <!--<img src="<?php echo Yii::app()->getBaseUrl(); ?>/img/logo.png" width="200" style="float: left;" />-->
               <aside>
@@ -61,7 +61,7 @@
             </div>
             </header>
             
-            
+            <div id="contenido">
             
             <div id="izquierda">
                 

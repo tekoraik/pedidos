@@ -108,7 +108,7 @@
                 padding: 10px 0px 10px 0px;
             }
             #contenido {
-                width: 100%;
+                width: 90%;
                 margin: 0px auto 0px auto;
                 padding: 0px 0px 0px 0px;
             }
@@ -303,7 +303,7 @@
 }
 .producto .nombre {
     font-weight: bold;
-    font-size: 1.8em;
+    font-size: 1.3em;
     margin-top: 14px;
 }
 .producto .precio {
