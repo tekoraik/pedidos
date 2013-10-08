@@ -39,6 +39,9 @@ return array(
 		'empresa' => array(
             'class' => 'application.components.model.EmpresaComponent'
         ),
+        'categoria' => array(
+            'class' => 'application.components.model.CategoriaComponent'
+        ),
 		'bootstrap' => array(
     		'class' => 'application.extensions.booster.components.Bootstrap',
 		),
@@ -54,6 +57,7 @@ return array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				'producto/categoria/<categoria_slug:[a-z0-9-]+>' => 'producto/index',
 			),
 		),
 		/*

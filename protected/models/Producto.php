@@ -114,7 +114,13 @@ class Producto extends CActiveRecord
 		$criteria->compare('descripcion_larga',$this->descripcion_larga,true);
 		$criteria->compare('precio',$this->precio,true);
 		$criteria->compare('id_empresa',$this->id_empresa);
-		$criteria->compare('id_categoria',$this->id_categoria);
+        if ($this->categoria) {
+                $criteria->compare('id_categoria',$this->categoria->id, false, "AND");
+                $this->_addCriteriaSubCategorias($criteria, $this->categoria);
+        }
+        else
+		        $criteria->compare('id_categoria',$this->id_categoria);
+        
         $criteria->compare('imagen',$this->imagen,true);
         
 		return new CActiveDataProvider($this, array(
@@ -132,4 +138,13 @@ class Producto extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    private function _addCriteriaSubCategorias($criteria, $oCategoria) {
+        if ($oCategoria->hijas) {
+            foreach ($oCategoria->hijas as $oCategoriaHija) {
+                $criteria->compare('id_categoria',$oCategoriaHija->id, false, "OR");
+                $this->_addCriteriaSubCategorias($criteria, $oCategoriaHija);
+            }
+        }
+    }
 }
