@@ -24,7 +24,7 @@ class PedidoController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','addProducto'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -154,6 +154,18 @@ class PedidoController extends Controller
 		return $model;
 	}
 
+    public function actionAddProducto($idProducto) {
+        $oPedido = Yii::app()->pedido->getModel();
+        $oProducto = Producto::model()->findByPk($idProducto);
+        $oLinea = new LineaPedido();
+        $oLinea->id_producto = $oProducto->id;
+        $oLinea->precio = $oProducto->precio;
+        $oPedido->addLinea($oLinea);
+        $oPedido->refresh();
+        if ($oLinea->hasErrors()) var_dump($oLinea->getErrors());
+        $this->render("view", array("model" => $oPedido));
+    }
+    
 	/**
 	 * Performs the AJAX validation.
 	 * @param Pedido $model the model to be validated
@@ -166,4 +178,5 @@ class PedidoController extends Controller
 			Yii::app()->end();
 		}
 	}
+    
 }

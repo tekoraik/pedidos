@@ -27,7 +27,7 @@
         <p class="detalle">
             <?php echo CHtml::link(CHtml::encode("Ver detalle"), array('view', 'id'=>$data->id)); ?>
         </p>
-        <a class="button pedir">
+        <a class="button pedir" href="<?php echo $this->createUrl('pedido/addProducto', array("idProducto" => $data->id)); ?>">
             Añadir al pedido
         </a>
     </div>

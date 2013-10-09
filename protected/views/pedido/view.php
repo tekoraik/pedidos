@@ -20,11 +20,36 @@ $this->menu=array(
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
+	'htmlOptions' => array("class" => "detail-view-pedido"),
 	'attributes'=>array(
 		'id',
-		'realizado',
-		'fecha_realizado',
-		'id_persona',
-		'iva',
+		'persona.nombre',
+		array(
+            'label' => 'Iva',
+            'type' => 'raw',
+            'value' => ($model["iva"] * 100) . "%"
+        ),
 	),
+)); ?>
+
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+    'id'=>'lineas-pedido-grid',
+    'dataProvider'=>new CActiveDataProvider('LineaPedido', array('data' => $model->lineas)),
+    'columns'=>array(
+        'producto.nombre',
+        array(
+            "name" => "Precio sin iva",
+            "value" => function ($data, $row) { return $data["precio"]; }
+        ),
+        array(
+            "name" => "Precio con iva",
+            "value" => function ($data, $row) { return $data->precioConIva(); }
+        ),
+        
+        'cantidad',
+        array(
+            "name" => "Total",
+            "value" => function ($data, $row) { return $data->total(); }
+        ),
+    ),
 )); ?>

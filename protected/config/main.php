@@ -10,7 +10,7 @@ return array(
 	'name'=>'Gestión de pedidos',
     'theme'=>'default',
 	// preloading 'log' component
-	'preload'=>array('log', 'bootstrap', 'empresa'),
+	'preload'=>array('log', 'bootstrap', 'empresa', 'pedido'),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -41,6 +41,9 @@ return array(
         ),
         'categoria' => array(
             'class' => 'application.components.model.CategoriaComponent'
+        ),
+        'pedido' => array(
+            'class' => 'application.components.model.PedidoComponent'
         ),
 		'bootstrap' => array(
     		'class' => 'application.extensions.booster.components.Bootstrap',
