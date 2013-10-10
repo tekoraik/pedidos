@@ -50,8 +50,8 @@ class Pedido extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'lineaPedidos' => array(self::HAS_MANY, 'LineaPedido', 'id_pedido'),
-			'idPersona' => array(self::BELONGS_TO, 'Persona', 'id_persona'),
+			'lineas' => array(self::HAS_MANY, 'LineaPedido', 'id_pedido'),
+			'persona' => array(self::BELONGS_TO, 'Persona', 'id_persona'),
 		);
 	}
 
@@ -97,7 +97,26 @@ class Pedido extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-
+    
+    public function addLinea($oLinea) {
+        $oLinea->id_pedido = $this->id;
+        $oLinea = $this->_buscarLineaProducto($oLinea);
+        if ($oLinea->cantidad == null) $oLinea->cantidad = 0;
+        $oLinea->cantidad++;
+        $oLinea->save();
+        
+    }
+    
+    private function _buscarLineaProducto($oLinea) {
+        $nIdProducto = $oLinea->id_producto;
+        foreach ($this->lineas as $oLineaCandidata) {
+            if ($oLineaCandidata->id_producto == $nIdProducto) {
+                return $oLineaCandidata;
+            }
+        }
+        return $oLinea;
+    }
+    
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

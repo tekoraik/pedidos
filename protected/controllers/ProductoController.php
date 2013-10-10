@@ -116,12 +116,14 @@ class ProductoController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
+	public function actionIndex($categoria_slug = "{no_slug}")
 	{
-		$dataProvider=new CActiveDataProvider('Producto');
-        $dataProvider->setData(Yii::app()->empresa->getModel()->productos);
+	    $model=new Producto('search');
+        $model->unsetAttributes();
+        $model->categoria = Categoria::model()->findByAttributes(array("slug" => $categoria_slug));
+		
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'dataProvider'=>$model->search(),
 		));
 	}
 

@@ -15,7 +15,8 @@
     
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/default.css" />
+        
+        <?php Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . "/css/default.css"); ?>
         
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
         
@@ -33,32 +34,27 @@
     </head>
 
     <body>
-        
+            
             <header>
               <!--<img src="<?php echo Yii::app()->getBaseUrl(); ?>/img/logo.png" width="200" style="float: left;" />-->
-              <aside>
-                  
-              </aside>
+             
               <div class="menu-principal">
-               <nav>
-                    <ul class="menu-principal">
-                        <li>
-                            <a href="#">Perifericos</a>
-                        </li>
-                        <li>
-                            <a href="#">Almacenamiento</a>
-                        </li>
-                        <li>
-                            <a href="#">Portatiles</a>
-                        </li>
-                        <li>
-                            <a href="#">Componentes</a>
-                        </li>
+                <nav>
+                   <?php
+                
+                    $this->widget('application.extensions.menu.SMenu',
+                    array("menu" =>Yii::app()->categoria->getMenu(Yii::app()->empresa->getModel()->categorias),
+                        "menuID"=>"menucategorias",
+                        "delay"=>3
+                        )
+                    );
                     
-                    </ul>
+                    ?>
                     
                 </nav>
-            </div>
+                </div>
+                
+            
             </header>
             
             <div id="contenido">

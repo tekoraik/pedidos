@@ -31,7 +31,7 @@ class LineaPedido extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_pedido, id_producto, orden, precio', 'required'),
+			array('id_pedido, id_producto, precio', 'required'),
 			array('id_pedido, id_producto, orden, cantidad', 'numerical', 'integerOnly'=>true),
 			array('precio', 'length', 'max'=>10),
 			// The following rule is used by search().
@@ -40,6 +40,7 @@ class LineaPedido extends CActiveRecord
 		);
 	}
 
+    
 	/**
 	 * @return array relational rules.
 	 */
@@ -48,7 +49,8 @@ class LineaPedido extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idPedido' => array(self::BELONGS_TO, 'Pedido', 'id_pedido'),
+			'pedido' => array(self::BELONGS_TO, 'Pedido', 'id_pedido'),
+			'producto' => array(self::BELONGS_TO, 'Producto', 'id_producto'),
 		);
 	}
 
@@ -94,6 +96,14 @@ class LineaPedido extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    public function precioConIva() {
+        return $this->precio * (1 + $this->pedido->iva);
+    }
+    
+    public function total() {
+        return $this->precioConIva() * $this->cantidad;
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.
