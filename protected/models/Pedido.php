@@ -98,6 +98,10 @@ class Pedido extends CActiveRecord
 		));
 	}
     
+    /**
+     * Add line to Pedido, if this product already is in Pedido add 1 to cantidad
+     * @param LineaPedido Pedido line
+     */
     public function addLinea($oLinea) {
         $oLinea->id_pedido = $this->id;
         $oLinea = $this->_buscarLineaProducto($oLinea);
@@ -107,6 +111,43 @@ class Pedido extends CActiveRecord
         
     }
     
+    /**
+     * Calculates total without iva
+     * 
+     * @return number Total of Pedido without iva
+     */
+	public function totalSinIva() {
+	    return $this->_total("precioSinIva");
+	}
+    
+    /**
+     * Calculates total of Pedido with iva
+     * 
+     * @return number Total of Pedido with iva
+     */
+    public function totalConIva() {
+        return $this->_total("precioConIva");
+    }
+	
+    
+    /**
+     * It goes over all lines and apply the given method
+     * 
+     * @param string $sTotalizador Name of method that calculates sum
+     * @return number Total
+     */
+	private function _total($sTotalizador) {
+	    $nTotal = 0;
+		foreach ($this->lineas as $oLinea) 
+            $nTotal = call_user_method($sTotalizador, $oLinea);
+	}
+	
+    /**
+     * Search line that contains the same product
+     * 
+     * @param LineaPedido $oLinea
+     * @return LineaPedido Linea that contains the same product or enter param otherwise
+     */
     private function _buscarLineaProducto($oLinea) {
         $nIdProducto = $oLinea->id_producto;
         foreach ($this->lineas as $oLineaCandidata) {

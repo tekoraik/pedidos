@@ -97,11 +97,35 @@ class LineaPedido extends CActiveRecord
 		));
 	}
 
+    /**
+     * Calculates price with iva
+     * 
+     * @return number Price with iva
+     */
     public function precioConIva() {
         return $this->precio * (1 + $this->pedido->iva);
     }
     
-    public function total() {
+    /**
+     * Calculates price without iva
+     * 
+     * @return number Price without iva
+     */
+    public function precioSinIva() {
+        return $this->precio;
+    }
+    
+    /**
+     * Calculates total, price without iva multiplied with cantidad
+     */
+    public function totalSinIva() {
+        return $this->precioSinIva() * $this->cantidad;
+    }
+    
+    /**
+     * Calculates total, price with iva multiplied with cantidad
+     */
+    public function totalConIva() {
         return $this->precioConIva() * $this->cantidad;
     }
 

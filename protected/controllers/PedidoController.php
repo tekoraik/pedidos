@@ -24,7 +24,7 @@ class PedidoController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','addProducto'),
+				'actions'=>array('index','view','addProducto', 'verPedidoActual'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -163,7 +163,11 @@ class PedidoController extends Controller
         $oPedido->addLinea($oLinea);
         $oPedido->refresh();
         if ($oLinea->hasErrors()) var_dump($oLinea->getErrors());
-        $this->render("view", array("model" => $oPedido));
+        $this->redirect('verPedidoActual');
+    }
+    
+    public function actionVerPedidoActual() {
+        $this->render("view", array("model" => Yii::app()->pedido->getModel()));
     }
     
 	/**
