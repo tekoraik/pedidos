@@ -8,6 +8,7 @@ class ProductoController extends Controller
 	 */
 	public $layout='//layouts/column2';
     public $baseImagePath;
+    
     public function init() {
         parent::init();
         $this->baseImagePath = Yii::app()->basePath.'/../img/productos/';

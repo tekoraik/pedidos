@@ -16,6 +16,7 @@
  */
 class Pedido extends CActiveRecord
 {
+    public $nombreEstado = "";
 	/**
 	 * @return string the associated database table name
 	 */
@@ -33,12 +34,12 @@ class Pedido extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_persona, iva', 'required'),
-			array('realizado, id_persona', 'numerical', 'integerOnly'=>true),
+			array('realizado, id_persona, id_tipo_estado', 'numerical', 'integerOnly'=>true),
 			array('iva', 'length', 'max'=>10),
 			array('fecha_realizado', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, realizado, fecha_realizado, id_persona, iva', 'safe', 'on'=>'search'),
+			array('id, realizado, id_tipo_estado, fecha_realizado, id_persona, iva', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,6 +53,8 @@ class Pedido extends CActiveRecord
 		return array(
 			'lineas' => array(self::HAS_MANY, 'LineaPedido', 'id_pedido'),
 			'persona' => array(self::BELONGS_TO, 'Persona', 'id_persona'),
+			'empresa' => array(self::BELONGS_TO, 'Empresa', 'id_empresa'),
+			'tipoEstado' => array(self::BELONGS_TO, 'TipoEstadoPedido', 'id_tipo_estado'),
 		);
 	}
 
@@ -64,11 +67,21 @@ class Pedido extends CActiveRecord
 			'id' => 'ID',
 			'realizado' => 'Realizado',
 			'fecha_realizado' => 'Fecha realizado',
+			'fecha_finalizado' => 'Fecha finalizado',
 			'id_persona' => 'Persona',
 			'iva' => 'IVA',
+			'id_tipo_estado' => 'Estado',
 		);
 	}
-
+    
+    protected function beforeSave() {
+        parent::beforeSave();
+        if (!$this->fecha_finalizado && $this->tipoEstado) 
+            if ($this->tipoEstado->nombre == "finalizado")
+                $this->fecha_finalizado = date("Y-m-d h:i:s");
+        
+        return true;
+    }
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
@@ -88,11 +101,11 @@ class Pedido extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('realizado',$this->realizado);
-		$criteria->compare('fecha_realizado',$this->fecha_realizado,true);
 		$criteria->compare('id_persona',$this->id_persona);
 		$criteria->compare('iva',$this->iva,true);
-
+        $criteria->compare('id_tipo_estado',$this->id_tipo_estado);
+        $criteria->compare('id_empresa',$this->id_empresa);
+        $criteria->addCondition("id_tipo_estado IS NOT NULL");
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
@@ -117,7 +130,7 @@ class Pedido extends CActiveRecord
      * @return number Total of Pedido without iva
      */
 	public function totalSinIva() {
-	    return $this->_total("precioSinIva");
+	    return $this->_total("totalSinIva");
 	}
     
     /**
@@ -126,9 +139,16 @@ class Pedido extends CActiveRecord
      * @return number Total of Pedido with iva
      */
     public function totalConIva() {
-        return $this->_total("precioConIva");
+        return $this->_total("totalConIva");
     }
 	
+    /**
+     * Make pedido, put fecha_realizado with date now and change the state
+     */
+    public function realizar() {
+        $this->id_tipo_estado = TipoEstadoPedido::model()->findByAttributes(array("id_empresa" => $this->empresa->id, "nombre" => "Realizado"))->id;
+        $this->fecha_realizado = date("Y-m-d h:i:s");
+    }
     
     /**
      * It goes over all lines and apply the given method
@@ -139,7 +159,8 @@ class Pedido extends CActiveRecord
 	private function _total($sTotalizador) {
 	    $nTotal = 0;
 		foreach ($this->lineas as $oLinea) 
-            $nTotal = call_user_method($sTotalizador, $oLinea);
+            $nTotal += call_user_method($sTotalizador, $oLinea);
+        return $nTotal;
 	}
 	
     /**
@@ -156,6 +177,42 @@ class Pedido extends CActiveRecord
             }
         }
         return $oLinea;
+    }
+    
+    /**
+     * Get name of state
+     * 
+     * @return string Name of state
+     */
+    public function getNombreEstado() {
+        return $this->tipoEstado ? $this->tipoEstado->nombre : "";
+    }
+    
+    /**
+     * Get name of client
+     * 
+     * @return string Name of client
+     */
+    public function getNombreCliente() {
+        return $this->persona ? $this->persona->nombre : "Anónimo";
+    }
+    
+    /**
+     * Get value
+     * 
+     * @return string FechaRealizado of pedido
+     */
+    public function getFechaRealizado() {
+        return $this->fecha_realizado;
+    }
+    
+    /**
+     * Get value
+     * 
+     * @return string FechaFinalizado of pedido
+     */
+    public function getFechaFinalizado() {
+        return $this->fecha_finalizado;
     }
     
 	/**

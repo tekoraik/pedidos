@@ -13,9 +13,12 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions' => array(
+        'enctype' => 'multipart/form-data',
+    ),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -23,12 +26,6 @@
 		<?php echo $form->labelEx($model,'nombre'); ?>
 		<?php echo $form->textField($model,'nombre',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'nombre'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'slug'); ?>
-		<?php echo $form->textField($model,'slug',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'slug'); ?>
 	</div>
 
 	<div class="row">
@@ -43,6 +40,17 @@
 		<?php echo $form->error($model,'descripcion_larga'); ?>
 	</div>
 
+    <div class="row">
+        <?php echo $form->labelEx($model,'imagen'); ?>
+        <?php echo CHtml::activeFileField($model, 'imagen'); ?>
+        <?php echo $form->error($model,'imagen'); ?>
+        <?php if($model->isNewRecord!='1' && $model->imagen): ?>
+        <div class="row">
+        <?php echo CHtml::image(Yii::app()->request->baseUrl.'/img/productos/'.$model->imagen,"image",array("width"=>255)); ?>
+        </div>
+        <?php endif; ?>
+    </div>
+    
 	<div class="row">
 		<?php echo $form->labelEx($model,'precio'); ?>
 		<?php echo $form->textField($model,'precio',array('size'=>10,'maxlength'=>10)); ?>
@@ -50,16 +58,16 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_empresa'); ?>
-		<?php echo $form->textField($model,'id_empresa'); ?>
-		<?php echo $form->error($model,'id_empresa'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_categoria'); ?>
-		<?php echo $form->textField($model,'id_categoria'); ?>
-		<?php echo $form->error($model,'id_categoria'); ?>
-	</div>
+        <?php echo $form->labelEx($model,'id_categoria'); ?>
+        <?php echo $form->dropDownList(
+            $model, 
+            'id_categoria', 
+            CHtml::listData(Categoria::model()->findAll(array("condition" => "id_empresa=".Yii::app()->empresa->getModel()->id)), "id", "nombre"),
+            array('prompt'=>'Selecciona categoria')
+        ); ?>
+        
+        <?php echo $form->error($model,'id_categoria'); ?>
+    </div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

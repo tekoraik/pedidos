@@ -24,7 +24,7 @@ class PedidoController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','addProducto', 'verPedidoActual'),
+				'actions'=>array('index','view','addProducto', 'verPedidoActual', 'realizar','delete'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -32,7 +32,7 @@ class PedidoController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -82,6 +82,7 @@ class PedidoController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+	    $this->layout = "//layouts/column2admin";
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -90,8 +91,12 @@ class PedidoController extends Controller
 		if(isset($_POST['Pedido']))
 		{
 			$model->attributes=$_POST['Pedido'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+			    Yii::app()->user->setFlash('success','Registro salvado correctamente');
+				$this->redirect(array('admin'));
+            } else {
+                Yii::app()->user->setFlash('error','Error al salvar el registro');
+            }
 		}
 
 		$this->render('update',array(
@@ -129,8 +134,10 @@ class PedidoController extends Controller
 	 */
 	public function actionAdmin()
 	{
+	    $this->layout = "//layouts/column2admin";
 		$model=new Pedido('search');
 		$model->unsetAttributes();  // clear any default values
+        $model->id_empresa = Yii::app()->empresa->getModel()->id;
 		if(isset($_GET['Pedido']))
 			$model->attributes=$_GET['Pedido'];
 
@@ -168,6 +175,18 @@ class PedidoController extends Controller
     
     public function actionVerPedidoActual() {
         $this->render("view", array("model" => Yii::app()->pedido->getModel()));
+    }
+    
+    /**
+     * Controller action for make pedido
+     */
+    public function actionRealizar($id, $actual = false) {
+        $oPedido = Pedido::model()->findByPk($id);
+        $oPedido->realizar();
+        $oPedido->save();
+        if ($actual)
+            Yii::app()->pedido->nuevoPedido();
+        $this->render("realizado", array("model" => $oPedido));
     }
     
 	/**

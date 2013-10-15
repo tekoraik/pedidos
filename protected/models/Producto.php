@@ -62,7 +62,16 @@ class Producto extends CActiveRecord
 			'empresa' => array(self::BELONGS_TO, 'Empresa', 'id_empresa'),
 		);
 	}
-
+    
+    /**
+     * Before save event
+     */
+    protected function beforeValidate() {
+        parent::beforeValidate();
+        $this->precio = str_replace(",", ".", $this->precio); //fix price
+        $this->calculateSlug();
+        return true;
+    }
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -89,6 +98,14 @@ class Producto extends CActiveRecord
 		if ($this->categoria && $this->id_empresa != $this->categoria->id_empresa)
 	      $this->addError($attribute, 'La empresa debe ser igual que la empresa de la categoria ('.$this->categoria->empresa->nombre.')');
 	}
+    
+    /**
+     * Calculate slug for this model
+     */
+    public function calculateSlug() {
+        $this->slug = strtolower(str_replace(array(" ", "_"), array("-", "-"), $this->nombre)).rand(1, 100);
+    }
+    
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
@@ -138,6 +155,8 @@ class Producto extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    
     
     private function _addCriteriaSubCategorias($criteria, $oCategoria) {
         if ($oCategoria->hijas) {

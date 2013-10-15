@@ -8,8 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Producto', 'url'=>array('index')),
-	array('label'=>'Create Producto', 'url'=>array('create')),
+	array('label'=>'Nuevo Producto', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,37 +25,56 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Productos</h1>
+<h1>Gestión de productos</h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
 
+<?php /*
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
 )); ?>
 </div><!-- search-form -->
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+*/
+?>
+<div class="box">
+<?php $this->widget('bootstrap.widgets.TbExtendedGridView', array(
 	'id'=>'producto-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
+	'template' => "{items}{pager}",
 	'columns'=>array(
-		'id',
-		'nombre',
-		'slug',
-		'descripcion_corta',
-		'descripcion_larga',
-		'precio',
+		array(
+		  "name" => 'id',
+		  'htmlOptions'=>array('width'=>'40px')
+		),
+		"nombre",
+		array(
+		  "name" => "descripcion_corta",
+		  "value" => function ($data, $row) {
+		      $sSuffix = strlen($data['descripcion_corta']) > 40 ? " ..." : "";
+		      return substr($data['descripcion_corta'], 0, 40). $sSuffix;
+		  }
+        ),
+		array(
+          "name" => "descripcion_larga",
+          "value" => function ($data, $row) {
+              $sSuffix = strlen($data['descripcion_larga']) > 40 ? " ..." : "";
+              return substr($data['descripcion_larga'], 0, 40) . $sSuffix;
+          }
+        ),
+		array(
+          "name" => 'precio',
+          'htmlOptions'=>array('width'=>'80px')
+        ),
 		/*
 		'id_empresa',
 		'id_categoria',
 		*/
 		array(
 			'class'=>'CButtonColumn',
+			'htmlOptions'=>array('width'=>'100px')
 		),
 	),
 )); ?>
+</div>

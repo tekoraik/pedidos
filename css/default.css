@@ -119,6 +119,7 @@
                 width: 90%;
                 margin: 0px auto 0px auto;
                 padding: 0px 0px 0px 0px;
+                margin-top: 36px;
             }
             .box {
                 
@@ -134,20 +135,32 @@
                 -moz-box-shadow: 2px 2px 5px #999;
                 behavior: url(js/PIE/PIE.php);
             }
+            .box.thin {
+                width: 60%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .box.superthin {
+                width: 30%;
+                margin-left: auto;
+                margin-right: auto;
+            }
             #izquierda {
+                margin-top: 0px;
+                width: 27%;
                 float: left;
             }
             #cuerpo {
                 width: 70%;
                 float: right;
-                margin-top: 20px;
+                margin-top: 0px;
                 margin-left: 8px;
-                
+                margin-top: -6px;
                 
                 /*filter: shadow(color=#999999,direction=135,strength=2);*/
             }
             header {
-                margin: 15px 0px 15px 0px;
+                
                 padding: 0px;
                 overflow: hidden;
             }
@@ -373,6 +386,9 @@ ul.menu ul li {
   
   background: rgb(80, 80, 80);
 }
+ul.menu li:hover {
+    background: #666666;
+}
 ul.menu ul li a {
   display:block;
   padding:3px 7px 5px;
@@ -405,6 +421,7 @@ ul.menu .disabled:hover {
 }
 ul.menu .menulink:hover, ul.menu .menuhover {
 }
+ul.menu .menulink.disabled { color: white; }
 ul.menu .sub{
   /*background: url(images/arrow.gif) 136px 8px no-repeat;*/
   height: 13px;
@@ -447,10 +464,29 @@ ul.menu .topline {
     }
     
 }
-.table {
-    font-size: 0.8em;
-}
+
 
 #desglose-pedido {
     .buttons { text-align: center !important; }
 }
+
+#widget-pedido {
+    width: 80%;
+    text-align: center;
+    
+}
+#widget-pedido .precio { color: rgb(61, 88, 112); font-size: 2em; font-weight: bold; }
+
+.portlet-decoration { background: none; border: none; }
+.portlet-decoration .portlet-title { color: inherit; font-size: inherit; }
+.portlet-title { background: none; }
+.portlet-content{ background: none; }
+.portlet-content a { color: inherit; font-size: inherit; }
+.form { width: 80%; margin: 0px auto; }
+
+.form input[type="password"], .form input[type="text"], .form textarea { width: 100%; }
+
+.detail-view .odd td,.detail-view .odd th { background-color: #EEEEEE; }
+.table a.sort-link { color: #fff; }
+.list-view { padding-top: 0px; };
+

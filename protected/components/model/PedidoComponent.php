@@ -49,6 +49,7 @@ class PedidoComponent extends CApplicationComponent
         $this->model = new Pedido();
         $this->model->id_persona = 1;
         $this->model->iva = 0.21;
+        $this->model->id_empresa = Yii::app()->empresa->getModel()->id;
         $this->model->save();
         Yii::app()->session[self::SESSION_VAR_NAME] = $this->model->id;
     }

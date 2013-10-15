@@ -8,8 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Categoria', 'url'=>array('index')),
-	array('label'=>'Create Categoria', 'url'=>array('create')),
+	array('label'=>'Crear Categoria', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,13 +25,10 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Categorias</h1>
+<h1>Gestionar Categorias</h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
 
+<?php /*
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
@@ -40,18 +36,28 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+ */?>
+<div class="box">
+<?php $this->widget('bootstrap.widgets.TbExtendedGridView', array(
 	'id'=>'categoria-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
+	'template' => "{items}{pager}",
 	'columns'=>array(
-		'id',
-		'nombre',
-		'slug',
-		'id_padre',
-		'id_empresa',
 		array(
-			'class'=>'CButtonColumn',
+          "name" => 'id',
+          'htmlOptions'=>array('width'=>'40px')
+        ),
+		'nombre',
+		'estado.nombre',
+		array(
+		  "name" => "id_padre",
+		  "value" => function ($data, $row) { return $data->getNombrePadre(); }
 		),
+		array(
+            'class'=>'CButtonColumn',
+            'htmlOptions'=>array('width'=>'100px')
+        ),
 	),
 )); ?>
+</div>

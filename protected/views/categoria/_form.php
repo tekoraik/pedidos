@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -25,23 +25,21 @@
 		<?php echo $form->error($model,'nombre'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'slug'); ?>
-		<?php echo $form->textField($model,'slug',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'slug'); ?>
-	</div>
+	
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'id_padre'); ?>
-		<?php echo $form->textField($model,'id_padre'); ?>
-		<?php echo $form->error($model,'id_padre'); ?>
-	</div>
+        <?php echo $form->labelEx($model,'id_padre'); ?>
+        <?php echo $form->dropDownList(
+            $model, 
+            'id_padre', 
+            CHtml::listData(Categoria::model()->findAll(), "id", "nombre"),
+            array('prompt'=>'Selecciona categoria padre')
+        ); ?>
+        <?php echo $form->error($model,'id_padre'); ?>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_empresa'); ?>
-		<?php echo $form->textField($model,'id_empresa'); ?>
-		<?php echo $form->error($model,'id_empresa'); ?>
-	</div>
+
+	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

@@ -6,7 +6,7 @@ class CategoriaController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/column2admin';
 
 	/**
 	 * @return array action filters
@@ -66,12 +66,15 @@ class CategoriaController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+        
 		if(isset($_POST['Categoria']))
 		{
 			$model->attributes=$_POST['Categoria'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+            $this->_completeDefaultValues($model);
+			if($model->save()) {
+			    Yii::app()->user->setFlash('success','Registro salvado correctamente');
+				$this->redirect(array('admin','id'=>$model->id));
+		    }
 		}
 
 		$this->render('create',array(
@@ -94,15 +97,23 @@ class CategoriaController extends Controller
 		if(isset($_POST['Categoria']))
 		{
 			$model->attributes=$_POST['Categoria'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+			    Yii::app()->user->setFlash('success','Registro salvado correctamente');
+				$this->redirect(array('admin','id'=>$model->id));
+            }
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
 		));
 	}
-
+    
+    /**
+     * Complete default values in create model action
+     */
+    private function _completeDefaultValues($oModel) {
+        $oModel->id_empresa = Yii::app()->empresa->getModel()->id;
+    }
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
@@ -134,10 +145,12 @@ class CategoriaController extends Controller
 	public function actionAdmin()
 	{
 		$model=new Categoria('search');
+        
 		$model->unsetAttributes();  // clear any default values
+		
 		if(isset($_GET['Categoria']))
 			$model->attributes=$_GET['Categoria'];
-
+        $model->id_empresa = Yii::app()->empresa->getModel()->id;
 		$this->render('admin',array(
 			'model'=>$model,
 		));

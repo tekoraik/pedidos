@@ -15,38 +15,53 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	
 
 	<?php echo $form->errorSummary($model); ?>
 
+    <div class="row">
+        <label>Cliente: </label>
+        <p><?php echo ucfirst($model->getNombreCliente()); ?></p>
+    </div>
+    
+    
+    <div class="row">
+        <?php echo $form->labelEx($model,'id_tipo_estado'); ?>
+        <?php echo $form->dropDownList(
+            $model, 
+            'id_tipo_estado', 
+            CHtml::listData(TipoEstadoPedido::model()->findAll(array("condition" => "id_empresa=".Yii::app()->empresa->getModel()->id)), "id", "nombre"),
+            array('prompt'=>'Selecciona estado')
+        ); ?>
+        
+        <?php echo $form->error($model,'id_categoria'); ?>
+    </div>
+    
 	<div class="row">
-		<?php echo $form->labelEx($model,'realizado'); ?>
-		<?php echo $form->textField($model,'realizado'); ?>
-		<?php echo $form->error($model,'realizado'); ?>
-	</div>
+        <label>Fecha realizado: </label>
+        <p><?php echo $model->fecha_realizado; ?></p>
+    </div>
 
+    <div class="row">
+        <label>Total sin iva: </label>
+        <p><?php echo number_format($model->totalSinIva(), 2); ?> €</p>
+    </div>
+    
 	<div class="row">
-		<?php echo $form->labelEx($model,'fecha_realizado'); ?>
-		<?php echo $form->textField($model,'fecha_realizado'); ?>
-		<?php echo $form->error($model,'fecha_realizado'); ?>
-	</div>
+        <label>IVA: </label>
+        <p><?php echo 100 * $model->iva; ?>%</p>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_persona'); ?>
-		<?php echo $form->textField($model,'id_persona'); ?>
-		<?php echo $form->error($model,'id_persona'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'iva'); ?>
-		<?php echo $form->textField($model,'iva',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'iva'); ?>
-	</div>
-
+    <div class="row">
+        <label>Total con iva: </label>
+        <p><?php echo number_format($model->totalConIva(), 2); ?> €</p>
+    </div>
+    
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
+
 
 </div><!-- form -->

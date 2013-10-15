@@ -3,7 +3,16 @@
 class ProductoController extends Controller
 {
 	
-
+    public $layout = "//layouts/column2admin";
+    public $baseImagePath;
+    
+    /**
+     * Init function
+     */
+    public function init() {
+        parent::init();
+        $this->baseImagePath = Yii::app()->basePath.'/../img/productos/';
+    }
 	/**
 	 * @return array action filters
 	 */
@@ -47,6 +56,7 @@ class ProductoController extends Controller
 	 */
 	public function actionView($id)
 	{
+	    $this->layout = "//layouts/2columnas";
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
@@ -64,10 +74,19 @@ class ProductoController extends Controller
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Producto']))
-		{
+		{  
 			$model->attributes=$_POST['Producto'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+            $model->id_empresa = Yii::app()->empresa->getModel()->id;
+            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+            
+            $fileName = $this->_createImageFileName($model, $uploadedFile);
+            $model->imagen = $fileName;
+			if($model->save()) {
+			    Yii::app()->user->setFlash('success','Registro salvado correctamente');
+			    if ($uploadedFile)
+                $uploadedFile->saveAs($this->baseImagePath.$fileName);
+				$this->redirect(array('admin','id'=>$model->id));
+            }
 		}
 
 		$this->render('create',array(
@@ -90,15 +109,26 @@ class ProductoController extends Controller
 		if(isset($_POST['Producto']))
 		{
 			$model->attributes=$_POST['Producto'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+            $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+            $model->imagen = $this->_createImageFileName($model, $uploadedFile);
+			if($model->save()) {
+			    Yii::app()->user->setFlash('success','Registro salvado correctamente');
+			    if(!empty($uploadedFile))
+                    $uploadedFile->saveAs($this->baseImagePath.$model->imagen);
+				$this->redirect(array('admin','id'=>$model->id));
+            }
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
 		));
 	}
-
+    
+    private function _createImageFileName($model, $oUploadedFile) {
+        if ($oUploadedFile)
+        return rand(). "-" . $model->slug . "." . strtolower($oUploadedFile->getExtensionName());
+        return "";
+    }
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
@@ -118,10 +148,11 @@ class ProductoController extends Controller
 	 */
 	public function actionIndex($categoria_slug = "{no_slug}")
 	{
+	    $this->layout = "//layouts/2columnas";
 	    $model=new Producto('search');
         $model->unsetAttributes();
         $model->categoria = Categoria::model()->findByAttributes(array("slug" => $categoria_slug));
-		
+		$model->id_empresa = Yii::app()->empresa->getModel()->id;
 		$this->render('index',array(
 			'dataProvider'=>$model->search(),
 		));
@@ -133,10 +164,11 @@ class ProductoController extends Controller
 	public function actionAdmin()
 	{
 		$model=new Producto('search');
+        
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Producto']))
 			$model->attributes=$_GET['Producto'];
-
+        $model->id_empresa = Yii::app()->empresa->getModel()->id;
 		$this->render('admin',array(
 			'model'=>$model,
 		));

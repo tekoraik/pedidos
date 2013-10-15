@@ -14,47 +14,45 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-
+    <?php Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . "/css/default.css"); ?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
 <body>
+<header>
+    <div class="menu-principal">
+        <?php $this->widget('zii.widgets.CMenu',array(
+            'htmlOptions' => array('class' => 'menu'),
+            'items'=>array(
+                array('label'=>'Home', 'url'=>array('/site')),
+                array('label'=>'Empresa', 'url'=>array('/admin/empresa')),
+                array('label'=>'Productos', 'url'=>array('/admin/producto')),
+                array('label'=>'Categorias', 'url'=>array('/admin/categoria')),
+                array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+            ),
+        )); ?>
+    </div><!-- mainmenu -->
+</header>
+<?php if(isset($this->breadcrumbs)):?>
+        <?php $this->widget('zii.widgets.CBreadcrumbs', array(
+            'links'=>$this->breadcrumbs,
+        )); ?><!-- breadcrumbs -->
+<?php endif?>
 
-<div class="container" id="page">
+	
 
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
-
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site')),
-				array('label'=>'Empresas', 'url'=>array('/admin/empresa')),
-				array('label'=>'Productos', 'url'=>array('/admin/producto')),
-				array('label'=>'Categorias', 'url'=>array('/admin/categoria')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
+	
+	<div id="contenido">
 
 	<?php echo $content; ?>
-
-	<div class="clear"></div>
+    
+    </div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
+		
 	</div><!-- footer -->
 
-</div><!-- page -->
 
 </body>
 </html>
