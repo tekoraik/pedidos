@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-10-2013 a las 10:05:36
+-- Tiempo de generación: 22-10-2013 a las 10:08:06
 -- Versión del servidor: 5.5.32-0ubuntu0.13.04.1
 -- Versión de PHP: 5.4.9-4ubuntu2.3
 
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   KEY `fk_pedido_persona` (`id_persona`),
   KEY `fk_pedido_tipo_estado` (`id_tipo_estado`),
   KEY `fk_pedido_empresa` (`id_empresa`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=38 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=43 ;
 
 --
 -- Volcado de datos para la tabla `pedido`
@@ -142,7 +142,12 @@ INSERT INTO `pedido` (`id`, `realizado`, `fecha_realizado`, `fecha_finalizado`, 
 (34, 0, '2013-10-14 01:10:39', NULL, 1, 0.21, 4, 1),
 (35, 0, NULL, NULL, 1, 0.21, NULL, 1),
 (36, 0, '2013-10-14 02:35:11', NULL, 1, 0.21, 4, 1),
-(37, 0, NULL, NULL, 1, 0.21, NULL, 1);
+(37, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(38, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(39, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(40, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(41, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(42, 0, NULL, NULL, 1, 0.21, NULL, 1);
 
 -- --------------------------------------------------------
 
