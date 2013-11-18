@@ -16,6 +16,9 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		//Rights module and components
+		'application.modules.rights.*',
+        'application.modules.rights.components.*',
 	),
 
 	'modules'=>array(
@@ -27,15 +30,30 @@ return array(
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
+		'rights'=>array(
+		    'userClass' => 'Usuario',
+		    'superuserName'=>'Admin',
+            'authenticatedName'=>'Authenticated',
+            'userIdColumn'=>'id',
+            'userNameColumn'=>'email',
+            'enableBizRule'=>true,
+            'enableBizRuleData'=>false,
+            'displayDescription'=>true,
+            'flashSuccessKey'=>'RightsSuccess',
+            'flashErrorKey'=>'RightsError',
+            'install'=>true,
+            'baseUrl'=>'/rights',
+            'layout'=>'rights.views.layouts.main',
+            'appLayout'=>'application.modules.admin.views.layouts.main',
+            'debug'=>false,
+            'install'=>false,
+        )
 		
 	),
 
 	// application components
 	'components'=>array(
-		'user'=>array(
-			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
-		),
+		//model components
 		'empresa' => array(
             'class' => 'application.components.model.EmpresaComponent'
         ),
@@ -45,11 +63,21 @@ return array(
         'pedido' => array(
             'class' => 'application.components.model.PedidoComponent'
         ),
+        //Boostrap (Yii Booster) component
 		'bootstrap' => array(
     		'class' => 'application.extensions.booster.components.Bootstrap',
 		),
-		// uncomment the following to enable URLs in path-format
+		//Rights components
+		'user'=>array(
+            'class'=>'RWebUser',
+            'allowAutoLogin'=>true,
+        ),
+        'authManager'=>array(
+            'class'=>'RDbAuthManager',
+
+        ),
 		
+        //urlManager
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,

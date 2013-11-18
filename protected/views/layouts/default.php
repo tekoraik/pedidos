@@ -37,16 +37,20 @@
             
             <header>
               <!--<img src="<?php echo Yii::app()->getBaseUrl(); ?>/img/logo.png" width="200" style="float: left;" />-->
-             
+              <?php if (Yii::app()->user->getId()!==null): ?>
+              <span><a href="<?php echo $this->createUrl('site/logout'); ?>">Logout</a></span>
+              <?php else: ?>
+              <span><a href="<?php echo $this->createUrl('site/login'); ?>">Login</a></span>
+              <?php endif; ?>
+              <?php if ($this->checkRole("Admin")): ?>
+                  <span>| <a href="<?php echo $this->createUrl('/admin'); ?>">Admin</a></span>
+              <?php endif; ?>
               <div class="menu-principal">
                 <nav>
                    <?php
-                
-                    $this->widget('application.extensions.menu.SMenu',
-                    array("menu" =>
-                        array_merge(
-                            Yii::app()->categoria->getMenu(Yii::app()->empresa->getModel()->categorias),
-                            array(array(
+                    $aExtraItems = array(array());
+                    if ($this->checkRole("AdminEmpresa")) {
+                        $aExtraItems = array(array(
                                  "url" => "#",
                                  "label" => "Administrar",
                                  array(
@@ -61,11 +65,25 @@
                                     "url" => array( "route" => "pedido/admin"),
                                     "label" => "Gestión de pedidos"
                                  ),
-                                  array(
+                                 array(
+                                    "url" => array( "route" => "tipoEstadoPedido/admin"),
+                                    "label" => "Estados de pedido"
+                                 ),
+                                 array(
                                     "url" => array( "route" => "empresa/update"),
                                     "label" => "Empresa"
                                  ),
-                            ))
+                                 array(
+                                    "url" => array( "route" => "descriptor/admin"),
+                                    "label" => "Descriptores"
+                                 ),
+                            ));
+                    }
+                    $this->widget('application.extensions.menu.SMenu',
+                    array("menu" =>
+                        array_merge(
+                            Yii::app()->categoria->getMenu(Yii::app()->empresa->getModel()->categorias),
+                            $aExtraItems
                         )
                             ,
                         "menuID"=>"menuprincipal",

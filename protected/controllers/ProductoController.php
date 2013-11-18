@@ -13,23 +13,36 @@ class ProductoController extends Controller
         parent::init();
         $this->baseImagePath = Yii::app()->basePath.'/../img/productos/';
     }
+    
 	/**
 	 * @return array action filters
 	 */
 	public function filters()
 	{
-		return array(
+	    return array(
+            'rights',
+        );
+		/*return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
-		);
+		);*/
+        
 	}
+    
+    /**
+     * Allowed actions by Rights module
+     */
+    public function allowedActions()
+    {
+        return 'index';
+    }
 
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
+	/*public function accessRules()
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
@@ -48,7 +61,7 @@ class ProductoController extends Controller
 				'users'=>array('*'),
 			),
 		);
-	}
+	}*/
 
 	/**
 	 * Displays a particular model.
@@ -77,6 +90,9 @@ class ProductoController extends Controller
 		{  
 			$model->attributes=$_POST['Producto'];
             $model->id_empresa = Yii::app()->empresa->getModel()->id;
+            if (isset($_POST['ValoresDescriptor'])) {
+                $model->addValores($_POST['ValoresDescriptor']);
+            }
             $uploadedFile=CUploadedFile::getInstance($model,'imagen');
             
             $fileName = $this->_createImageFileName($model, $uploadedFile);
@@ -85,9 +101,10 @@ class ProductoController extends Controller
 			    Yii::app()->user->setFlash('success','Registro salvado correctamente');
 			    if ($uploadedFile)
                 $uploadedFile->saveAs($this->baseImagePath.$fileName);
-				$this->redirect(array('admin','id'=>$model->id));
+				$this->redirect(array('update','id'=>$model->id));
             }
 		}
+		
 
 		$this->render('create',array(
 			'model'=>$model,
@@ -109,13 +126,16 @@ class ProductoController extends Controller
 		if(isset($_POST['Producto']))
 		{
 			$model->attributes=$_POST['Producto'];
+            if (isset($_POST['ValoresDescriptor'])) {
+                $model->addValores($_POST['ValoresDescriptor']);
+            }
             $uploadedFile=CUploadedFile::getInstance($model,'imagen');
             $model->imagen = $this->_createImageFileName($model, $uploadedFile);
 			if($model->save()) {
 			    Yii::app()->user->setFlash('success','Registro salvado correctamente');
 			    if(!empty($uploadedFile))
                     $uploadedFile->saveAs($this->baseImagePath.$model->imagen);
-				$this->redirect(array('admin','id'=>$model->id));
+				$this->redirect(array('update','id'=>$model->id));
             }
 		}
 

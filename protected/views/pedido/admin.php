@@ -51,7 +51,7 @@ $('.search-form form').submit(function(){
         ),
         array(
           "header" => "Pedido por",
-          "value" => '$data->persona->nombre',
+          "value" => '$data->usuario->nombre',
         ),
         array(
           "header" => "Estado",

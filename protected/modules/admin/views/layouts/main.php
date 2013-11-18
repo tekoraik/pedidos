@@ -33,6 +33,7 @@
 				array('label'=>'Empresas', 'url'=>array('/admin/empresa')),
 				array('label'=>'Productos', 'url'=>array('/admin/producto')),
 				array('label'=>'Categorias', 'url'=>array('/admin/categoria')),
+				array('label'=>'Permisos', 'url'=>array('/rights')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

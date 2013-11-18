@@ -7,14 +7,14 @@
  * @property integer $id
  * @property integer $realizado
  * @property string $fecha_realizado
- * @property integer $id_persona
+ * @property integer $id_usuario
  * @property string $iva
  *
  * The followings are the available model relations:
  * @property LineaPedido[] $lineaPedidos
- * @property Persona $idPersona
+ * @property Usuario $idUsuario
  */
-class Pedido extends CActiveRecord
+class Pedido extends Describible
 {
     public $nombreEstado = "";
 	/**
@@ -33,13 +33,13 @@ class Pedido extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_persona, iva', 'required'),
-			array('realizado, id_persona, id_tipo_estado', 'numerical', 'integerOnly'=>true),
+			array('id_usuario, iva', 'required'),
+			array('realizado, id_usuario, id_tipo_estado', 'numerical', 'integerOnly'=>true),
 			array('iva', 'length', 'max'=>10),
 			array('fecha_realizado', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, realizado, id_tipo_estado, fecha_realizado, id_persona, iva', 'safe', 'on'=>'search'),
+			array('id, realizado, id_tipo_estado, fecha_realizado, id_usuario, iva', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,12 +50,12 @@ class Pedido extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
+		return array_merge(parent::relations(), array(
 			'lineas' => array(self::HAS_MANY, 'LineaPedido', 'id_pedido'),
-			'persona' => array(self::BELONGS_TO, 'Persona', 'id_persona'),
+			'usuario' => array(self::BELONGS_TO, 'Usuario', 'id_usuario'),
 			'empresa' => array(self::BELONGS_TO, 'Empresa', 'id_empresa'),
 			'tipoEstado' => array(self::BELONGS_TO, 'TipoEstadoPedido', 'id_tipo_estado'),
-		);
+		));
 	}
 
 	/**
@@ -68,18 +68,29 @@ class Pedido extends CActiveRecord
 			'realizado' => 'Realizado',
 			'fecha_realizado' => 'Fecha realizado',
 			'fecha_finalizado' => 'Fecha finalizado',
-			'id_persona' => 'Persona',
+			'id_usuario' => 'Usuario',
 			'iva' => 'IVA',
 			'id_tipo_estado' => 'Estado',
 		);
 	}
-    
+
+    /**
+     * Before save event
+     */
     protected function beforeSave() {
         parent::beforeSave();
         if (!$this->fecha_finalizado && $this->tipoEstado) 
             if ($this->tipoEstado->nombre == "finalizado")
                 $this->fecha_finalizado = date("Y-m-d h:i:s");
         
+    
+        if ($this->isNewRecord) {
+            //ok, creamos el describible
+            $oDescribible = new Describible;
+            $oDescribible->tipo = 'pedido';
+            $oDescribible->save();
+            $this->id = $oDescribible->id;
+        }
         return true;
     }
 	/**
@@ -101,7 +112,7 @@ class Pedido extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('id_persona',$this->id_persona);
+		$criteria->compare('id_usuario',$this->id_usuario);
 		$criteria->compare('iva',$this->iva,true);
         $criteria->compare('id_tipo_estado',$this->id_tipo_estado);
         $criteria->compare('id_empresa',$this->id_empresa);
@@ -194,7 +205,7 @@ class Pedido extends CActiveRecord
      * @return string Name of client
      */
     public function getNombreCliente() {
-        return $this->persona ? $this->persona->nombre : "Anónimo";
+        return $this->usuario ? $this->usuario->nombre : "Anónimo";
     }
     
     /**

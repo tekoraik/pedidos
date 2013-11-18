@@ -49,6 +49,7 @@ class Empresa extends CActiveRecord
 		return array(
 			'categorias' => array(self::HAS_MANY, 'Categoria', 'id_empresa'),
 			'productos' => array(self::HAS_MANY, 'Producto', 'id_empresa'),
+			'descriptores' => array(self::HAS_MANY, 'Descriptor', 'id_empresa'),
 		);
 	}
 
@@ -101,4 +102,22 @@ class Empresa extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    /**
+     * Comprueva si el usuario es administrador de la empresa
+     * @param Usuario $oUsuario
+     * @return bool True si es administrador
+     */
+    public function esAdministrador($oUsuario) {
+        return $oUsuario->id == $this->id_usuario_administrador;
+    }
+    
+    /**
+     * Comprueva si el usuario es cliente de la empresa
+     * @param Usuario $oUsuario
+     * @return bool True si el usuario es cliente
+     */
+    public function esCliente($oUsuario)  {
+        return $oUsuario->id_empresa == $this->id;
+    }
 }

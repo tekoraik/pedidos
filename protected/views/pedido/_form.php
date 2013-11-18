@@ -56,11 +56,11 @@
         <label>Total con iva: </label>
         <p><?php echo number_format($model->totalConIva(), 2); ?> €</p>
     </div>
-    
+    <?php $this->widget('application.components.widgets.CamposDescriptores', array('model' => Yii::app()->empresa->getModel(), 'tipo' => 'pedido', 'describible' => $model)); ?>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
-
+    
 <?php $this->endWidget(); ?>
 
 

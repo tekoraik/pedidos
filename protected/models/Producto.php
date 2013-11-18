@@ -18,7 +18,7 @@
  * @property Categoria $idCategoria
  * @property Empresa $idEmpresa
  */
-class Producto extends CActiveRecord
+class Producto extends Describible
 {
 	/**
 	 * @return string the associated database table name
@@ -57,19 +57,32 @@ class Producto extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
+		return array_merge(parent::relations(), array(
 			'categoria' => array(self::BELONGS_TO, 'Categoria', 'id_categoria'),
 			'empresa' => array(self::BELONGS_TO, 'Empresa', 'id_empresa'),
-		);
+		));
 	}
+    
+    /**
+     * Before validate event
+     */
+    protected function beforeValidate() {
+        $this->precio = str_replace(",", ".", $this->precio); //fix price
+        $this->calculateSlug();
+        return true;
+    }
     
     /**
      * Before save event
      */
-    protected function beforeValidate() {
-        parent::beforeValidate();
-        $this->precio = str_replace(",", ".", $this->precio); //fix price
-        $this->calculateSlug();
+    protected function beforeSave() {
+        if ($this->isNewRecord) {
+            //ok, creamos el describible
+            $oDescribible = new Describible;
+            $oDescribible->tipo = 'producto';
+            $oDescribible->save();
+            $this->id = $oDescribible->id;
+        }
         return true;
     }
 	/**
@@ -156,7 +169,29 @@ class Producto extends CActiveRecord
 		return parent::model($className);
 	}
     
+    /**
+     * Comprueva si un descriptor es compatible con este producto
+     * @param Descriptor $oDescriptor
+     */
+    public function check($oDescriptor) {
+        if ($oDescriptor->id_categoria) {
+            if ($this->categoria)
+                return $oDescriptor->id_categoria == $this->categoria->id || $this->_esCategoriaHija($oDescriptor->id_categoria);
+            else
+                return false;
+            }
+        return true;
+    }
     
+    private function _esCategoriaHija($id_categoria) {
+        $oCategoria = $this->categoria->padre;
+        while ($oCategoria) {
+            if ($oCategoria->id == $id_categoria)
+                return true;
+            $oCategoria = $oCategoria->padre;
+        }
+        return false;
+    }
     
     private function _addCriteriaSubCategorias($criteria, $oCategoria) {
         if ($oCategoria->hijas) {

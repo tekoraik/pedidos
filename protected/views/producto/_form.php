@@ -68,7 +68,9 @@
         
         <?php echo $form->error($model,'id_categoria'); ?>
     </div>
-
+    
+    <?php $this->widget('application.components.widgets.CamposDescriptores', array('model' => Yii::app()->empresa->getModel(), 'tipo' => 'producto', 'describible' => $model)); ?>
+    
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

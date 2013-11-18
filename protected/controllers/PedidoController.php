@@ -5,41 +5,21 @@ class PedidoController extends Controller
 
 
 	/**
-	 * @return array action filters
-	 */
-	public function filters()
-	{
-		return array(
-			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
-		);
-	}
+     * @return array action filters
+     */
+    public function filters()
+    {
+        return array(
+            'rights'
+        );
+    }
 
-	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
-	public function accessRules()
-	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','addProducto', 'verPedidoActual', 'realizar','delete'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
-	}
+    
+    
+    public function allowedActions()
+    {
+        return 'index, view, addProducto, verPedidoActual';
+    }
 
 	/**
 	 * Displays a particular model.
@@ -66,6 +46,9 @@ class PedidoController extends Controller
 		if(isset($_POST['Pedido']))
 		{
 			$model->attributes=$_POST['Pedido'];
+            if (isset($_POST['ValoresDescriptor'])) {
+                $model->addValores($_POST['ValoresDescriptor']);
+            }
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -91,6 +74,9 @@ class PedidoController extends Controller
 		if(isset($_POST['Pedido']))
 		{
 			$model->attributes=$_POST['Pedido'];
+            if (isset($_POST['ValoresDescriptor'])) {
+                $model->addValores($_POST['ValoresDescriptor']);
+            }
 			if($model->save()) {
 			    Yii::app()->user->setFlash('success','Registro salvado correctamente');
 				$this->redirect(array('admin'));
