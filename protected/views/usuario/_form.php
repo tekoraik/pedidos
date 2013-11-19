@@ -15,22 +15,27 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'identidad'); ?>
-		<?php echo $form->textField($model,'identidad',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'identidad'); ?>
-	</div>
+	
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'tipo_identidad'); ?>
-		<?php echo $form->textField($model,'tipo_identidad',array('size'=>9,'maxlength'=>9)); ?>
+		<select id="Usuario_tipo_identidad" name="Usuario[tipo_identidad]">
+		    <option value="dni">DNI</option>
+		    <option value="pasaporte">Pasaporte</option>
+		</select>
 		<?php echo $form->error($model,'tipo_identidad'); ?>
 	</div>
-
+	
+    <div class="row">
+        <?php echo $form->labelEx($model,'identidad'); ?>
+        <?php echo $form->textField($model,'identidad',array('size'=>45,'maxlength'=>45)); ?>
+        <?php echo $form->error($model,'identidad'); ?>
+    </div>
+    
 	<div class="row">
 		<?php echo $form->labelEx($model,'nombre'); ?>
 		<?php echo $form->textField($model,'nombre',array('size'=>50,'maxlength'=>50)); ?>
@@ -61,11 +66,7 @@
 		<?php echo $form->error($model,'password'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'id_empresa'); ?>
-		<?php echo $form->textField($model,'id_empresa'); ?>
-		<?php echo $form->error($model,'id_empresa'); ?>
-	</div>
+	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

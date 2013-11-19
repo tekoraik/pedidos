@@ -5,8 +5,18 @@
  *
  * The followings are the available columns in table 'usuario':
  * @property integer $id
+ * @property string $identidad
+ * @property string $tipo_identidad
+ * @property string $nombre
+ * @property string $apellidos
+ * @property string $direccion
  * @property string $email
  * @property string $password
+ * @property integer $id_empresa
+ *
+ * The followings are the available model relations:
+ * @property Pedido[] $pedidos
+ * @property Empresa $idEmpresa
  */
 class Usuario extends CActiveRecord
 {
@@ -26,11 +36,16 @@ class Usuario extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('email', 'required'),
-			array('email, password', 'length', 'max'=>200),
+			array('identidad, nombre, apellidos, email', 'required'),
+			array('id_empresa', 'numerical', 'integerOnly'=>true),
+			array('identidad', 'length', 'max'=>45),
+			array('tipo_identidad', 'length', 'max'=>9),
+			array('nombre, apellidos', 'length', 'max'=>50),
+			array('direccion, email', 'length', 'max'=>200),
+			array('password', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, email, password', 'safe', 'on'=>'search'),
+			array('id, identidad, tipo_identidad, nombre, apellidos, direccion, email, password, id_empresa', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -42,6 +57,8 @@ class Usuario extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'pedidos' => array(self::HAS_MANY, 'Pedido', 'id_usuario'),
+			'idEmpresa' => array(self::BELONGS_TO, 'Empresa', 'id_empresa'),
 		);
 	}
 
@@ -52,11 +69,23 @@ class Usuario extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'email' => 'Email',
+			'identidad' => 'Identificación',
+			'tipo_identidad' => 'DNI o Pasaporte',
+			'nombre' => 'Nombre',
+			'apellidos' => 'Apellidos',
+			'direccion' => 'Dirección postal
+',
+			'email' => 'E-mail',
 			'password' => 'Password',
+			'id_empresa' => 'Id Empresa',
 		);
 	}
 
+
+    protected function beforeSave() {
+        $this->password = crypt($this->password, '2a$%02d$' . 'abcdefghijklmnopqrstuv');
+        return true;
+    }
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
@@ -76,8 +105,14 @@ class Usuario extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('identidad',$this->identidad,true);
+		$criteria->compare('tipo_identidad',$this->tipo_identidad,true);
+		$criteria->compare('nombre',$this->nombre,true);
+		$criteria->compare('apellidos',$this->apellidos,true);
+		$criteria->compare('direccion',$this->direccion,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('password',$this->password,true);
+		$criteria->compare('id_empresa',$this->id_empresa);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

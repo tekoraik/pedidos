@@ -52,25 +52,28 @@ $('.search-form form').submit(function(){
         array(
           "header" => "Pedido por",
           "value" => '$data->usuario->nombre',
+          'htmlOptions'=>array('width'=>'200px'),
         ),
         array(
           "header" => "Estado",
           "name" => "nombreEstado",
           "value" => '$data->getNombreEstado()',
+          'htmlOptions'=>array('width'=>'170px'),
         ),
         array(
           "header" => 'fecha_realizado',
           "value" => '$data->getFechaRealizado()',
-          'htmlOptions'=>array('width'=>'200px')
+          'htmlOptions'=>array('width'=>'170px')
         ),
         array(
           "header" => 'fecha_finalizado',
           "value" => '$data->getFechaFinalizado()',
-          'htmlOptions'=>array('width'=>'200px')
+          'htmlOptions'=>array('width'=>'170px')
         ),
 		array(
-          "header" => "Total sin iva",
+          "header" => "T.sin iva",
           "value" => 'number_format($data->totalSinIva() ,2)."€"',
+          'htmlOptions'=>array('width'=>'200px'),
         ),
 		array(
 		  'name' => 'iva',
@@ -79,12 +82,13 @@ $('.search-form form').submit(function(){
 		      return ($data->iva * 100) . "%";
 		   }),
 		array(
-          "header" => "Total con iva",
+          "header" => "T.con iva",
           "value" => 'number_format($data->totalConIva() ,2)."€"',
+          'htmlOptions'=>array('width'=>'200px'),
         ),
 		array(
 			'class'=>'CButtonColumn',
-			'htmlOptions'=>array('style'=>'width: 60px'),
+			'htmlOptions'=>array('style'=>'width: 300px'),
 		),
 	),
 )); ?>

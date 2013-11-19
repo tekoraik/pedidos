@@ -98,7 +98,7 @@ class Descriptor extends CActiveRecord
 		$criteria=new CDbCriteria;
         $criteria->with = array('categoria');
 		$criteria->compare('id',$this->id);
-		$criteria->compare('nombre',$this->nombre,true);
+		$criteria->compare('t.nombre',$this->nombre,true);
 		$criteria->compare('tipo',$this->tipo,true);
 		$criteria->compare('id_categoria',$this->id_categoria);
 		$criteria->compare('t.id_empresa',$this->id_empresa);

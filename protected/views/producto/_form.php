@@ -39,6 +39,12 @@
 		<?php echo $form->textArea($model,'descripcion_larga',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'descripcion_larga'); ?>
 	</div>
+	
+	<div class="row">
+        <?php echo $form->labelEx($model,'iva'); ?>
+        <?php echo $form->textField($model,'iva',array('size'=>60,'maxlength'=>100)); ?>
+        <?php echo $form->error($model,'iva'); ?>
+    </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'imagen'); ?>

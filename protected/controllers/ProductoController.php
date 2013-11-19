@@ -141,6 +141,7 @@ class ProductoController extends Controller
                 $model->addValores($_POST['ValoresDescriptor']);
             }
             $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+            if ($uploadedFile)
             $model->imagen = $this->_createImageFileName($model, $uploadedFile);
 			if($model->save()) {
 			    Yii::app()->user->setFlash('success','Registro salvado correctamente');

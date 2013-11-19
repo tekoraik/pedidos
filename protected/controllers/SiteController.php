@@ -27,6 +27,9 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+	    if (!Yii::app()->empresa->getModel()) {
+	        die("Empresa no encontrada");
+	    } else
 		$this->forward('producto/index');
 	}
 

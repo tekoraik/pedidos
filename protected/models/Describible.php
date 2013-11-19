@@ -21,6 +21,13 @@ class Describible extends CActiveRecord
 		return 'describible';
 	}
     
+    public function hasDescriptores() {
+        return $this->descriptores ? true : false;
+    }
+    
+    public function hasValores() {
+        return $this->valores ? true : false;
+    }
     /**
      * Before save validate
      */

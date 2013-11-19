@@ -42,6 +42,7 @@
               <span><a href="<?php echo $this->createUrl('site/logout'); ?>">Logout</a></span>
               <?php else: ?>
               <span><a href="<?php echo $this->createUrl('site/login'); ?>">Login</a></span>
+              <span>| <a href="<?php echo $this->createUrl('usuario/create'); ?>">Registrarse</a></span>
               <?php endif; ?>
               <?php if ($this->checkRole("Admin")): ?>
                   <span>| <a href="<?php echo $this->createUrl('/admin'); ?>">Admin</a></span>
@@ -52,7 +53,7 @@
                     $aExtraItems = array(array());
                     if ($this->checkRole("AdminEmpresa")) {
                         $aExtraItems = array(array(
-                                 "url" => "#",
+                                 "url" => "",
                                  "label" => "Administrar",
                                  array(
                                     "url" => array( "route" => "producto/admin"),
@@ -62,6 +63,7 @@
                                     "url" => array( "route" => "categoria/admin"),
                                     "label" => "Gestión de categorias"
                                  ),
+                                 
                                  array(
                                     "url" => array( "route" => "pedido/admin"),
                                     "label" => "Gestión de pedidos"
@@ -71,7 +73,7 @@
                                     "label" => "Estados de pedido"
                                  ),
                                  array(
-                                    "url" => array( "route" => "empresa/update"),
+                                    "url" => array( "route" => "empresa/update?id=".Yii::app()->empresa->getModel()->id),
                                     "label" => "Empresa"
                                  ),
                                  array(

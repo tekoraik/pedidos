@@ -15,7 +15,10 @@ $this->menu=array(
 	array('label'=>'Manage Empresa', 'url'=>array('admin')),
 );
 ?>
+<div class="box thin">
+    
 
-<h1>Update Empresa <?php echo $model->id; ?></h1>
+<h1>Actualizar datos de la Empresa <?php echo $model->nombre; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+</div>

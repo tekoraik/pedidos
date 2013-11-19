@@ -14,10 +14,13 @@ class EmpresaComponent extends CApplicationComponent
      * @return void
      */
     function init() {
-        $this->model = Empresa::model()->findByPk(1);
+        $this->model = $this->getModel();
     }
     
     function getModel() {
+        if (!$this->model)
+            $this->model = $this->_getFromHostName();
+        
         return $this->model;
     }
     
@@ -33,5 +36,10 @@ class EmpresaComponent extends CApplicationComponent
             $oUsuario = Usuario::model()->findByPk(Yii::app()->user->getId());
             return $this->model->esCliente($oUsuario);
         } else return false;
+    }
+    
+    private function _getFromHostName() {
+        $sHost = $_SERVER['HTTP_HOST'];
+        return Empresa::model()->findByAttributes(array('host' => $sHost));
     }
 }

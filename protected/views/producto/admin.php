@@ -54,7 +54,7 @@ $('.search-form form').submit(function(){
           "value" => function ($data, $row) {return isset($data->categoria) ? $data->categoria->nombre : ""; },
           'htmlOptions'=>array('width'=>'200px')
         ),
-		array(
+		/*array(
 		  "name" => "descripcion_corta",
 		  "value" => function ($data, $row) {
 		      $sSuffix = strlen($data['descripcion_corta']) > 40 ? " ..." : "";
@@ -67,7 +67,7 @@ $('.search-form form').submit(function(){
               $sSuffix = strlen($data['descripcion_larga']) > 40 ? " ..." : "";
               return substr($data['descripcion_larga'], 0, 40) . $sSuffix;
           }
-        ),
+        ),*/
 		array(
           "name" => 'precio',
           'htmlOptions'=>array('width'=>'80px')

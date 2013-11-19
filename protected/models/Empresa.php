@@ -30,9 +30,11 @@ class Empresa extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre, slug', 'required'),
+			array('nombre, slug, host', 'required'),
+			array('host', 'length', 'max'=>255),
 			array('nombre', 'length', 'max'=>50),
 			array('slug', 'length', 'max'=>45),
+			array('nombre', 'validaNombreExiste'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, nombre, slug', 'safe', 'on'=>'search'),
@@ -53,6 +55,13 @@ class Empresa extends CActiveRecord
 		);
 	}
 
+
+    public function validaNombreExiste($attribute,$params) {
+        $oModel = Empresa::findByAttributes(array('nombre' => $this->nombre));
+        if ($oModel && $oModel->id != $this->id)
+            $this->addError($attribute, "La empresa ya existe");
+            
+    }
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -62,6 +71,7 @@ class Empresa extends CActiveRecord
 			'id' => 'Identificador',
 			'nombre' => 'Nombre',
 			'slug' => 'Slug',
+			'host' => 'Host',
 		);
 	}
 

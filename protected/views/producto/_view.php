@@ -5,14 +5,7 @@
 
 <div class="producto view box">
     
-    <div class="contenedor-imagen">
-        <?php if ($data->imagen): ?>
-        <img class="imagen" src="<?php echo Yii::app()->getBaseUrl(); ?>/img/productos/<?php echo $data->imagen; ?>" />
-        <?php endif; ?>
-        <?php if (!$data->imagen): ?>
-        <img class="imagen" src="<?php echo Yii::app()->getBaseUrl(); ?>/img/no-disponible.jpg" />
-        <?php endif; ?>
-    </div>
+    <?php echo $this->renderPartial('_imagen', array('data' => $data)); ?>
     <div class="nombre">
         <p><?php echo CHtml::encode($data->nombre); ?></p>
     </div>
@@ -27,9 +20,7 @@
         <p class="detalle">
             <?php echo CHtml::link(CHtml::encode("Ver detalle"), array('view', 'id'=>$data->id)); ?>
         </p>
-        <a class="button pedir" href="<?php echo $this->createUrl('pedido/addProducto', array("idProducto" => $data->id)); ?>">
-            Añadir al pedido
-        </a>
+        <?php echo $this->renderPartial('_boton_add', array('data' => $data)); ?>
     </div>
 	
 

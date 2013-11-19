@@ -37,7 +37,7 @@ class Producto extends Describible
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre, slug, descripcion_corta, precio, id_empresa', 'required'),
+			array('nombre, slug, descripcion_corta, precio, id_empresa, iva', 'required'),
 			array('id_empresa, id_categoria', 'numerical', 'integerOnly'=>true),
 			array('nombre, slug, descripcion_corta', 'length', 'max'=>100),
 			array('precio', 'length', 'max'=>10),
@@ -101,7 +101,8 @@ class Producto extends Describible
 			'imagen' => 'Imagen',
 			'id_empresa' => 'Empresa',
 			'id_categoria' => 'Categoria',
-			'categoria_nombre' => 'Categoria'
+			'categoria_nombre' => 'Categoria',
+			'iva' => 'IVA',
 		);
 	}
 	/**
@@ -121,6 +122,18 @@ class Producto extends Describible
         $this->slug = strtolower(str_replace(array(" ", "_"), array("-", "-"), $this->nombre)).rand(1, 100);
     }
     
+    
+    public function getFormattedIva() {
+        return ($this->iva * 100) . "%";
+    }
+    
+    public function getFormattedPrecio() {
+        return ($this->precio . "€");
+    }
+    
+    public function getFormattedTotal() {
+        return (number_format($this->precio + $this->precio * $this->iva, 2)) . "€";
+    }
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

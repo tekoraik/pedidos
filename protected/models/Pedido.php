@@ -214,7 +214,7 @@ class Pedido extends Describible
      * @return string FechaRealizado of pedido
      */
     public function getFechaRealizado() {
-        return $this->fecha_realizado;
+        return $this->fecha_realizado ? substr($this->fecha_realizado, 0, 10) : "";
     }
     
     /**
@@ -223,7 +223,7 @@ class Pedido extends Describible
      * @return string FechaFinalizado of pedido
      */
     public function getFechaFinalizado() {
-        return $this->fecha_finalizado;
+        return $this->fecha_finalizado ? substr($this->fecha_finalizado, 0, 10) : "";
     }
     
 	/**

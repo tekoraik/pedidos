@@ -2,11 +2,7 @@
 
 class UsuarioController extends Controller
 {
-	/**
-	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-	 * using two-column layout. See 'protected/views/layouts/column2.php'.
-	 */
-	public $layout='//layouts/column2';
+
 
 	/**
      * @return array action filters
@@ -27,7 +23,7 @@ class UsuarioController extends Controller
      */
     public function allowedActions()
     {
-        return 'index, REST.GET, REST.PUT, REST.POST, REST.DELETE';
+        return 'index, create, REST.GET, REST.PUT, REST.POST, REST.DELETE';
     }
     
     public function actions() {
@@ -70,8 +66,11 @@ class UsuarioController extends Controller
 		if(isset($_POST['Usuario']))
 		{
 			$model->attributes=$_POST['Usuario'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+            $model->id_empresa = Yii::app()->empresa->getModel()->id;
+			if($model->save()) {
+			    Yii::app()->user->setFlash('success','Registro completado con éxito.');
+				$this->redirect(Yii::app()->getBaseUrl());
+            }
 		}
 
 		$this->render('create',array(

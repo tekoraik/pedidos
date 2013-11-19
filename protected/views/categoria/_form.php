@@ -32,7 +32,7 @@
         <?php echo $form->dropDownList(
             $model, 
             'id_padre', 
-            CHtml::listData(Categoria::model()->findAll(), "id", "nombre"),
+            CHtml::listData(Categoria::model()->findAll(array("condition" => "id_empresa=".Yii::app()->empresa->getModel()->id)), "id", "nombre"),
             array('prompt'=>'Selecciona categoria padre')
         ); ?>
         <?php echo $form->error($model,'id_padre'); ?>

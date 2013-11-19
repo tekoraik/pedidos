@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -24,15 +24,16 @@
 		<?php echo $form->textField($model,'nombre',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'nombre'); ?>
 	</div>
-
+	
 	<div class="row">
-		<?php echo $form->labelEx($model,'slug'); ?>
-		<?php echo $form->textField($model,'slug',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'slug'); ?>
-	</div>
+        <?php echo $form->labelEx($model,'host'); ?>
+        <p>Recuerda que debes configurar tus DNS para poder acceder correctamente <a href="#">(+info)</a></p>
+        <?php echo $form->textField($model,'host',array('size'=>50,'maxlength'=>255)); ?>
+        <?php echo $form->error($model,'host'); ?>
+    </div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear Empresa' : 'Actualizar datos'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
