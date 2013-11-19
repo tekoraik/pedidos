@@ -22,10 +22,38 @@ class Describible extends CActiveRecord
 	}
     
     /**
+     * Before save validate
+     */
+    protected function beforeValidate() {
+        foreach ($this->valoresDescriptor as $oValor) {
+            if ($oValor->valor) {
+                switch ($oValor->tipo){
+                    case "entero":
+                        if (!is_numeric($oValor->valor) || strpos(str_replace(",", ".", $oValor->valor), ".") !== FALSE) $this->addError($oValor->descriptor->nombre, $oValor->descriptor->nombre. " debe ser un valor entero");
+                        break;
+                    case "decimal":
+                        if (!is_numeric($oValor->valor)) $this->addError($oValor->descriptor->nombre, $oValor->descriptor->nombre. " debe ser un valor numerico");
+                        break;
+                    
+                }
+                if ($oValor->descriptor->regla) {
+                    
+                    if (!$oValor->descriptor->regla->evaluar($oValor->valor)) {
+                        $this->addError($oValor->descriptor->nombre, $oValor->descriptor->nombre. " no cumple con la regla de validación " . $oValor->descriptor->regla->nombre);
+                    }
+                }
+            }
+            
+        }
+        if ($this->hasErrors()) return false;
+        else return true;
+    }
+    
+    /**
      * After save event
      */
     protected function afterSave() {
-        foreach ($this->valoresDescriptor as $oValor) {
+       foreach ($this->valoresDescriptor as $oValor) {
             
             $oValor->id_describible = $this->id;
             $oValorSearched = ValorDescriptor::model()->findByPk(array("id_descriptor" => $oValor->id_descriptor, "id_describible" => $oValor->id_describible));
@@ -118,10 +146,28 @@ class Describible extends CActiveRecord
      * Obtener valor a partir de un descriptor
      * @param Descriptor $oDescriptor
      */
-    public function getValor($oDescriptor) {
+    public function buscarValor($oDescriptor) {
         foreach ($this->valores as $oValor)
             if ($oValor->id_descriptor == $oDescriptor->id)
                 return $oValor->valor;
+        
+        return "";
+    }
+    
+    public function getValor($sNombreAtributo) {
+        foreach ($this->getAttributes() as $sName => $sValue) {
+            if ($sNombreAtributo == $sName)
+                return $sValue;
+        }
+        foreach ($this->valores as $oValor) {
+            if ($oValor->descriptor->nombre == $sNombreAtributo)
+                return $oValor->valor;
+        }
+        foreach ($this->descriptores as $oDescriptor) {
+            if ($oDescriptor->nombre == $sNombreAtributo && $oDescriptor->tipo_valor == "formula") {
+                return $this->evaluarFormula($oDescriptor);
+            }
+        }
         return "";
     }
     
@@ -146,7 +192,39 @@ class Describible extends CActiveRecord
         return true;
     }
     
+    public function evaluarFormula($oDescriptor) {
+        $data = $this;
+        $sFormula = $oDescriptor->formula;
+        if ($oDescriptor->tipo_valor == "formula" && $oDescriptor->formula) {
+            foreach ($this->getAttributes() as $sName => $sValue) {
+                $sFormula = str_replace($sName, '$data["' . $sName . '"]', $sFormula);
+            }
+            foreach ($this->valores as $oValor) {
+                $sName = $oValor->descriptor->nombre;
+                $sFormula = str_replace($sName, '$data->getValor("'.$sName.'")', $sFormula);
+            }
+            $sFormula .= ";";
+            $sValue = @eval("return " . $sFormula);
+            return $sValue;
+        } else {
+            return "";
+        }
+    }
     
+    public function getNombresCampos() {
+        $aResult = array();
+        foreach ($this->getAttributes() as $sName => $sValue) {
+            $aResult[] = $sName;
+        }
+        foreach ($this->valores as $oValor) {
+            $aResult[] = $oValor->descriptor->nombre;
+        }
+        foreach ($this->descriptores as $oDescriptor) {
+            if ($oDescriptor->tipo_valor == "formula")
+                $aResult[] = $oDescriptor->nombre;
+        }
+        return $aResult;
+    }
     
     private function _toValores($aCamposValores) {
         $aValores = array();

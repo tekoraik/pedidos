@@ -31,6 +31,7 @@
         <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/main.js'); ?>
     </head>
 
     <body>
@@ -76,6 +77,10 @@
                                  array(
                                     "url" => array( "route" => "descriptor/admin"),
                                     "label" => "Descriptores"
+                                 ),
+                                 array(
+                                    "url" => array( "route" => "reglaValidacion/admin"),
+                                    "label" => "Reglas de validación"
                                  ),
                             ));
                     }

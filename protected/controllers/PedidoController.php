@@ -10,7 +10,11 @@ class PedidoController extends Controller
     public function filters()
     {
         return array(
-            'rights'
+            'rights',
+            array(
+                'ext.starship.RestfullYii.filters.ERestFilter + 
+                REST.GET, REST.PUT, REST.POST, REST.DELETE'
+            ),
         );
     }
 
@@ -18,9 +22,28 @@ class PedidoController extends Controller
     
     public function allowedActions()
     {
-        return 'index, view, addProducto, verPedidoActual';
+        return 'index, view, addProducto, verPedidoActual, REST.GET, REST.PUT, REST.POST, REST.DELETE';
     }
 
+    public function actions() {
+         return array(
+            'REST.'=>'ext.starship.RestfullYii.actions.ERestActionProvider',
+         );
+    }
+    
+    public function restEvents()
+    {
+        $this->onRest('req.get.usuario.render', function($param1) {
+            //Custom logic for this route.
+            //Should output results.
+            $result = Pedido::model()->with('lineas')->findAllByAttributes(array('id_usuario' => $param1));
+            $this->emitRest('req.render.json', array(
+                $result
+            ));
+        });
+        
+        
+    }
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed

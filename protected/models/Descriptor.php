@@ -17,6 +17,7 @@
  */
 class Descriptor extends CActiveRecord
 {
+    public $categoria_nombre;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -34,12 +35,13 @@ class Descriptor extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_empresa, tipo_valor', 'required'),
-			array('id_categoria, id_empresa', 'numerical', 'integerOnly'=>true),
+			array('id_categoria, id_empresa, id_regla_validacion', 'numerical', 'integerOnly'=>true),
 			array('nombre', 'length', 'max'=>45),
+			array('formula', 'length', 'max'=>255),
 			array('tipo', 'length', 'max'=>8),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nombre, tipo, id_categoria, id_empresa', 'safe', 'on'=>'search'),
+			array('id, nombre, tipo, id_categoria, id_empresa, categoria_nombre', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,7 +54,8 @@ class Descriptor extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idEmpresa' => array(self::BELONGS_TO, 'Empresa', 'id_empresa'),
-			'idCategoria' => array(self::BELONGS_TO, 'Categoria', 'id_categoria'),
+			'categoria' => array(self::BELONGS_TO, 'Categoria', 'id_categoria'),
+			'regla' => array(self::BELONGS_TO, 'ReglaValidacion', 'id_regla_validacion'),
 			'describibles' => array(self::MANY_MANY, 'Describible', 'valor_descriptor(id_descriptor, id_describible)'),
 		);
 	}
@@ -68,9 +71,14 @@ class Descriptor extends CActiveRecord
 			'tipo' => 'Tipo',
 			'id_categoria' => 'Categoria',
 			'id_empresa' => 'Id Empresa',
+			'formula' => 'Formula',
+			'id_regla_validacion' => 'Regla de validación'
 		);
 	}
 
+
+    
+    
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
@@ -88,13 +96,13 @@ class Descriptor extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
+        $criteria->with = array('categoria');
 		$criteria->compare('id',$this->id);
 		$criteria->compare('nombre',$this->nombre,true);
 		$criteria->compare('tipo',$this->tipo,true);
 		$criteria->compare('id_categoria',$this->id_categoria);
-		$criteria->compare('id_empresa',$this->id_empresa);
-
+		$criteria->compare('t.id_empresa',$this->id_empresa);
+        $criteria->compare('categoria.nombre', $this->categoria_nombre);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

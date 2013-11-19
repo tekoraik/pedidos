@@ -42,8 +42,8 @@
             <option <?php echo $model->tipo_valor == 'cadena' ? "selected" : ""; ?> value="cadena">Cadena</option>
             <option <?php echo $model->tipo_valor == 'entero' ? "selected" : ""; ?> value="entero">Entero</option>
             <option <?php echo $model->tipo_valor == 'decimal' ? "selected" : ""; ?> value="decimal">Decimal</option>
-            <option <?php echo $model->tipo_valor == 'fecha' ? "selected" : ""; ?> value="decimal">Fecha</option>
-            <option <?php echo $model->tipo_valor == 'formula' ? "selected" : ""; ?> value="decimal">Formula</option>
+            <option <?php echo $model->tipo_valor == 'fecha' ? "selected" : ""; ?> value="fecha">Fecha</option>
+            <option <?php echo $model->tipo_valor == 'formula' ? "selected" : ""; ?> value="formula">Formula</option>
         </select>
 		<?php echo $form->error($model,'tipo_valor'); ?>
 	</div>
@@ -61,6 +61,25 @@
 	</div>
 
 	<?php endif; ?>
+	<?php if ($model->tipo_valor == "formula"): ?>
+	    <div class="row">
+        <?php echo $form->labelEx($model,'formula'); ?>
+        <?php echo $form->textField($model,'formula',array('size'=>45,'maxlength'=>45)); ?>
+        <?php echo $form->error($model,'formula'); ?>
+    </div>
+    <?php endif; ?>
+    
+    <div class="row">
+        <?php echo $form->labelEx($model,'id_regla_validacion'); ?>
+        <?php echo $form->dropDownList(
+            $model, 
+            'id_regla_validacion', 
+            CHtml::listData(ReglaValidacion::model()->findAll(array("condition" => "id_empresa=".Yii::app()->empresa->getModel()->id)), "id", "nombre"),
+            array('prompt'=>'Selecciona regla de validacion')
+        ); ?>
+        
+        <?php echo $form->error($model,'id_categoria'); ?>
+    </div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

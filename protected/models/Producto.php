@@ -20,6 +20,7 @@
  */
 class Producto extends Describible
 {
+    public $categoria_nombre;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -46,7 +47,7 @@ class Producto extends Describible
 			array('imagen', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nombre, slug, descripcion_corta, descripcion_larga, precio, imagen, id_empresa, id_categoria', 'safe', 'on'=>'search'),
+			array('id, nombre, slug, descripcion_corta, descripcion_larga, precio, imagen, id_empresa, id_categoria, categoria_nombre', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -69,7 +70,7 @@ class Producto extends Describible
     protected function beforeValidate() {
         $this->precio = str_replace(",", ".", $this->precio); //fix price
         $this->calculateSlug();
-        return true;
+        return parent::beforeValidate();
     }
     
     /**
@@ -100,6 +101,7 @@ class Producto extends Describible
 			'imagen' => 'Imagen',
 			'id_empresa' => 'Empresa',
 			'id_categoria' => 'Categoria',
+			'categoria_nombre' => 'Categoria'
 		);
 	}
 	/**
@@ -136,14 +138,15 @@ class Producto extends Describible
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
+        $criteria->with = array('categoria');
 		$criteria->compare('id',$this->id);
-		$criteria->compare('nombre',$this->nombre,true);
+		$criteria->compare('t.nombre',$this->nombre,true);
 		$criteria->compare('slug',$this->slug,true);
 		$criteria->compare('descripcion_corta',$this->descripcion_corta,true);
 		$criteria->compare('descripcion_larga',$this->descripcion_larga,true);
 		$criteria->compare('precio',$this->precio,true);
-		$criteria->compare('id_empresa',$this->id_empresa);
+		$criteria->compare('t.id_empresa',$this->id_empresa);
+        $criteria->compare('categoria.nombre',$this->categoria_nombre);
         if ($this->categoria) {
                 $criteria->compare('id_categoria',$this->categoria->id, false, "AND");
                 $this->_addCriteriaSubCategorias($criteria, $this->categoria);

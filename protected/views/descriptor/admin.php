@@ -48,7 +48,11 @@ $('.search-form form').submit(function(){
 		'nombre',
 		'tipo',
 		'tipo_valor',
-		'id_categoria',
+		array(
+          "name" => 'categoria_nombre',
+          "value" => function ($data, $row) {return isset($data->categoria) ? $data->categoria->nombre : ""; },
+          'htmlOptions'=>array('width'=>'200px')
+        ),
 		array(
 			'class'=>'CButtonColumn',
 		),

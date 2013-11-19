@@ -50,6 +50,11 @@ $('.search-form form').submit(function(){
 		),
 		"nombre",
 		array(
+          "name" => 'categoria_nombre',
+          "value" => function ($data, $row) {return isset($data->categoria) ? $data->categoria->nombre : ""; },
+          'htmlOptions'=>array('width'=>'200px')
+        ),
+		array(
 		  "name" => "descripcion_corta",
 		  "value" => function ($data, $row) {
 		      $sSuffix = strlen($data['descripcion_corta']) > 40 ? " ..." : "";

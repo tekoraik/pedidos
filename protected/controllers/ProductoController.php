@@ -21,7 +21,12 @@ class ProductoController extends Controller
 	{
 	    return array(
             'rights',
+            array(
+                'ext.starship.RestfullYii.filters.ERestFilter + 
+                REST.GET, REST.PUT, REST.POST, REST.DELETE'
+            ),
         );
+        
 		/*return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
@@ -34,7 +39,13 @@ class ProductoController extends Controller
      */
     public function allowedActions()
     {
-        return 'index';
+        return 'index, REST.GET, REST.PUT, REST.POST, REST.DELETE';
+    }
+    
+    public function actions() {
+         return array(
+            'REST.'=>'ext.starship.RestfullYii.actions.ERestActionProvider',
+         );
     }
 
 	/**

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-11-2013 a las 02:04:48
+-- Tiempo de generación: 19-11-2013 a las 09:34:44
 -- Versión del servidor: 5.5.34-0ubuntu0.13.04.1
 -- Versión de PHP: 5.4.9-4ubuntu2.3
 
@@ -150,6 +150,12 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Producto.Index', 0, NULL, NULL, 'N;'),
 ('Producto.Update', 0, NULL, NULL, 'N;'),
 ('Producto.View', 0, NULL, NULL, 'N;'),
+('ReglaValidacion.Admin', 0, NULL, NULL, 'N;'),
+('ReglaValidacion.Create', 0, NULL, NULL, 'N;'),
+('ReglaValidacion.Delete', 0, NULL, NULL, 'N;'),
+('ReglaValidacion.Index', 0, NULL, NULL, 'N;'),
+('ReglaValidacion.Update', 0, NULL, NULL, 'N;'),
+('ReglaValidacion.View', 0, NULL, NULL, 'N;'),
 ('Site.*', 1, NULL, NULL, 'N;'),
 ('Site.Contact', 0, NULL, NULL, 'N;'),
 ('Site.Error', 0, NULL, NULL, 'N;'),
@@ -212,6 +218,12 @@ INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
 ('AdminEmpresa', 'Producto.Update'),
 ('AdminEmpresa', 'Producto.View'),
 ('Authenticated', 'Producto.View'),
+('AdminEmpresa', 'ReglaValidacion.Admin'),
+('AdminEmpresa', 'ReglaValidacion.Create'),
+('AdminEmpresa', 'ReglaValidacion.Delete'),
+('AdminEmpresa', 'ReglaValidacion.Index'),
+('AdminEmpresa', 'ReglaValidacion.Update'),
+('AdminEmpresa', 'ReglaValidacion.View'),
 ('AdminEmpresa', 'TipoEstadoPedido.Admin'),
 ('AdminEmpresa', 'TipoEstadoPedido.Create'),
 ('AdminEmpresa', 'TipoEstadoPedido.Delete'),
@@ -268,7 +280,7 @@ CREATE TABLE IF NOT EXISTS `describible` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tipo` enum('producto','pedido') COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=40 ;
 
 --
 -- Volcado de datos para la tabla `describible`
@@ -303,7 +315,17 @@ INSERT INTO `describible` (`id`, `tipo`) VALUES
 (26, 'pedido'),
 (27, 'pedido'),
 (28, 'pedido'),
-(29, 'pedido');
+(29, 'pedido'),
+(30, 'pedido'),
+(31, 'pedido'),
+(32, 'pedido'),
+(33, 'producto'),
+(34, 'pedido'),
+(35, 'pedido'),
+(36, 'pedido'),
+(37, 'pedido'),
+(38, 'producto'),
+(39, 'pedido');
 
 -- --------------------------------------------------------
 
@@ -318,21 +340,26 @@ CREATE TABLE IF NOT EXISTS `descriptor` (
   `tipo_valor` enum('entero','cadena','fecha','decimal','formula') COLLATE utf8_spanish_ci NOT NULL,
   `id_categoria` int(11) DEFAULT NULL,
   `id_empresa` int(11) NOT NULL,
+  `formula` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `id_regla_validacion` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_descriptor_categoria` (`id_categoria`),
-  KEY `fk_descriptor_empresa` (`id_empresa`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=8 ;
+  KEY `fk_descriptor_empresa` (`id_empresa`),
+  KEY `fk_descriptor_regla` (`id_regla_validacion`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `descriptor`
 --
 
-INSERT INTO `descriptor` (`id`, `nombre`, `tipo`, `tipo_valor`, `id_categoria`, `id_empresa`) VALUES
-(1, 'Consumo', 'producto', 'cadena', NULL, 1),
-(3, 'Empleado', 'pedido', 'cadena', NULL, 1),
-(4, 'Departamento', 'pedido', 'cadena', NULL, 1),
-(6, 'Pulgadas', 'producto', 'cadena', 16, 1),
-(7, 'Conexion', 'producto', 'cadena', 1, 1);
+INSERT INTO `descriptor` (`id`, `nombre`, `tipo`, `tipo_valor`, `id_categoria`, `id_empresa`, `formula`, `id_regla_validacion`) VALUES
+(1, 'Consumo', 'producto', 'entero', NULL, 1, '2', 2),
+(3, 'Empleado', 'pedido', 'cadena', NULL, 1, NULL, NULL),
+(4, 'Departamento', 'pedido', 'cadena', NULL, 1, NULL, NULL),
+(6, 'Pulgadas', 'producto', 'cadena', 16, 1, NULL, 3),
+(7, 'Conexion', 'producto', 'cadena', 1, 1, NULL, 3),
+(8, 'Precio con iva', 'producto', 'formula', NULL, 1, 'Consumo * 2', NULL),
+(9, 'precio_check', 'producto', 'formula', NULL, 1, 'precio', 1);
 
 -- --------------------------------------------------------
 
@@ -424,7 +451,15 @@ INSERT INTO `pedido` (`id`, `realizado`, `fecha_realizado`, `fecha_finalizado`, 
 (26, 0, NULL, NULL, 1, 0.21, NULL, 1),
 (27, 0, NULL, NULL, 1, 0.21, NULL, 1),
 (28, 0, NULL, NULL, 1, 0.21, NULL, 1),
-(29, 0, NULL, NULL, 1, 0.21, NULL, 1);
+(29, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(30, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(31, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(32, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(34, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(35, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(36, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(37, 0, NULL, NULL, 1, 0.21, NULL, 1),
+(39, 0, NULL, NULL, 1, 0.21, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -454,13 +489,39 @@ CREATE TABLE IF NOT EXISTS `producto` (
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `slug`, `descripcion_corta`, `descripcion_larga`, `precio`, `imagen`, `id_empresa`, `id_categoria`) VALUES
-(1, 'Logitech Touch Mouse T620', 'logitech-touch-mouse-t62046', 'Vea cómo puede desplazarse por Windows® 8 con seis gestos táctiles para una navegación rápida.', 'Superficie táctil completa para un control uniforme y preciso\r\n\r\nDisfrute de una navegación rápida y fluida dondequiera que descanse los dedos en la superficie táctil precisa. Pases, desplazamientos, toques y clics sin esfuerzo, para una experiencia eficiente y productiva.\r\n\r\n\r\nComodidad para los dedos.\r\n\r\nCon unas curvas diseñadas para la comodidad, este elegante Touch Mouse permite un manejo y gestos cómodos, durante horas y horas.\r\n\r\n\r\n', 34.12, '', 1, 11),
+(1, 'Logitech Touch Mouse T620', 'logitech-touch-mouse-t62054', 'Vea cómo puede desplazarse por Windows® 8 con seis gestos táctiles para una navegación rápida.', 'Superficie táctil completa para un control uniforme y preciso\r\n\r\nDisfrute de una navegación rápida y fluida dondequiera que descanse los dedos en la superficie táctil precisa. Pases, desplazamientos, toques y clics sin esfuerzo, para una experiencia eficiente y productiva.\r\n\r\n\r\nComodidad para los dedos.\r\n\r\nCon unas curvas diseñadas para la comodidad, este elegante Touch Mouse permite un manejo y gestos cómodos, durante horas y horas.\r\n\r\n\r\n', 34.12, '', 1, 11),
 (2, 'ASUS AN300 HD', 'asus-an300-hd51', 'Acabado en aluminio cepillado y con unos colores exquisitos, este disco duro externo con conectivida', '', 58.24, '', 1, 8),
 (3, 'Teclado Logitech Inalambrico', 'teclado-logitech-inalambrico-5', 'Un teclado inalambrico para que puedas disfrutar sin cables', '', 30.12, '', 1, 1),
 (4, 'Pastel de chocolate', 'pastel-de-chocolate49', 'Pastel de chocolate', '', 10.20, '', 2, NULL),
-(15, 'sdafa', 'sdafa72', 'asdfa', '', 1.00, '', 1, 1),
 (16, 'Producto de prueba 1', 'producto-de-prueba-12', 'Producto de prueba 1', '', 1.00, '', 1, NULL),
 (17, 'Producto de prueba 2', 'producto-de-prueba-210', 'Producto de prueba 2', '', 2.00, '', 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `regla_validacion`
+--
+
+CREATE TABLE IF NOT EXISTS `regla_validacion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `id_empresa` int(11) NOT NULL,
+  `tipo` enum('rango','longitud','formula') COLLATE utf8_spanish_ci NOT NULL,
+  `valor` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `desde` double DEFAULT NULL,
+  `hasta` double DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nombre_empresa` (`nombre`,`id_empresa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `regla_validacion`
+--
+
+INSERT INTO `regla_validacion` (`id`, `nombre`, `id_empresa`, `tipo`, `valor`, `desde`, `hasta`) VALUES
+(1, 'mayor que cero', 1, 'formula', 'valor > 0', NULL, NULL),
+(2, 'de 10 a 20', 1, 'rango', NULL, 10, 20),
+(3, 'cadena 3', 1, 'longitud', '3', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -551,13 +612,19 @@ CREATE TABLE IF NOT EXISTS `valor_descriptor` (
 --
 
 INSERT INTO `valor_descriptor` (`id_descriptor`, `id_describible`, `valor`, `tipo`) VALUES
-(1, 15, '', 'cadena'),
+(1, 1, '14', 'entero'),
+(1, 15, '11/13/2013', 'cadena'),
 (1, 16, '20', 'cadena'),
 (1, 17, 'prueba2b', 'cadena'),
+(1, 33, '11/18/2013', 'fecha'),
+(1, 38, '12', 'entero'),
 (3, 18, 'Pablo', 'cadena'),
 (4, 18, 'Calidad', 'cadena'),
 (6, 15, '', 'cadena'),
-(7, 15, 'USB', 'cadena');
+(7, 1, 'ddd', 'cadena'),
+(7, 15, 'USB', 'cadena'),
+(7, 38, 'PS2', 'cadena'),
+(8, 1, '', 'formula');
 
 --
 -- Restricciones para tablas volcadas
@@ -587,6 +654,7 @@ ALTER TABLE `categoria`
 -- Filtros para la tabla `descriptor`
 --
 ALTER TABLE `descriptor`
+  ADD CONSTRAINT `fk_descriptor_regla` FOREIGN KEY (`id_regla_validacion`) REFERENCES `regla_validacion` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `fk_descriptor_categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_descriptor_empresa` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
