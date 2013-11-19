@@ -13235,3 +13235,54 @@ Stack trace:
 REQUEST_URI=/pedidos/assets/d72f5ba1/menu_default.css
 HTTP_REFERER=http://www.elforndepaula.com/pedidos/producto/categoria/bolleria15
 ---
+2013/11/19 17:10:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d72f5ba1/menu_default.css".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/d72f5ba1...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/d72f5ba1/menu_default.css
+HTTP_REFERER=http://www.computerpurchases.com/pedidos/
+---
+2013/11/19 17:10:32 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:52)
+Stack trace:
+#0 /var/www/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(13): createWebApplication()
+REQUEST_URI=/pedidos/api/producto
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (52)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (13)
+2013/11/19 17:10:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`pedidos`.`pedido`, CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `pedido` (`realizado`, `id_usuario`, `iva`, `id`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (53)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/protected/views/layouts/2columnas.php (5)
+2013/11/19 17:10:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d72f5ba1/menu_default.css".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/d72f5ba1...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/d72f5ba1/menu_default.css
+HTTP_REFERER=http://www.elforndepaula.com/pedidos/
+---
+2013/11/19 17:11:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d72f5ba1/menu_default.css".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/d72f5ba1...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/d72f5ba1/menu_default.css
+HTTP_REFERER=http://www.elforndepaula.com/pedidos/
+---
+2013/11/19 17:11:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d72f5ba1/menu_default.css".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/d72f5ba1...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/d72f5ba1/menu_default.css
+HTTP_REFERER=http://www.elforndepaula.com/pedidos/site/index
+---
