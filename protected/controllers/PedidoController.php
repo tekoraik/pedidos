@@ -42,6 +42,45 @@ class PedidoController extends Controller
             ));
         });
         
+        $this->onRest('req.get.pedidoActual.render', function() {
+            $oPedido = Yii::app()->pedido->getModel();
+            $aPedido = $oPedido->attributes;
+            $aPedido["lineas"] = array();
+            foreach ($oPedido->lineas as $oLinea) {
+                $aLinea = $oLinea->attributes;
+                $aLinea["precioSinIVA"] = $oLinea->precioSinIVA();
+                $aLinea["precioConIVA"] = $oLinea->precioConIVA();
+                $aLinea["totalSinIVA"] = $oLinea->totalSinIVA();
+                $aLinea["totalConIVA"] = $oLinea->totalConIVA();
+                $aLinea["producto"] = $oLinea->producto->attributes;
+                $aPedido["lineas"][] = $aLinea;
+            }
+            $aPedido["totalSinIVA"] = $oPedido->totalSinIVA();
+            $aPedido["totalConIVA"] = $oPedido->totalConIVA();
+            $this->emitRest('req.render.json', array(
+                array("success" => true, "data" => array("totalCount" => 1, "pedido" => $aPedido))
+            ));
+        });
+        
+        $this->onRest('req.delete.lineaPedidoActual.render', function() {
+            $sMessage = "";
+            $bSuccess = false;
+            $aData = array();
+            $idProducto = isset($_GET["idProducto"]) ? $_GET["idProducto"] : "";
+            if (!$idProducto) $sMessage = "idProducto not found";
+            else {
+                $oPedido = Yii::app()->pedido->getModel();
+                $oLinea = LineaPedido::model()->findByPk(array("id_pedido" => $oPedido->id, "id_producto" => $idProducto));
+                if ($oLinea) {
+                    $bSuccess = $oLinea->delete();
+                } else {
+                    $sMessage = "Linea not found";
+                }
+            }
+            $this->emitRest('req.render.json', array(
+                array("success" => $bSuccess, "data" => $aData, "message" => $sMessage)
+            ));
+        });
         
     }
 	/**
@@ -178,6 +217,16 @@ class PedidoController extends Controller
         $oLinea->precio = $oProducto->precio;
         $oPedido->addLinea($oLinea);
         $oPedido->refresh();
+        if (isset($_SERVER["HTTP_ACCEPT"]) && strpos($_SERVER["HTTP_ACCEPT"], "json") !== FALSE) {
+            $aPedido = $oPedido->attributes;
+            $aPedido["lineas"] = array();
+            foreach ($oPedido->lineas as $oLinea) {
+                $aPedido["lineas"][] = $oLinea->attributes;
+            }
+            $aResponse = array( "success" => true, $aPedido);
+            echo json_encode($aResponse);
+            Yii::app()->end();
+        }
         if ($oLinea->hasErrors()) var_dump($oLinea->getErrors());
         $this->redirect('verPedidoActual');
     }
@@ -186,6 +235,7 @@ class PedidoController extends Controller
         $this->render("view", array("model" => Yii::app()->pedido->getModel()));
     }
     
+   
     /**
      * Controller action for make pedido
      */
@@ -195,6 +245,11 @@ class PedidoController extends Controller
         $oPedido->save();
         if ($actual)
             Yii::app()->pedido->nuevoPedido();
+        if (isset($_SERVER["HTTP_ACCEPT"]) && strpos($_SERVER["HTTP_ACCEPT"], "json") !== FALSE) {
+            header('Content-type: application/json');
+            echo json_encode(array("success" => true));
+            Yii::app()->end();
+        }
         $this->render("realizado", array("model" => $oPedido));
     }
     

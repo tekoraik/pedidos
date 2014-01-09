@@ -86,7 +86,18 @@ class SiteController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
-
+        if (isset($_SERVER["HTTP_ACCEPT"]) && strpos($_SERVER["HTTP_ACCEPT"], "json") !== FALSE) {
+            $this->layout = false;
+            header('Content-type: application/json');
+            $model->username = isset($_REQUEST["mail"]) ? $_REQUEST["mail"] : "";
+            $model->password= isset($_REQUEST["pass"]) ? $_REQUEST["pass"] : "";
+            if($model->validate() && $model->login()) {
+                echo json_encode(array("success" => true, "message" => "User is authorized", "data" => Usuario::model()->findByPk(Yii::app()->user->getId())->attributes));
+            } else {
+                echo json_encode(array("success" => false, "message" => "User is no authorized", "data" => ""));
+            }
+            Yii::app()->end();
+        }
 		// collect user input data
 		if(isset($_POST['LoginForm']))
 		{
@@ -99,6 +110,7 @@ class SiteController extends Controller
 		$this->render('login',array('model'=>$model));
 	}
 
+    
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */

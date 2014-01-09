@@ -37,12 +37,12 @@
     <body>
             
             <header>
-              <span>| <a href="<?php echo $this->createUrl('site/index'); ?>">Inicio</a></span>
+              <span><a href="<?php echo $this->createUrl('site/index'); ?>">Inicio</a></span>
               <!--<img src="<?php echo Yii::app()->getBaseUrl(); ?>/img/logo.png" width="200" style="float: left;" />-->
               <?php if (Yii::app()->user->getId()!==null): ?>
               <span>| <a href="<?php echo $this->createUrl('site/logout'); ?>">Logout</a></span>
               <?php else: ?>
-              <span><a href="<?php echo $this->createUrl('site/login'); ?>">Login</a></span>
+              <span>| <a href="<?php echo $this->createUrl('site/login'); ?>">Login</a></span>
               <span>| <a href="<?php echo $this->createUrl('usuario/create'); ?>">Registrarse</a></span>
               <?php endif; ?>
               <?php if ($this->checkRole("Admin")): ?>

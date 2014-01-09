@@ -34,6 +34,6 @@ $this->menu=array(
 </div>
 <?php $this->renderPartial("_lineasPedido", array("model" => $model)); ?>
 <div class="row buttons" style="text-align: center;">
-<a class="button" href="<?php echo $this->createUrl("pedido/realizar", array("id" => $model->id, "actual" => true)); ?>">Realizar pedido</a>
+<a class="button" href="<?php echo Yii::app()->getBaseUrl(). "/pedido/realizar?id=" . $model->id . "&actual=1"; ?>">Realizar pedido</a>
 </div>
 </div>

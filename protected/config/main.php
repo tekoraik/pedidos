@@ -84,7 +84,9 @@ return array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
 			'rules'=>array(
-			     'api/<controller:\w+>'=>array ('<controller>/REST.GET', 'verb'=>'GET'),
+			    'api/pedido/addProducto' =>array ('pedido/addProducto', 'verb'=>'PUT'),
+			    'api/pedido/realizar' =>array ('pedido/realizar', 'verb'=>'PUT'),
+			    'api/<controller:\w+>'=>array ('<controller>/REST.GET', 'verb'=>'GET'),
                 'api/<controller:\w+>/<id:\w*>'=> array('<controller>/REST.GET', 'verb'=>'GET'),
                 'api/<controller:\w+>/<id:\w*>/<param1:\w*>'=>array('<controller>/REST.GET', 'verb'=>'GET'),
                 'api/<controller:\w+>/<id:\w*>/<param1:\w*>/<param2:\w*>'=>array('<controller>/REST.GET', 'verb'=>'GET'),
