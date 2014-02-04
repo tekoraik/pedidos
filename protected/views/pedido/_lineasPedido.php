@@ -30,6 +30,7 @@
                  }
                  return false; 
         }
+        
     ");
     $aColumns = array(
         'producto.nombre',
@@ -80,7 +81,7 @@ $aColumns[] = array(
           'class'=>'bootstrap.widgets.TbButtonColumn',
           'htmlOptions'=>array('style'=>'width: 50px'),
           'template'=>'{delete}', //Only shows Delete button
-          
+         
           'deleteConfirmation'=>'Está seguro que desea borrar la linea seleccionada?',
           'deleteButtonUrl'=>'$this->grid->owner->createUrl("lineaPedido/delete", $data->primaryKey)'
         );
