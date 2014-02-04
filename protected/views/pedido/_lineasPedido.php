@@ -7,6 +7,30 @@
     <h1>Detalle del pedido</h1>
     
 <?php
+    Yii::app()->clientScript->registerScript("plus-minus", "
+        function reloadPedido() {
+            $.get(window.location.href, function (oData) {
+                $('#widget-pedido').html($(oData).find('#widget-pedido').html());
+            });
+        }
+        function plusEvent(oEvent) {
+                 var id = oEvent.target.parentNode.parentNode.className.replace('producto_',''),
+                 baseUrl = $(\"meta[name='baseUrl']\").attr('content'),
+                 nInc = $(oEvent.target).hasClass('plus') ? 1 : -1;
+                 if (!isNaN(id)) {
+                    $.ajax({
+                        url: baseUrl + '/pedido/incCantidad?id_producto=' + id + '&inc=' + nInc,
+                        type: 'get',
+                        success: function () {
+                            $.fn.yiiGridView.update('lineas-pedido-grid'); 
+                            reloadPedido();
+                        }
+                    });
+                    
+                 }
+                 return false; 
+        }
+    ");
     $aColumns = array(
         'producto.nombre',
         array(
@@ -28,13 +52,14 @@
                         'label'=>'+',     //Text label of the button.
                         'url'=>'"#"',       //A PHP expression for generating the URL of the button.
                         'options' => array('class' => 'plus'),
-                        'click' => 'function (oEvent) { console.dir($(this)); $.fn.yiiGridView.update("lineas-pedido-grid"); return false; }'
+                        'click' => 'plusEvent'
                     ),
                 'minus' => array
                     (
                         'label'=>'-',     //Text label of the button.
                         'url'=>'"#"',       //A PHP expression for generating the URL of the button.
                         'options' => array('class' => 'minus'),
+                        'click' => 'plusEvent'
                     )
             ),
         ),
@@ -67,6 +92,7 @@ $aColumns[] = array(
     'htmlOptions' => array('class' => 'grid-view'),
     'dataProvider'=>new CActiveDataProvider('LineaPedido', array('data' => $model->lineas)),
     'columns'=>$aColumns,
+    'rowCssClassExpression' => '"producto_{$data->id_producto}"',
     'extendedSummary' => array(
       'title' => '',       
       'columns' => array(

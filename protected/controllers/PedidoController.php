@@ -93,6 +93,10 @@ class PedidoController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
+    
+    public function actionIncCantidad($id_producto, $inc = 1) {
+        Yii::app()->pedido->getModel()->incCantidad($id_producto, $inc);
+    }
 
 	/**
 	 * Creates a new model.

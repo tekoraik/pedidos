@@ -3,7 +3,7 @@
     <div id="izquierda">
     <?php
         $this->beginWidget('zii.widgets.CPortlet', array(
-            'title'=>'Operations',
+            'title'=>'Operaciones',
             'htmlOptions'=>array('class'=>'box'),
         ));
         $this->widget('zii.widgets.CMenu', array(

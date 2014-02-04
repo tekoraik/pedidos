@@ -128,6 +128,15 @@ class Pedido extends Describible
 		));
 	}
     
+    public function incCantidad($id_producto, $inc = 1) {
+        if (($oLinea = $this->_buscarLineaIdProducto($id_producto)) !== NULL) {
+            if (($oLinea->cantidad + $inc) >= 1) {
+                $oLinea->cantidad += $inc;
+                $oLinea->save();
+            }
+        }
+    }
+    
     /**
      * Add line to Pedido, if this product already is in Pedido add 1 to cantidad
      * @param LineaPedido Pedido line
@@ -213,6 +222,15 @@ class Pedido extends Describible
             }
         }
         return $oLinea;
+    }
+    
+    private function _buscarLineaIdProducto($nIdProducto) {
+        foreach ($this->lineas as $oLineaCandidata) {
+            if ($oLineaCandidata->id_producto == $nIdProducto) {
+                return $oLineaCandidata;
+            }
+        }
+        return null;
     }
     
     /**
