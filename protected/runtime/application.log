@@ -12086,3 +12086,87 @@ Stack trace:
 REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
 HTTP_REFERER=http://home.livetin.com/pedidos/
 ---
+2014/02/04 20:18:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---
+2014/02/04 20:18:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site/login
+---
+2014/02/04 20:18:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site/login
+---
+2014/02/04 20:18:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---
+2014/02/04 20:19:46 [error] [exception.CException] exception 'CException' with message 'La propiedad "Empresa"."adminitrador" no se encuentra definida.' in /var/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('adminitrador')
+#1 /var/www/pedidos/protected/modules/admin/controllers/EmpresaController.php(50): CActiveRecord->__get('adminitrador')
+#2 /var/www/yii/framework/web/actions/CInlineAction.php(49): EmpresaController->actionCreate()
+#3 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /var/www/pedidos/protected/modules/rights/components/RController.php(36): CFilter->filter(Object(CFilterChain))
+#7 /var/www/yii/framework/web/filters/CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#12 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/empresa/c...')
+#13 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/pedidos/index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/pedidos/admin/empresa/create
+HTTP_REFERER=http://home.livetin.com/pedidos/admin/empresa/create
+---
+2014/02/04 20:20:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/bf3fe8a4/js/rights.js"' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/bf3fe8a4...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/bf3fe8a4/js/rights.js
+HTTP_REFERER=http://home.livetin.com/pedidos/rights
+---
+2014/02/04 20:20:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/bf3fe8a4/css/default.css"' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/bf3fe8a4...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/bf3fe8a4/css/default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/rights
+---
+2014/02/04 20:20:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/bf3fe8a4/css/core.css"' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/bf3fe8a4...')
+#1 /var/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/bf3fe8a4/css/core.css
+HTTP_REFERER=http://home.livetin.com/pedidos/rights
+---
