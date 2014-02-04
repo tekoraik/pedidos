@@ -3,7 +3,16 @@
 class EmpresaController extends Controller
 {
 	
-
+    public $baseImagePath;
+    
+    /**
+     * Init function
+     */
+    public function init() {
+        parent::init();
+        $this->baseImagePath = Yii::app()->basePath.'/../img/logos/';
+    }
+    
 	/**
 	 * @return array action filters
 	 */
@@ -46,8 +55,15 @@ class EmpresaController extends Controller
 		if(isset($_POST['Empresa']))
 		{
 			$model->attributes=$_POST['Empresa'];
+            $uploadedFile=CUploadedFile::getInstance($model,'logo');
+            
+            $fileName = $this->_createImageFileName($model, $uploadedFile);
+            $model->logo = $fileName;
 			if($model->save()) {
+			    if ($uploadedFile)
+                $uploadedFile->saveAs($this->baseImagePath.$fileName);
 				Yii::app()->user->setFlash('success','Los datos se han actualizado correctamente');
+                
 				$this->redirect(array('update','id'=>$model->id));
             }
 		}
@@ -64,6 +80,7 @@ class EmpresaController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+	   
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -72,16 +89,27 @@ class EmpresaController extends Controller
 		if(isset($_POST['Empresa']))
 		{
 			$model->attributes=$_POST['Empresa'];
+            $uploadedFile=CUploadedFile::getInstance($model,'logo');
+            if ($uploadedFile)
+                $model->logo = $this->_createImageFileName($model, $uploadedFile);
 			if($model->save()) {
+			    if(!empty($uploadedFile))
+                    $uploadedFile->saveAs($this->baseImagePath.$model->logo);
 			    Yii::app()->user->setFlash('success','Los datos se han actualizado correctamente');
 				$this->redirect(array('update','id'=>$model->id));
             }
 		}
-
+         
 		$this->render('update',array(
 			'model'=>$model,
 		));
 	}
+    
+    private function _createImageFileName($model, $oUploadedFile) {
+        if ($oUploadedFile)
+        return rand(). "-" . $model->slug . "." . strtolower($oUploadedFile->getExtensionName());
+        return "";
+    }
 
 	/**
 	 * Deletes a particular model.

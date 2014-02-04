@@ -27,10 +27,12 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+
 	    if (!Yii::app()->empresa->getModel()) {
 	        die("Empresa no encontrada");
-	    } else
-		$this->forward('producto/index');
+	    } else {
+		  $this->forward('producto/index');
+        }
 	}
 
 	/**
@@ -38,6 +40,7 @@ class SiteController extends Controller
 	 */
 	public function actionError()
 	{
+	    $this->layout = false;
 		if($error=Yii::app()->errorHandler->error)
 		{
 			if(Yii::app()->request->isAjaxRequest)
@@ -65,8 +68,8 @@ class SiteController extends Controller
 					"MIME-Version: 1.0\r\n".
 					"Content-type: text/plain; charset=UTF-8";
 
-				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				mail(Yii::app()->empresa->getModel()->administrador->email ,$subject,$model->body,$headers);
+				Yii::app()->user->setFlash('contact','Gracias por contactar con nosotros, nos pondremos en contacto contigo lo antes posible');
 				$this->refresh();
 			}
 		}

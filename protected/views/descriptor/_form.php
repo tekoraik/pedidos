@@ -68,7 +68,16 @@
         <?php echo $form->error($model,'formula'); ?>
     </div>
     <?php endif; ?>
-    
+    <div class="row">
+        <?php echo $form->labelEx($model,'visible'); ?>
+        <?php echo $form->dropDownList(
+            $model, 
+            'visible', 
+            array('1' => "Si", '0' => 'No')
+        ); ?>
+        
+        <?php echo $form->error($model,'id_categoria'); ?>
+    </div>
     <div class="row">
         <?php echo $form->labelEx($model,'id_regla_validacion'); ?>
         <?php echo $form->dropDownList(

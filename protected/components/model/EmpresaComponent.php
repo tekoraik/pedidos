@@ -20,7 +20,10 @@ class EmpresaComponent extends CApplicationComponent
     function getModel() {
         if (!$this->model)
             $this->model = $this->_getFromHostName();
-        
+        if (!$this->model) {
+            throw new CHttpException(404,'No existe una empresa con este host');
+            Yii::app()->end();
+        }
         return $this->model;
     }
     
@@ -39,6 +42,8 @@ class EmpresaComponent extends CApplicationComponent
     }
     
     private function _getFromHostName() {
+        $sHost = "home.livetin.com";
+        if (isset($_SERVER) && isset($_SERVER["HTTP_HOST"]))
         $sHost = $_SERVER['HTTP_HOST'];
         return Empresa::model()->findByAttributes(array('host' => $sHost));
     }

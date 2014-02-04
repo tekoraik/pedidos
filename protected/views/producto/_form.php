@@ -41,9 +41,15 @@
 	</div>
 	
 	<div class="row">
-        <?php echo $form->labelEx($model,'iva'); ?>
-        <?php echo $form->textField($model,'iva',array('size'=>60,'maxlength'=>100)); ?>
-        <?php echo $form->error($model,'iva'); ?>
+         <?php echo $form->labelEx($model,'id_tipo_iva'); ?>
+        <?php echo $form->dropDownList(
+            $model, 
+            'id_tipo_iva', 
+            CHtml::listData(TipoIva::model()->findAll(array("condition" => "id_empresa=".Yii::app()->empresa->getModel()->id)), "id", "nombre"),
+            array('prompt'=>'Selecciona tipo iva')
+        ); ?>
+        
+        <?php echo $form->error($model,'id_categoria'); ?>
     </div>
 
     <div class="row">
@@ -80,7 +86,6 @@
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
-
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->

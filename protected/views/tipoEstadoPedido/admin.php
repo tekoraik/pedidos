@@ -41,6 +41,7 @@ $('.search-form form').submit(function(){
 		'nombre',
 		array(
 			'class'=>'CButtonColumn',
+			'deleteConfirmation'=>'Todos los pedidos que tenian este estado serán eliminados. ¿Estas seguro?',
 		),
 	),
 )); ?>

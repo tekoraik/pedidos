@@ -47,10 +47,7 @@
         <p><?php echo number_format($model->totalSinIva(), 2); ?> €</p>
     </div>
     
-	<div class="row">
-        <label>IVA: </label>
-        <p><?php echo 100 * $model->iva; ?>%</p>
-    </div>
+	
 
     <div class="row">
         <label>Total con iva: </label>

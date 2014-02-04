@@ -121,6 +121,7 @@ class ReglaValidacionController extends Controller
 	{
 		$model=new ReglaValidacion('search');
 		$model->unsetAttributes();  // clear any default values
+		$model->id_empresa = Yii::app()->empresa->getModel()->id;
 		if(isset($_GET['ReglaValidacion']))
 			$model->attributes=$_GET['ReglaValidacion'];
 

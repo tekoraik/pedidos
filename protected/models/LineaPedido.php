@@ -6,7 +6,6 @@
  * The followings are the available columns in table 'linea_pedido':
  * @property integer $id_pedido
  * @property integer $id_producto
- * @property integer $orden
  * @property string $precio
  * @property integer $cantidad
  *
@@ -32,11 +31,11 @@ class LineaPedido extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_pedido, id_producto, precio', 'required'),
-			array('id_pedido, id_producto, orden, cantidad', 'numerical', 'integerOnly'=>true),
-			array('precio', 'length', 'max'=>10),
+			array('id_pedido, id_producto, cantidad', 'numerical', 'integerOnly'=>true),
+			array('precio, iva', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_pedido, id_producto, orden, precio, cantidad', 'safe', 'on'=>'search'),
+			array('id_pedido, id_producto, precio, cantidad, iva', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,9 +61,9 @@ class LineaPedido extends CActiveRecord
 		return array(
 			'id_pedido' => 'Pedido',
 			'id_producto' => 'Producto',
-			'orden' => 'Numero de orden',
 			'precio' => 'Precio',
 			'cantidad' => 'Cantidad',
+			'iva' => 'IVA',
 		);
 	}
 
@@ -88,9 +87,9 @@ class LineaPedido extends CActiveRecord
 
 		$criteria->compare('id_pedido',$this->id_pedido);
 		$criteria->compare('id_producto',$this->id_producto);
-		$criteria->compare('orden',$this->orden);
 		$criteria->compare('precio',$this->precio,true);
 		$criteria->compare('cantidad',$this->cantidad);
+        $criteria->compare('iva',$this->iva);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -103,7 +102,7 @@ class LineaPedido extends CActiveRecord
      * @return number Price with iva
      */
     public function precioConIva() {
-        return $this->precio * (1 + $this->pedido->iva);
+        return $this->precio * (1 + $this->iva);
     }
     
     /**

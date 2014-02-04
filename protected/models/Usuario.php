@@ -37,6 +37,8 @@ class Usuario extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('identidad, nombre, apellidos, email', 'required'),
+			array('identidad', 'UniqueAttributesValidator', 'with'=>'tipo_identidad,id_empresa', 'message'=>'Ya existe un registro con esa identidad'),
+			array('email', 'UniqueAttributesValidator', 'with'=>'id_empresa', 'message'=>'Ya existe un registro con ese email'),
 			array('id_empresa', 'numerical', 'integerOnly'=>true),
 			array('identidad', 'length', 'max'=>45),
 			array('tipo_identidad', 'length', 'max'=>9),
@@ -58,7 +60,7 @@ class Usuario extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'pedidos' => array(self::HAS_MANY, 'Pedido', 'id_usuario'),
-			'idEmpresa' => array(self::BELONGS_TO, 'Empresa', 'id_empresa'),
+			'empresa' => array(self::BELONGS_TO, 'Empresa', 'id_empresa'),
 		);
 	}
 
@@ -81,7 +83,7 @@ class Usuario extends CActiveRecord
 		);
 	}
 
-
+    
     protected function beforeSave() {
         $this->password = crypt($this->password, '2a$%02d$' . 'abcdefghijklmnopqrstuv');
         return true;

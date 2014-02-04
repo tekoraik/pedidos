@@ -21,6 +21,7 @@
 class Producto extends Describible
 {
     public $categoria_nombre;
+    public $tipo_iva_nombre;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -37,9 +38,11 @@ class Producto extends Describible
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre, slug, descripcion_corta, precio, id_empresa, iva', 'required'),
-			array('id_empresa, id_categoria', 'numerical', 'integerOnly'=>true),
-			array('nombre, slug, descripcion_corta', 'length', 'max'=>100),
+			array('nombre, slug, descripcion_corta, precio, id_empresa, id_tipo_iva', 'required'),
+			array('id_empresa, id_categoria, id_tipo_iva', 'numerical', 'integerOnly'=>true),
+			array('nombre, slug', 'length', 'max'=>100),
+			array('descripcion_corta', 'length', 'max'=>40),
+			array('id', 'validaEnLineaPedido', 'on' => 'delete'),
 			array('precio', 'length', 'max'=>10),
 			array('imagen', 'length', 'max'=>255),
 			array('descripcion_larga', 'safe'),
@@ -47,8 +50,8 @@ class Producto extends Describible
 			array('imagen', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nombre, slug, descripcion_corta, descripcion_larga, precio, imagen, id_empresa, id_categoria, categoria_nombre', 'safe', 'on'=>'search'),
-		);
+			array('id, nombre, slug, descripcion_corta, descripcion_larga, precio, imagen, id_empresa, id_categoria, categoria_nombre, tipo_iva_nombre', 'safe', 'on'=>'search'),
+        );
 	}
 
 	/**
@@ -60,19 +63,28 @@ class Producto extends Describible
 		// class name for the relations automatically generated below.
 		return array_merge(parent::relations(), array(
 			'categoria' => array(self::BELONGS_TO, 'Categoria', 'id_categoria'),
+			'lineasPedido' => array(self::HAS_MANY, 'LineaPedido', 'id_producto'),
 			'empresa' => array(self::BELONGS_TO, 'Empresa', 'id_empresa'),
+			'tipoIva' => array(self::BELONGS_TO, 'TipoIva', 'id_tipo_iva'),
 		));
 	}
     
     /**
      * Before validate event
      */
-    protected function beforeValidate() {
+    protected function beforeValidate() {  
         $this->precio = str_replace(",", ".", $this->precio); //fix price
         $this->calculateSlug();
+       
         return parent::beforeValidate();
     }
     
+    
+    protected function beforeDelete() {
+        parent::beforeDelete();
+        $this->validaEnLineaPedido("id", array());
+        return !$this->hasErrors();
+    }
     /**
      * Before save event
      */
@@ -102,7 +114,7 @@ class Producto extends Describible
 			'id_empresa' => 'Empresa',
 			'id_categoria' => 'Categoria',
 			'categoria_nombre' => 'Categoria',
-			'iva' => 'IVA',
+			'tipo_iva_nombre' => "Tipo de iva",
 		);
 	}
 	/**
@@ -110,10 +122,20 @@ class Producto extends Describible
 	 * This is the 'validaEsMismaEmpresa' validator as declared in rules().
 	 */
 	public function validaEsMismaEmpresa($attribute,$params)
-	{
+	{ 
 		if ($this->categoria && $this->id_empresa != $this->categoria->id_empresa)
 	      $this->addError($attribute, 'La empresa debe ser igual que la empresa de la categoria ('.$this->categoria->empresa->nombre.')');
-	}
+    }
+    
+    /**
+     * Comprueva si el producto se encuentra en una LineaPedido, si es así añade el error
+     */
+    public function validaEnLineaPedido($attribute, $params) {
+        var_dump($this->lineasPedido);
+        if (count($this->lineasPedido) > 0){
+            $this->addError($attribute, 'El producto ya se encuentra en una linea de pedido, no es posible borrarlo');
+        }
+    }
     
     /**
      * Calculate slug for this model
@@ -124,7 +146,7 @@ class Producto extends Describible
     
     
     public function getFormattedIva() {
-        return ($this->iva * 100) . "%";
+        return (($this->getIva())* 100) . "%";
     }
     
     public function getFormattedPrecio() {
@@ -132,7 +154,16 @@ class Producto extends Describible
     }
     
     public function getFormattedTotal() {
-        return (number_format($this->precio + $this->precio * $this->iva, 2)) . "€";
+        return (number_format($this->precio + $this->precio * $this->getIva(), 2)) . "€";
+    }
+    
+    public function getIva() {
+        if ($this->tipoIva) {
+            $nIva = $this->tipoIva->valor;
+        } else {
+            $nIva = 0.21;
+        }
+        return $nIva;
     }
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
@@ -151,7 +182,7 @@ class Producto extends Describible
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-        $criteria->with = array('categoria');
+        $criteria->with = array('categoria', 'tipoIva');
 		$criteria->compare('id',$this->id);
 		$criteria->compare('t.nombre',$this->nombre,true);
 		$criteria->compare('slug',$this->slug,true);
@@ -160,6 +191,7 @@ class Producto extends Describible
 		$criteria->compare('precio',$this->precio,true);
 		$criteria->compare('t.id_empresa',$this->id_empresa);
         $criteria->compare('categoria.nombre',$this->categoria_nombre);
+        $criteria->compare('tipoIva.nombre', $this->tipo_iva_nombre);
         if ($this->categoria) {
                 $criteria->compare('id_categoria',$this->categoria->id, false, "AND");
                 $this->_addCriteriaSubCategorias($criteria, $this->categoria);
@@ -173,6 +205,22 @@ class Producto extends Describible
 			'criteria'=>$criteria,
 		));
 	}
+    
+    /**
+     * Search producto with nombre, descripcion_corta or descripcion_larga
+     * @return CActiveDataProvider Result
+     */
+    public function partialSearch() {
+
+        $criteria=new CDbCriteria;
+        $criteria->compare('t.nombre',$this->nombre, true, "OR");
+        $criteria->compare('t.descripcion_corta',$this->descripcion_corta, true, "OR");
+        $criteria->compare('t.descripcion_larga',$this->descripcion_larga, true, "OR");
+         $criteria->compare('t.id_empresa',$this->id_empresa, false);
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+        ));
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -186,17 +234,19 @@ class Producto extends Describible
 	}
     
     /**
-     * Comprueva si un descriptor es compatible con este producto
-     * @param Descriptor $oDescriptor
+     * Comprueva si el producto es de una categoria
+     * @param int id_categoria
      */
-    public function check($oDescriptor) {
-        if ($oDescriptor->id_categoria) {
-            if ($this->categoria)
-                return $oDescriptor->id_categoria == $this->categoria->id || $this->_esCategoriaHija($oDescriptor->id_categoria);
-            else
-                return false;
-            }
-        return true;
+    public function checkCategoria($id_categoria) {
+            
+        if (!$this->categoria || !$id_categoria)
+            return true;
+        
+        if ($this->categoria && $id_categoria)
+                return $id_categoria == $this->categoria->id || $this->_esCategoriaHija($id_categoria); 
+        
+        
+        return false;
     }
     
     private function _esCategoriaHija($id_categoria) {
@@ -217,4 +267,24 @@ class Producto extends Describible
             }
         }
     }
+    
+    public function getNombreDescriptoresFormulaEmpresa($bOnlyVisible = false) {
+        if ($this->empresa)
+            return $this->empresa->getNombreDescriptoresFormula("producto", $this->categoria ? $this->categoria->id : null, $bOnlyVisible);
+        else 
+            return array();
+    }
+    
+    public function getValorDescriptoresFormulaEmpresa($sNombreAtributo, $aCampos) {
+        if ($this->empresa)
+            return $this->empresa->getValorDescriptoresFormula($sNombreAtributo, $aCampos);
+        else
+            return "";
+    }
+    
+    public function getImagePath() {
+        if ($this->imagen) return "img/productos/" . $this->imagen;
+        else return "img/no-disponible.jpg";
+    }
 }
+?>

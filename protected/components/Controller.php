@@ -21,6 +21,8 @@ class Controller extends RController
 	 */
 	public $breadcrumbs=array();
     
+    public $buscarCriterio = "";
+    
     /**
      * Init controller function
      */

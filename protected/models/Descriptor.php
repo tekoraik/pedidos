@@ -7,6 +7,7 @@
  * @property integer $id
  * @property string $nombre
  * @property string $tipo
+ * @property int $visible
  * @property integer $id_categoria
  * @property integer $id_empresa
  *
@@ -35,7 +36,7 @@ class Descriptor extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id_empresa, tipo_valor', 'required'),
-			array('id_categoria, id_empresa, id_regla_validacion', 'numerical', 'integerOnly'=>true),
+			array('id_categoria, id_empresa, id_regla_validacion, visible', 'numerical', 'integerOnly'=>true),
 			array('nombre', 'length', 'max'=>45),
 			array('formula', 'length', 'max'=>255),
 			array('tipo', 'length', 'max'=>8),
@@ -69,6 +70,7 @@ class Descriptor extends CActiveRecord
 			'id' => 'ID',
 			'nombre' => 'Nombre',
 			'tipo' => 'Tipo',
+			'visible' => 'Visible',
 			'id_categoria' => 'Categoria',
 			'id_empresa' => 'Id Empresa',
 			'formula' => 'Formula',
@@ -100,6 +102,7 @@ class Descriptor extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('t.nombre',$this->nombre,true);
 		$criteria->compare('tipo',$this->tipo,true);
+        $criteria->compare('visible',$this->visible,false);
 		$criteria->compare('id_categoria',$this->id_categoria);
 		$criteria->compare('t.id_empresa',$this->id_empresa);
         $criteria->compare('categoria.nombre', $this->categoria_nombre);
@@ -118,4 +121,41 @@ class Descriptor extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    public function hasReglaValidacion() {
+        return $this->regla ? true : false;
+    }
+    
+    public function getValorReglaValidacion() {
+        return $this->regla ? $this->regla->valor : null;
+    }
+    
+    public function getDesdeReglaValidacion() {
+        return $this->regla ? $this->regla->desde : null;
+    }
+    
+    public function getHastaReglaValidacion() {
+        return $this->regla ? $this->regla->hasta : null;
+    }
+    
+    public function getTipoReglaValidacion() {
+        return $this->regla ? $this->regla->tipo : null;
+    }
+    
+    public function evaluarFormula($aCampos) {
+        $oDescriptor = $this;
+        $data = $this;
+        $sFormula = $oDescriptor->formula;
+        
+        if ($oDescriptor->tipo_valor == "formula" && $oDescriptor->formula) {
+            foreach ($aCampos as $sNombreCampo => $sValorCampo) {
+                $sFormula = str_replace($sNombreCampo, $sValorCampo, $sFormula);
+            }
+            $sFormula .= ";";
+            $sValue = @eval("return " . $sFormula);
+            return $sValue;
+        } else {
+            return "";
+        }
+    }
 }
