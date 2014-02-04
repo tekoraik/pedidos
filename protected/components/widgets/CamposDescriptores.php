@@ -17,7 +17,7 @@
                         echo $oDescriptor->nombre;
                         echo '</label>';
                         if ($oDescriptor->tipo_valor != "formula")
-                        echo '<input class="' . ($oDescriptor->tipo_valor=='fecha' ? "datepicker" : "") . '"" type="text" name="ValoresDescriptor[valor][]" value="' . $this->describible->getValor($oDescriptor->nombre) . '" />';
+                        echo '<input class="' . ($oDescriptor->tipo_valor=='fecha' ? "datepicker" : "") . '" type="text" name="ValoresDescriptor[valor][]" value="' . $this->describible->getValor($oDescriptor->nombre) . '" />';
                         else {
                             echo $oDescriptor->evaluarFormula($this->describible->getColeccionCampos());
                         }
