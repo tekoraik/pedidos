@@ -124,7 +124,7 @@ class Categoria extends CActiveRecord
      * Calculate slug for this model
      */
     public function calculateSlug() {
-        $this->slug = strtolower(str_replace(array(" ", "_", "á", "é", "í", "ó", "ú", "Á", "É", "Í", "Ó", "Ú"), array("-", "-", "a", "e", "i", "o", "u", "A", "E", "U", "O", "U"), $this->nombre)).rand(1, 100);
+        $this->slug = strtolower(str_replace(array(" ", "_", "á", "é", "í", "ó", "ú", "Á", "É", "Í", "Ó", "Ú", "ñ", "Ñ"), array("-", "-", "a", "e", "i", "o", "u", "A", "E", "U", "O", "U", "n", "N"), $this->nombre)).rand(1, 100);
     }
 	/**
 	 * Returns the static model of the specified AR class.
