@@ -22,7 +22,7 @@ class PedidoController extends Controller
     
     public function allowedActions()
     {
-        return 'view, addProducto, verPedidoActual, REST.GET, REST.PUT, REST.POST, REST.DELETE';
+        return 'view, addProducto, verPedidoActual, incCantidad, REST.GET, REST.PUT, REST.POST, REST.DELETE';
     }
 
     public function actions() {
