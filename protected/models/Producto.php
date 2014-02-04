@@ -41,7 +41,7 @@ class Producto extends Describible
 			array('nombre, slug, descripcion_corta, precio, id_empresa, id_tipo_iva', 'required'),
 			array('id_empresa, id_categoria, id_tipo_iva', 'numerical', 'integerOnly'=>true),
 			array('nombre, slug', 'length', 'max'=>100),
-			array('descripcion_corta', 'length', 'max'=>40),
+			array('descripcion_corta', 'length', 'max'=>80),
 			array('id', 'validaEnLineaPedido', 'on' => 'delete'),
 			array('precio', 'length', 'max'=>10),
 			array('imagen', 'length', 'max'=>255),
