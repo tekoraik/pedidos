@@ -84,7 +84,7 @@
     <?php $this->widget('application.components.widgets.CamposDescriptores', array('model' => Yii::app()->empresa->getModel(), 'tipo' => 'producto', 'describible' => $model, 'form' => $form)); ?>
     
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>
 <?php $this->endWidget(); ?>
 
