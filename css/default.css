@@ -371,10 +371,11 @@ ul.menu {
   text-align: center;
   background: rgb(80, 80, 80);
   color: #fff;
+  min-width: 1000px;
 }
 ul.menu * {
   margin:0;
-  padding:0
+  padding:0;
 }
 ul.menu a {
   display:block;
