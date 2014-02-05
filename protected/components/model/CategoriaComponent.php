@@ -30,7 +30,7 @@ class CategoriaComponent extends CApplicationComponent
         $aItem["url"] = array();
         $aItem["url"]["route"] = "producto/categoria/" . $oCategoria->slug;
         $aItem["label"] = $oCategoria->nombre;
-        $aItem["url"]["htmlOptions"] = array( "style" => "width: " . round(700 / $nItems) . "px;");
+        $aItem["url"]["htmlOptions"] = array( "style" => "width: " . round(700/ $nItems) . "px;");
         if (count($oCategoria->hijas) > 0) {
             $aSubMenu = $this->_createMenu($oCategoria->hijas);
             $aItem = array_merge($aItem, $aSubMenu);
