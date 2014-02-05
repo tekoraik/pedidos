@@ -164,16 +164,16 @@
                                  
                                  array(
                                     "url" => array( "route" => "producto/admin", "htmlOptions" => $htmlOptions,),
-                                    "label" => "Gestión de productos",
+                                    "label" => "Productos",
                                  ),
                                  array(
                                     "url" => array( "route" => "categoria/admin", "htmlOptions" => $htmlOptions,),
-                                    "label" => "Gestión de categorias",
+                                    "label" => "Categorías",
                                  ),
                                  
                                  array(
                                     "url" => array( "route" => "pedido/admin", "htmlOptions" => $htmlOptions),
-                                    "label" => "Gestión de pedidos",
+                                    "label" => "Pedidos",
                                  ),
                                  array(
                                     "url" => array( "route" => "tipoEstadoPedido/admin", "htmlOptions" => $htmlOptions),
