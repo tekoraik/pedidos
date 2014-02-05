@@ -83,6 +83,9 @@
                 color: '.Yii::app()->empresa->getModel()->color15.';
             }
             #top-bar a { color: inherit; }
+            ul.menu ul ul {
+                left: '.Yii::app()->categoria->getWidthItem(Yii::app()->empresa->getModel()->categorias) . 'px;
+            }
         '); ?>
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
         

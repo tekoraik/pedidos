@@ -117,7 +117,8 @@
                 width: 90%;
                 margin: 0px auto 0px auto;
                 padding: 0px 0px 0px 0px;
-                margin-top: 36px;
+                margin-top: 0px;
+                max-width: 1115px;
             }
             .box {
                 
@@ -146,13 +147,12 @@
             }
             #izquierda {
                 margin-top: 0px;
-                width: 27%;
+                width: 20%;
                 float: left;
             }
             #cuerpo {
-                width: 70%;
+                width: 78%;
                 float: right;
-                margin-top: 0px;
                 margin-left: 8px;
                 margin-top: -6px;
                 
@@ -200,7 +200,7 @@
             ul.menu-principal li {
                 display: inline-block;
                 color: #F2F2F2;
-                width: 136px;
+                /*width: 136px;*/
                 list-style: none;
                 padding-top: 20px;
                 margin: 0;
@@ -390,11 +390,11 @@ ul.menu li {
   display: inline-block;
   height: 40px;
   padding-top: 10px;
-  width: 155px;
+  /*width: 140px;*/
   font-size: inherit;
 }
 ul.menu > li {
-    font-size: 1.1em;
+    font-size: 1.03em;
 }
 ul.menu ul {
   position:absolute;
@@ -409,7 +409,7 @@ ul.menu ul li {
   position:relative;
   border: none;
   border-top:none;
-  width:200px;
+  /*width:200px;*/
   margin:0;
   
   background: rgb(80, 80, 80);
@@ -440,7 +440,7 @@ ul.menu .disabled {
   border: none;
   padding:5px 7px 7px;
   font-weight:bold;
-  width:134px;
+  /*width:134px;*/
   color: #444444;
 }
 
@@ -506,9 +506,9 @@ ul.menu .topline {
 #widget-pedido {
     width: 80%;
     text-align: center;
-    
+    margin-top: 74px;
 }
-#widget-pedido img { margin-bottom: 20px; }
+#widget-pedido img { margin-bottom: 20px; width: 60px; }
 #widget-pedido .precio { color: rgb(61, 88, 112); font-size: 2em; font-weight: bold; }
 #widget-pedido .button { 
     height:50px;

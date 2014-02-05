@@ -10,7 +10,7 @@
         <p><?php echo CHtml::encode($data->nombre); ?></p>
     </div>
     <div class="precio">
-        <?php echo CHtml::encode($data->precio); ?> €
+        <?php echo CHtml::encode($data->getFormattedTotal()); ?>
     </div>
     <div class="descripcion-corta">
         <?php echo CHtml::encode($data->descripcion_corta); ?>
