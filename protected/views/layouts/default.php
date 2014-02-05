@@ -84,7 +84,7 @@
             }
             #top-bar a { color: inherit; }
             ul.menu ul ul {
-                left: '.Yii::app()->categoria->getWidthItem(Yii::app()->empresa->getModel()->categorias) . 'px;
+                left: '.Yii::app()->categoria->getWidthItem(Yii::app()->empresa->getModel()->categorias, $this->checkRole("AdminEmpresa") ? 1 : 0) . 'px;
             }
         '); ?>
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
@@ -144,42 +144,44 @@
                    </div>
                    <?php
                     $aExtraItems = array(array());
+                    $htmlOptions = array("style" => "width: " . Yii::app()->categoria->getWidthItem(Yii::app()->empresa->getModel()->categorias, $this->checkRole("AdminEmpresa") ? 1 : 0) . "px;");
                     if ($this->checkRole("AdminEmpresa")) {
                         $aExtraItems = array(array(
-                                 "url" => "",
+                                 "url" => array( "htmlOptions" => $htmlOptions),
                                  "label" => "Administrar",
+                                 
                                  array(
-                                    "url" => array( "route" => "producto/admin"),
-                                    "label" => "Gestión de productos"
+                                    "url" => array( "route" => "producto/admin", "htmlOptions" => $htmlOptions,),
+                                    "label" => "Gestión de productos",
                                  ),
                                  array(
-                                    "url" => array( "route" => "categoria/admin"),
-                                    "label" => "Gestión de categorias"
+                                    "url" => array( "route" => "categoria/admin", "htmlOptions" => $htmlOptions,),
+                                    "label" => "Gestión de categorias",
                                  ),
                                  
                                  array(
-                                    "url" => array( "route" => "pedido/admin"),
-                                    "label" => "Gestión de pedidos"
+                                    "url" => array( "route" => "pedido/admin", "htmlOptions" => $htmlOptions),
+                                    "label" => "Gestión de pedidos",
                                  ),
                                  array(
-                                    "url" => array( "route" => "tipoEstadoPedido/admin"),
-                                    "label" => "Estados de pedido"
+                                    "url" => array( "route" => "tipoEstadoPedido/admin", "htmlOptions" => $htmlOptions),
+                                    "label" => "Estados de pedido",
                                  ),
                                  array(
-                                    "url" => array( "route" => "empresa/update?id=".Yii::app()->empresa->getModel()->id),
-                                    "label" => "Empresa"
+                                    "url" => array( "route" => "empresa/update?id=".Yii::app()->empresa->getModel()->id, "htmlOptions" => $htmlOptions),
+                                    "label" => "Empresa",
                                  ),
                                  array(
-                                    "url" => array( "route" => "descriptor/admin"),
-                                    "label" => "Descriptores"
+                                    "url" => array( "route" => "descriptor/admin", "htmlOptions" => $htmlOptions),
+                                    "label" => "Descriptores",
                                  ),
                                  array(
-                                    "url" => array( "route" => "reglaValidacion/admin"),
-                                    "label" => "Reglas de validación"
+                                    "url" => array( "route" => "reglaValidacion/admin", "htmlOptions" => $htmlOptions),
+                                    "label" => "Reglas de validación",
                                  ),
                                  array(
-                                    "url" => array( "route" => "tipoIva/admin"),
-                                    "label" => "Tipos de IVA"
+                                    "url" => array( "route" => "tipoIva/admin", "htmlOptions" => $htmlOptions),
+                                    "label" => "Tipos de IVA",
                                  ),
                             ));
                     }
