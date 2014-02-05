@@ -86,6 +86,9 @@
             ul.menu ul ul {
                 left: '.Yii::app()->categoria->getWidthItem(Yii::app()->empresa->getModel()->categorias, $this->checkRole("AdminEmpresa") ? 1 : 0) . 'px;
             }
+            #search label {
+                color: '.Yii::app()->empresa->getModel()->color15.';
+            }
         '); ?>
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
         
@@ -118,6 +121,14 @@
             <header>
               
               <div id="top-bar">
+              <?php if (Yii::app()->empresa->getModel()->logo): ?>
+              <div id="logo-empresa">
+                      
+                      <img height="140" src="<?php echo Yii::app()->getBaseUrl(); ?>/img/logos/<?php echo Yii::app()->empresa->getModel()->logo; ?>" />
+                      
+              </div>
+              <?php endif; ?>
+              <div id="top-links">
               <span><a href="<?php echo $this->createUrl('site/index'); ?>">Inicio</a></span>
               <!--<img src="<?php echo Yii::app()->getBaseUrl(); ?>/img/logo.png" width="200" style="float: left;" />-->
                <span>| <a href="<?php echo $this->createUrl('site/contact'); ?>">Contacto</a></span>
@@ -133,15 +144,16 @@
               <?php if ($this->checkRole("Admin")): ?>
                   <span>| <a href="<?php echo $this->createUrl('/admin'); ?>">Admin</a></span>
               <?php endif; ?>
-             
+              </div>
+              <form id="search" action="<?php echo $this->createUrl("search"); ?>">
+                    <label>Buscar productos: </label>
+                    <input type="text" name="buscar-criterio" id="buscar-criterio" value="<?php echo $this->buscarCriterio; ?>"/>
+                    <button class="button" type="submit">Buscar</button>
+                </form>
               </div>
               <div class="menu-principal">
                 <nav>
-                    <div id="logo-empresa">
-                      <?php if (Yii::app()->empresa->getModel()->logo): ?>
-                      <img height="140" src="<?php echo Yii::app()->getBaseUrl(); ?>/img/logos/<?php echo Yii::app()->empresa->getModel()->logo; ?>" />
-                      <?php endif; ?>
-                   </div>
+                    
                    <?php
                     $aExtraItems = array(array());
                     $htmlOptions = array("style" => "width: " . Yii::app()->categoria->getWidthItem(Yii::app()->empresa->getModel()->categorias, $this->checkRole("AdminEmpresa") ? 1 : 0) . "px;");
@@ -202,13 +214,7 @@
                 </nav>
             </div>
                 
-            <div id="tool-bar">
-                <form id="search" action="<?php echo $this->createUrl("search"); ?>">
-                    <label>Buscar productos: </label>
-                    <input type="text" name="buscar-criterio" id="buscar-criterio" value="<?php echo $this->buscarCriterio; ?>"/>
-                    <button class="button" type="submit">Buscar</button>
-                </form>
-            </div>
+            
             </header>
             
             <div id="contenido">
