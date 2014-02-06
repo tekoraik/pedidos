@@ -67,10 +67,11 @@ class SiteController extends Controller
 					"Reply-To: {$model->email}\r\n".
 					"MIME-Version: 1.0\r\n".
 					"Content-type: text/plain; charset=UTF-8";
-
+                
 				mail(Yii::app()->empresa->getModel()->administrador->email ,$subject,$model->body,$headers);
 				Yii::app()->user->setFlash('contact','Gracias por contactar con nosotros, nos pondremos en contacto contigo lo antes posible');
-				$this->refresh();
+				//$this->refresh();
+				die();
 			}
 		}
 		$this->render('contact',array('model'=>$model));

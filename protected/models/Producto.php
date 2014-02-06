@@ -131,7 +131,6 @@ class Producto extends Describible
      * Comprueva si el producto se encuentra en una LineaPedido, si es así añade el error
      */
     public function validaEnLineaPedido($attribute, $params) {
-        var_dump($this->lineasPedido);
         if (count($this->lineasPedido) > 0){
             $this->addError($attribute, 'El producto ya se encuentra en una linea de pedido, no es posible borrarlo');
         }

@@ -194,7 +194,6 @@ class ProductoController extends Controller
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-        
         if ($model->hasErrors() && isset($_GET['ajax'])) {
              echo "Se han producido los siguientes errores: ";
              http_response_code (500);
