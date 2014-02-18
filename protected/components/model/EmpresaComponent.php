@@ -20,22 +20,19 @@ class EmpresaComponent extends CApplicationComponent
     function getModel() {
         if (!$this->model)
             $this->model = $this->_getFromHostName();
-        if (!$this->model) {
-            throw new CHttpException(404,'No existe una empresa con este host');
-            Yii::app()->end();
-        }
+       
         return $this->model;
     }
     
     function usuarioEsAdministrador() {
-        if (Yii::app()->user->getId()){
+        if ($this->model && Yii::app()->user->getId()){
             $oUsuario = Usuario::model()->findByPk(Yii::app()->user->getId());
             return $this->model->esAdministrador($oUsuario);
         } else return false;
     }
     
     function usuarioEsCliente() {
-        if (Yii::app()->user->getId()){
+        if ($this->model && Yii::app()->user->getId()){
             $oUsuario = Usuario::model()->findByPk(Yii::app()->user->getId());
             return $this->model->esCliente($oUsuario);
         } else return false;

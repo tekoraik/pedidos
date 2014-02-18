@@ -494,3 +494,568 @@ Stack trace:
 REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
 HTTP_REFERER=http://home.livetin.com/pedidos/
 ---
+2014/02/14 16:38:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---
+2014/02/14 16:38:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/usuario/create
+---
+2014/02/14 16:38:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---
+2014/02/14 17:21:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---
+2014/02/14 17:21:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site/login
+---
+2014/02/14 17:21:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---
+2014/02/14 17:21:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/categoria/admin
+---
+2014/02/18 20:03:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:24
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/admin
+---
+2014/02/18 20:07:00 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:51)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (51)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:08:27 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:51)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (51)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:08:27 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:51)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (51)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:14:29 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:51)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (51)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:14:31 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:51)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (51)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:15:02 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:51)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (51)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:15:03 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:51)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (51)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:17:04 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:51)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (51)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:17:05 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:51)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (51)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:17:05 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:51)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (51)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:18:31 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:52)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (52)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:18:32 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:52)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (52)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:18:32 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:52)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (52)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:18:33 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:52)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (52)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:18:42 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:52)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (52)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:18:42 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:52)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (52)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:18:43 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/model/PedidoComponent.php:52)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/base/CModule.php(523): CWebApplication->getComponent()
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(163): CWebApplication->preloadComponents()
+#2 /var/www/pedidos/yii/framework/YiiBase.php(125): CWebApplication->__construct()
+#3 /var/www/pedidos/yii/framework/YiiBase.php(98): createApplication()
+#4 /var/www/pedidos/index.php(14): createWebApplication()
+REQUEST_URI=/pedidos/admin
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (52)
+in /var/www/pedidos/protected/components/model/PedidoComponent.php (19)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:19:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:25
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/login
+HTTP_REFERER=http://localhost/pedidos/admin
+---
+2014/02/18 20:19:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/login
+HTTP_REFERER=http://localhost/pedidos/admin
+---
+2014/02/18 20:19:52 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/views/layouts/2columnas.php:7)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CController.php(785): SiteController->renderFile()
+#1 /var/www/pedidos/protected/controllers/SiteController.php(113): SiteController->render()
+#2 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#3 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /var/www/pedidos/yii/framework/web/CController.php(286): SiteController->runAction()
+#5 /var/www/pedidos/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#6 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#7 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#8 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/pedidos/index.php(14): CWebApplication->run()
+REQUEST_URI=/pedidos/site/login
+in /var/www/pedidos/protected/views/layouts/2columnas.php (7)
+in /var/www/pedidos/protected/controllers/SiteController.php (113)
+in /var/www/pedidos/index.php (14)
+2014/02/18 20:21:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/index
+HTTP_REFERER=http://localhost/pedidos/site/login
+---
+2014/02/18 20:22:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/
+---
+2014/02/18 20:22:13 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/UserIdentity.php:23)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute()
+#1 /var/www/pedidos/yii/framework/base/CModel.php(159): CInlineValidator->validate()
+#2 /var/www/pedidos/protected/controllers/SiteController.php(111): LoginForm->validate()
+#3 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#4 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/pedidos/yii/framework/web/CController.php(286): SiteController->runAction()
+#6 /var/www/pedidos/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#7 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#8 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pedidos/index.php(14): CWebApplication->run()
+REQUEST_URI=/pedidos/site/login
+in /var/www/pedidos/protected/components/UserIdentity.php (23)
+in /var/www/pedidos/protected/models/LoginForm.php (52)
+in /var/www/pedidos/protected/controllers/SiteController.php (111)
+2014/02/18 20:23:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/index
+HTTP_REFERER=http://localhost/pedidos/site/login
+---
+2014/02/18 20:28:05 [error] [php] Trying to get property of non-object (/var/www/pedidos/protected/components/UserIdentity.php:24)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute()
+#1 /var/www/pedidos/yii/framework/base/CModel.php(159): CInlineValidator->validate()
+#2 /var/www/pedidos/protected/controllers/SiteController.php(111): LoginForm->validate()
+#3 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#4 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/pedidos/yii/framework/web/CController.php(286): SiteController->runAction()
+#6 /var/www/pedidos/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#7 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#8 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pedidos/index.php(14): CWebApplication->run()
+REQUEST_URI=/pedidos/site/login
+in /var/www/pedidos/protected/components/UserIdentity.php (24)
+in /var/www/pedidos/protected/models/LoginForm.php (52)
+in /var/www/pedidos/protected/controllers/SiteController.php (111)
+2014/02/18 20:30:27 [error] [system.db.CDbCommand] CDbCommand::fetch() falló: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1. La sentencia SQL ejecutada fue: SELECT * FROM `usuario` `t` WHERE email='admin@mail.com'  OR id_empresa IS NULL) LIMIT 1.
+in /var/www/pedidos/protected/components/UserIdentity.php (28)
+in /var/www/pedidos/protected/models/LoginForm.php (52)
+in /var/www/pedidos/protected/controllers/SiteController.php (111)
+2014/02/18 20:30:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `usuario` `t` WHERE email='admin@mail.com'  OR id_empresa IS NULL) LIMIT 1' in /var/www/pedidos/yii/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/pedidos/yii/framework/db/CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(1354): CDbCommand->queryRow()
+#2 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(1459): CActiveRecord->query(Object(CDbCriteria))
+#3 /var/www/pedidos/protected/components/UserIdentity.php(28): CActiveRecord->find(Array)
+#4 /var/www/pedidos/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#5 /var/www/pedidos/yii/framework/validators/CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#6 /var/www/pedidos/yii/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#7 /var/www/pedidos/yii/framework/base/CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#8 /var/www/pedidos/protected/controllers/SiteController.php(111): CModel->validate()
+#9 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#10 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /var/www/pedidos/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /var/www/pedidos/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): CController->run('login')
+#14 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#15 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /var/www/pedidos/index.php(14): CApplication->run()
+#17 {main}
+REQUEST_URI=/pedidos/site/login
+HTTP_REFERER=http://localhost/pedidos/site/login
+---
+2014/02/18 20:31:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/logout
+HTTP_REFERER=http://localhost/pedidos/admin/empresa
+---
+2014/02/18 20:32:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/logout
+HTTP_REFERER=http://localhost/pedidos/admin/empresa
+---
+2014/02/18 20:32:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/logout
+---
+2014/02/18 20:32:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/logout
+---
+2014/02/18 20:32:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/logout
+---
+2014/02/18 20:32:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/logout
+---
+2014/02/18 20:32:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/logout
+---
+2014/02/18 20:32:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/logout
+---
+2014/02/18 20:32:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/logout
+---
+2014/02/18 20:48:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/logout
+HTTP_REFERER=http://localhost/pedidos/admin
+---
+2014/02/18 20:48:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:26
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/site/logout
+HTTP_REFERER=http://localhost/pedidos/admin
+---
+2014/02/18 20:49:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:27
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/
+HTTP_REFERER=http://localhost/pedidos/site/login
+---
+2014/02/18 20:51:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No existe una empresa con este host' in /var/www/pedidos/protected/components/model/EmpresaComponent.php:27
+Stack trace:
+#0 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#1 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#2 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#4 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#5 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#6 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#7 {main}
+REQUEST_URI=/pedidos/
+HTTP_REFERER=http://localhost/pedidos/site/login
+---

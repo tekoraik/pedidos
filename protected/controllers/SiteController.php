@@ -27,9 +27,8 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-
 	    if (!Yii::app()->empresa->getModel()) {
-	        die("Empresa no encontrada");
+	        $this->redirect(Yii::app()->getBaseUrl()."/admin");
 	    } else {
 		  $this->forward('producto/index');
         }
@@ -83,7 +82,9 @@ class SiteController extends Controller
 	public function actionLogin()
 	{
 		$model=new LoginForm;
-
+        if (!Yii::app()->empresa->getModel()) {
+            $this->layout = "column2";
+        }
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
 		{
@@ -107,7 +108,7 @@ class SiteController extends Controller
 		{
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
+			if($model->validate() && $model->login()) 
 				$this->redirect(Yii::app()->user->returnUrl);
 		}
 		// display the login form
@@ -120,7 +121,12 @@ class SiteController extends Controller
 	 */
 	public function actionLogout()
 	{
+	    $sReturnUrl = Yii::app()->homeUrl;
+	    if (!Yii::app()->empresa->getModel()) {
+            $this->layout = "column2";
+            $sReturnUrl = Yii::app()->getBaseUrl() . '/admin';
+        }
 		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
+		$this->redirect($sReturnUrl);
 	}
 }

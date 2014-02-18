@@ -38,6 +38,7 @@ class PedidoComponent extends CApplicationComponent
      * Reload model object, it creates new Pedido in database
      */
     public function nuevoPedido() {
+        
         $this->_newPedido();
     }
     
@@ -46,10 +47,12 @@ class PedidoComponent extends CApplicationComponent
      * @todo Assign proper Persona and proper iva.
      */
     private function _newPedido() {
-        $this->model = new Pedido();
-        $this->model->id_usuario= Yii::app()->user->getId();
-        $this->model->id_empresa = Yii::app()->empresa->getModel()->id;
-        $this->model->save();
-        Yii::app()->session[self::SESSION_VAR_NAME] = $this->model->id;
+        if (Yii::app()->empresa->getModel()) {
+            $this->model = new Pedido();
+            $this->model->id_usuario= Yii::app()->user->getId();
+            $this->model->id_empresa = Yii::app()->empresa->getModel()->id;
+            $this->model->save();
+            Yii::app()->session[self::SESSION_VAR_NAME] = $this->model->id;
+        }
     }
 }
