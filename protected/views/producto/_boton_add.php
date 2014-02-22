@@ -1,3 +1,3 @@
-<a class="button pedir" href="<?php echo $this->createUrl('pedido/addProducto', array("idProducto" => $data->id)); ?>">
+<a class="button pedir" href="<?php echo Yii::app()->getBaseUrl() . "/pedido/addProducto?idProducto=" . $data->id ?>">
             Añadir al pedido
         </a>

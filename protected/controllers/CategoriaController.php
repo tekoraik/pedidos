@@ -14,7 +14,11 @@ class CategoriaController extends Controller
 	public function filters()
 	{
 		return array(
-			'rights'
+			'rights',
+            array(
+                'ext.starship.RestfullYii.filters.ERestFilter + 
+                REST.GET, REST.PUT, REST.POST, REST.DELETE'
+            ),
 		);
 	}
 
@@ -23,7 +27,14 @@ class CategoriaController extends Controller
      */
     public function allowedActions()
     {
-        return 'index';
+        return 'index, REST.GET, REST.PUT, REST.POST, REST.DELETE';
+    }
+    
+    public function actions() {
+        
+        return array(
+            'REST.'=>'ext.starship.RestfullYii.actions.ERestActionProvider',
+        );
     }
     
 	/**
