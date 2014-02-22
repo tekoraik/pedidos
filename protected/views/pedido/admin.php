@@ -55,14 +55,18 @@ $('.search-form form').submit(function(){
           'htmlOptions'=>array('width'=>'200px'),
         ),
         array(
-          "header" => "Estado",
-          "name" => "nombreEstado",
-          "value" => '$data->getNombreEstado()',
-          'htmlOptions'=>array('width'=>'170px'),
+          "name" => 'nombreEstado',
+          "value" => function ($data, $row) {return $data->getNombreEstado(); },
+          'htmlOptions'=>array('width'=>'200px')
         ),
         array(
           "header" => 'fecha_realizado',
           "value" => '$data->getFechaRealizado()',
+          'htmlOptions'=>array('width'=>'170px')
+        ),
+        array(
+          "header" => 'fecha_inicio',
+          "value" => '$data->getFechaInicio()',
           'htmlOptions'=>array('width'=>'170px')
         ),
         array(
@@ -75,12 +79,7 @@ $('.search-form form').submit(function(){
           "value" => 'number_format($data->totalSinIva() ,2)."€"',
           'htmlOptions'=>array('width'=>'200px'),
         ),
-		array(
-		  'name' => 'iva',
-		  'htmlOptions'=>array('width'=>'40px'),
-		  'value' => function ($data, $row) {
-		      return ($data->iva * 100) . "%";
-		   }),
+		
 		array(
           "header" => "T.con iva",
           "value" => 'number_format($data->totalConIva() ,2)."€"',

@@ -45,8 +45,14 @@ class EmpresaController extends Controller
 		if(isset($_POST['Empresa']))
 		{
 			$model->attributes=$_POST['Empresa'];
-			if($model->save())
+            
+			if($model->save()) {
+			    $model->administrador->id_empresa = $model->id;
+                $model->administrador->save();
+                $authorizer = Yii::app()->getModule("rights")->getAuthorizer();
+                $authorizer->authManager->assign('AdminEmpresa', $model->administrador->id);
 				$this->redirect(array('view','id'=>$model->id));
+            }
 		}
 
 		$this->render('create',array(

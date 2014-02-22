@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -68,7 +68,16 @@
         <?php echo $form->error($model,'formula'); ?>
     </div>
     <?php endif; ?>
-    
+    <div class="row">
+        <?php echo $form->labelEx($model,'visible'); ?>
+        <?php echo $form->dropDownList(
+            $model, 
+            'visible', 
+            array('1' => "Si", '0' => 'No')
+        ); ?>
+        
+        <?php echo $form->error($model,'id_categoria'); ?>
+    </div>
     <div class="row">
         <?php echo $form->labelEx($model,'id_regla_validacion'); ?>
         <?php echo $form->dropDownList(
@@ -82,7 +91,7 @@
     </div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

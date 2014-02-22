@@ -8,7 +8,6 @@
  * @property integer $realizado
  * @property string $fecha_realizado
  * @property integer $id_usuario
- * @property string $iva
  *
  * The followings are the available model relations:
  * @property LineaPedido[] $lineaPedidos
@@ -16,7 +15,7 @@
  */
 class Pedido extends Describible
 {
-    public $nombreEstado = "";
+    public $nombreEstado;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -33,13 +32,11 @@ class Pedido extends Describible
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_usuario, iva', 'required'),
-			array('realizado, id_usuario, id_tipo_estado', 'numerical', 'integerOnly'=>true),
-			array('iva', 'length', 'max'=>10),
-			array('fecha_realizado', 'safe'),
+			array('id_usuario, id_tipo_estado', 'numerical', 'integerOnly'=>true),
+			array('fecha_realizado, fecha_inicio', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, realizado, id_tipo_estado, fecha_realizado, id_usuario, iva', 'safe', 'on'=>'search'),
+			array('id, id_tipo_estado, fecha_realizado, fecha_inicio, fecha_finalizado, id_usuario, nombreEstado', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,11 +62,11 @@ class Pedido extends Describible
 	{
 		return array(
 			'id' => 'ID',
-			'realizado' => 'Realizado',
 			'fecha_realizado' => 'Fecha realizado',
 			'fecha_finalizado' => 'Fecha finalizado',
+			'fecha_inicio' => 'Fecha inicio',
+			'nombreEstado' => 'Estado',
 			'id_usuario' => 'Usuario',
-			'iva' => 'IVA',
 			'id_tipo_estado' => 'Estado',
 		);
 	}
@@ -110,17 +107,35 @@ class Pedido extends Describible
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
-		$criteria->compare('id',$this->id);
-		$criteria->compare('id_usuario',$this->id_usuario);
-		$criteria->compare('iva',$this->iva,true);
-        $criteria->compare('id_tipo_estado',$this->id_tipo_estado);
-        $criteria->compare('id_empresa',$this->id_empresa);
-        $criteria->addCondition("id_tipo_estado IS NOT NULL");
+        $criteria->with = array('tipoEstado');
+		$criteria->compare('t.id',$this->id);
+		$criteria->compare('t.id_usuario',$this->id_usuario);
+        $criteria->compare('t.id_tipo_estado',$this->id_tipo_estado);
+        $criteria->compare('t.id_empresa',$this->id_empresa);
+        $criteria->compare('tipoEstado.nombre',$this->nombreEstado, true);
+        $criteria->addCondition("t.id_tipo_estado IS NOT NULL");
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+			'defaultOrder' => 't.id desc',
+            'attributes'=>array(
+                'nombreEstado'=>array(
+                    'asc'=>'tipoEstado.nombre',
+                    'desc'=>'tipoEstado.nombre DESC',
+                ),
+                '*',
+            )),
 		));
 	}
+    
+    public function incCantidad($id_producto, $inc = 1) {
+        if (($oLinea = $this->_buscarLineaIdProducto($id_producto)) !== NULL) {
+            if (($oLinea->cantidad + $inc) >= 1) {
+                $oLinea->cantidad += $inc;
+                $oLinea->save();
+            }
+        }
+    }
     
     /**
      * Add line to Pedido, if this product already is in Pedido add 1 to cantidad
@@ -156,9 +171,28 @@ class Pedido extends Describible
     /**
      * Make pedido, put fecha_realizado with date now and change the state
      */
-    public function realizar() {
-        $this->id_tipo_estado = TipoEstadoPedido::model()->findByAttributes(array("id_empresa" => $this->empresa->id, "nombre" => "Realizado"))->id;
-        $this->fecha_realizado = date("Y-m-d h:i:s");
+    public function realizar($id_usuario) {
+        $tipoRealizado = TipoEstadoPedido::model()->findByAttributes(array("id_empresa" => $this->empresa->id, "nombre" => "Realizado"));
+        $this->cambiarTipoEstado($tipoRealizado);
+        $this->id_usuario = $id_usuario;
+        $this->id_tipo_estado = $tipoRealizado->id;
+    }
+    
+    public function cambiarTipoEstado($nuevoTipoEstado) {
+        $sNow = date("Y-m-d h:i:s");
+        if ($nuevoTipoEstado && (!$this->tipoEstado || $nuevoTipoEstado->nombre != $this->tipoEstado->nombre)){
+            switch ($nuevoTipoEstado->nombre) {
+                case "Realizado":
+                    $this->fecha_realizado = $sNow;
+                    break;
+                case "En progreso":
+                    $this->fecha_inicio= $sNow;
+                    break;
+                case "Finalizado":
+                    $this->fecha_finalizado = $sNow;
+                    break;
+            }
+        }
     }
     
     /**
@@ -170,7 +204,7 @@ class Pedido extends Describible
 	private function _total($sTotalizador) {
 	    $nTotal = 0;
 		foreach ($this->lineas as $oLinea) 
-            $nTotal += call_user_method($sTotalizador, $oLinea);
+            $nTotal += call_user_func(array($oLinea, $sTotalizador));
         return $nTotal;
 	}
 	
@@ -188,6 +222,15 @@ class Pedido extends Describible
             }
         }
         return $oLinea;
+    }
+    
+    private function _buscarLineaIdProducto($nIdProducto) {
+        foreach ($this->lineas as $oLineaCandidata) {
+            if ($oLineaCandidata->id_producto == $nIdProducto) {
+                return $oLineaCandidata;
+            }
+        }
+        return null;
     }
     
     /**
@@ -226,6 +269,17 @@ class Pedido extends Describible
         return $this->fecha_finalizado ? substr($this->fecha_finalizado, 0, 10) : "";
     }
     
+    /**
+     * Get number of lines
+     */
+     public function numeroLineas() {
+         return count($this->lineas);
+     }
+     
+     public function getFechaInicio() {
+         return $this->fecha_inicio ? substr($this->fecha_inicio, 0, 10) : "";
+     }
+    
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
@@ -236,4 +290,19 @@ class Pedido extends Describible
 	{
 		return parent::model($className);
 	}
+    
+    public function getNombreDescriptoresFormulaEmpresa($bOnlyVisible = false) {
+        if ($this->empresa)
+            return $this->empresa->getNombreDescriptoresFormula("pedido", null, $bOnlyVisible);
+        else
+            return array();
+        
+    }
+    
+    public function getValorDescriptoresFormulaEmpresa($sNombreAtributo, $aCampos) {
+        if ($this->empresa)
+        return $this->empresa->getDescriptoresFormula($sNombreAtributo, $aCampos);
+        else
+            return "";
+    }
 }

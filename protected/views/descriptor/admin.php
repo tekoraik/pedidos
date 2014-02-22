@@ -48,6 +48,7 @@ $('.search-form form').submit(function(){
 		'nombre',
 		'tipo',
 		'tipo_valor',
+		'visible',
 		array(
           "name" => 'categoria_nombre',
           "value" => function ($data, $row) {return isset($data->categoria) ? $data->categoria->nombre : ""; },

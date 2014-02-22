@@ -47,10 +47,7 @@
         <p><?php echo number_format($model->totalSinIva(), 2); ?> €</p>
     </div>
     
-	<div class="row">
-        <label>IVA: </label>
-        <p><?php echo 100 * $model->iva; ?>%</p>
-    </div>
+	
 
     <div class="row">
         <label>Total con iva: </label>
@@ -58,7 +55,7 @@
     </div>
     <?php $this->widget('application.components.widgets.CamposDescriptores', array('model' => Yii::app()->empresa->getModel(), 'tipo' => 'pedido', 'describible' => $model, 'form' => $form)); ?>
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>
     
 <?php $this->endWidget(); ?>

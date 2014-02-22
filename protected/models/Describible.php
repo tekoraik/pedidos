@@ -21,10 +21,7 @@ class Describible extends CActiveRecord
 		return 'describible';
 	}
     
-    public function hasDescriptores() {
-        return $this->descriptores ? true : false;
-    }
-    
+        
     public function hasValores() {
         return $this->valores ? true : false;
     }
@@ -43,14 +40,13 @@ class Describible extends CActiveRecord
                         break;
                     
                 }
-                if ($oValor->descriptor->regla) {
-                    
-                    if (!$oValor->descriptor->regla->evaluar($oValor->valor)) {
+                
+                if ($oValor->descriptor->hasReglaValidacion()) {
+                    if (!$oValor->evaluarReglaValidacion($this)) {
                         $this->addError($oValor->descriptor->nombre, $oValor->descriptor->nombre. " no cumple con la regla de validación " . $oValor->descriptor->regla->nombre);
                     }
                 }
             }
-            
         }
         if ($this->hasErrors()) return false;
         else return true;
@@ -95,7 +91,7 @@ class Describible extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'descriptores' => array(self::MANY_MANY, 'Descriptor', 'valor_descriptor(id_describible, id_descriptor)'),
+			//'descriptores' => array(self::MANY_MANY, 'Descriptor', 'valor_descriptor(id_describible, id_descriptor)'),
 			'valores' => array(self::HAS_MANY, 'ValorDescriptor', 'id_describible'),
 		);
 	}
@@ -149,17 +145,7 @@ class Describible extends CActiveRecord
 	}
     
     
-    /**
-     * Obtener valor a partir de un descriptor
-     * @param Descriptor $oDescriptor
-     */
-    public function buscarValor($oDescriptor) {
-        foreach ($this->valores as $oValor)
-            if ($oValor->id_descriptor == $oDescriptor->id)
-                return $oValor->valor;
-        
-        return "";
-    }
+    
     
     public function getValor($sNombreAtributo) {
         foreach ($this->getAttributes() as $sName => $sValue) {
@@ -167,14 +153,14 @@ class Describible extends CActiveRecord
                 return $sValue;
         }
         foreach ($this->valores as $oValor) {
-            if ($oValor->descriptor->nombre == $sNombreAtributo)
+            if ($oValor->getNombreDescriptor() == $sNombreAtributo)
                 return $oValor->valor;
         }
-        foreach ($this->descriptores as $oDescriptor) {
-            if ($oDescriptor->nombre == $sNombreAtributo && $oDescriptor->tipo_valor == "formula") {
-                return $this->evaluarFormula($oDescriptor);
-            }
-        }
+        
+        return $this->getValorDescriptoresFormulaEmpresa($sNombreAtributo, $this->getColeccionCampos());
+    }
+    
+    public function getValorDescriptoresFormulaEmpresa($sNombreAtributo, $aCampos) {
         return "";
     }
     
@@ -191,59 +177,61 @@ class Describible extends CActiveRecord
         }
     }
     
-    /**
-     * Comprueva si un descriptor es de este describible
-     * @param Descriptor $oDescriptor
-     */
-    public function check($oDescriptor) {
-        return true;
-    }
-    
-    public function evaluarFormula($oDescriptor) {
-        $data = $this;
-        $sFormula = $oDescriptor->formula;
-        if ($oDescriptor->tipo_valor == "formula" && $oDescriptor->formula) {
+    public function getColeccionCampos() {
+            $aCampos = array();
             foreach ($this->getAttributes() as $sName => $sValue) {
-                $sFormula = str_replace($sName, '$data["' . $sName . '"]', $sFormula);
+                $aCampos[$sName] = $sValue;
             }
             foreach ($this->valores as $oValor) {
-                $sName = $oValor->descriptor->nombre;
-                $sFormula = str_replace($sName, '$data->getValor("'.$sName.'")', $sFormula);
+                $aCampos[$oValor->getNombreDescriptor()] = $oValor->valor;
             }
-            $sFormula .= ";";
-            $sValue = @eval("return " . $sFormula);
-            return $sValue;
-        } else {
-            return "";
-        }
+            $aFormulas = $this->getNombreDescriptoresFormulaEmpresa();
+            foreach ($aFormulas as $sNombreCampo) {
+                $aCampos[$sNombreCampo] = $this->getValorDescriptoresFormulaEmpresa($sNombreCampo, $aCampos);
+            }
+            return $aCampos;
     }
     
-    public function getNombresCampos() {
+    public function getNombresCampos($bOnlyDescriptores = false, $bOnlyVisible = false) {
         $aResult = array();
-        foreach ($this->getAttributes() as $sName => $sValue) {
-            $aResult[] = $sName;
+        if (!$bOnlyDescriptores) {
+            foreach ($this->getAttributes() as $sName => $sValue) {
+                $aResult[] = $sName;
+            }
         }
         foreach ($this->valores as $oValor) {
-            $aResult[] = $oValor->descriptor->nombre;
+            if (!$bOnlyVisible || $oValor->isVisibleDescriptor())
+            $aResult[] = $oValor->getNombreDescriptor();
         }
-        foreach ($this->descriptores as $oDescriptor) {
-            if ($oDescriptor->tipo_valor == "formula")
-                $aResult[] = $oDescriptor->nombre;
-        }
+        $aResult = array_merge($aResult, $this->getNombreDescriptoresFormulaEmpresa($bOnlyVisible));
         return $aResult;
+    }
+    
+    /**
+     * Comprueba si es la misma categoria del descriptor
+     */
+    public function checkCategoria($id_categoria) {
+        return true;
     }
     
     private function _toValores($aCamposValores) {
         $aValores = array();
-        $nCount = count($aCamposValores['valor']);
-        for ($nIndex = 0; $nIndex < $nCount; $nIndex++) {
-            $aValor = array();
-            $aValor['valor'] = $aCamposValores['valor'][$nIndex];
-            $aValor['id_describible'] = $aCamposValores['id_describible'][$nIndex];
-            $aValor['id_descriptor'] = $aCamposValores['id_descriptor'][$nIndex];
-            $aValor['tipo'] = $aCamposValores['tipo'][$nIndex];
-            $aValores[] = $aValor;
+        if (isset($aCamposValores['valor'])) {
+            $nCount = count($aCamposValores['valor']);
+            for ($nIndex = 0; $nIndex < $nCount; $nIndex++) {
+                $aValor = array();
+                $aValor['valor'] = $aCamposValores['valor'][$nIndex];
+                $aValor['id_describible'] = $aCamposValores['id_describible'][$nIndex];
+                $aValor['id_descriptor'] = $aCamposValores['id_descriptor'][$nIndex];
+                $aValor['tipo'] = $aCamposValores['tipo'][$nIndex];
+                $aValores[] = $aValor;
+            }
         }
         return $aValores;
     }
+    
+    public function getNombreDescriptoresFormulaEmpresa($bOnlyVisible = false) {
+        return array();
+    }
+    
 }

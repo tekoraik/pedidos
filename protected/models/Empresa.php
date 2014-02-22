@@ -7,6 +7,12 @@
  * @property integer $id
  * @property string $nombre
  * @property string $slug
+ * @property integer $id_usuario_administrador
+ * @property string $color1
+ * @property string $color2
+ * @property string $color3
+ * @property string $color4
+ * 
  *
  * The followings are the available model relations:
  * @property Categoria[] $categorias
@@ -30,14 +36,17 @@ class Empresa extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre, slug, host', 'required'),
-			array('host', 'length', 'max'=>255),
+			array('nombre, slug, host, id_usuario_administrador', 'required'),
+			array('id_usuario_administrador', 'numerical', 'integerOnly' => true),
+			array('host, logo', 'length', 'max'=>255),
+			array('color1, color2, color3, color4, color5, color6, color7, color8, color9, color10, color11, color12, color13, color14, color15', 'length', 'max'=>20),
 			array('nombre', 'length', 'max'=>50),
 			array('slug', 'length', 'max'=>45),
 			array('nombre', 'validaNombreExiste'),
+			array('logo', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nombre, slug', 'safe', 'on'=>'search'),
+			array('id, nombre, id_usuario_administrador, slug, logo, color1, color2, color3, color4, color5, color6, color7, color8, color9, color10, color11, color12, color13, color14, color15', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,6 +61,7 @@ class Empresa extends CActiveRecord
 			'categorias' => array(self::HAS_MANY, 'Categoria', 'id_empresa'),
 			'productos' => array(self::HAS_MANY, 'Producto', 'id_empresa'),
 			'descriptores' => array(self::HAS_MANY, 'Descriptor', 'id_empresa'),
+			'administrador' => array(self::BELONGS_TO, 'Usuario', 'id_usuario_administrador'),
 		);
 	}
 
@@ -72,7 +82,9 @@ class Empresa extends CActiveRecord
 			'nombre' => 'Nombre',
 			'slug' => 'Slug',
 			'host' => 'Host',
-		);
+			'id_usuario_administrador' => 'Administrador',
+			'logo' => 'Logo (Alto recomendado: 52px)'		
+            );
 	}
 
 	/**
@@ -129,5 +141,60 @@ class Empresa extends CActiveRecord
      */
     public function esCliente($oUsuario)  {
         return $oUsuario->id_empresa == $this->id;
+    }
+    
+    public function getValorDescriptoresFormula($sNombreAtributo, $aCampos) {
+        foreach ($this->descriptores as $oDescriptor) {
+            if ($oDescriptor->nombre == $sNombreAtributo && $oDescriptor->tipo_valor == "formula") {
+                return $oDescriptor->evaluarFormula($aCampos);
+            }
+        }
+        return "";
+    }
+    
+    public function getNombreDescriptoresFormula($tipo, $id_categoria, $bOnlyVisible = false) {
+        $aResult = array();
+        foreach ($this->descriptores as $oDescriptor) { 
+            $bOkCategoria = $tipo == "pedido";
+            if (!$bOkCategoria) {
+                $bOkCategoria = !$oDescriptor->id_categoria;
+            }
+            
+            if (!$bOkCategoria) {
+                $bOkCategoria = $oDescriptor->id_categoria == $id_categoria;
+            }
+            
+            if (!$bOkCategoria) {
+                $oCategoria = Categoria::model()->findByPk($id_categoria);
+                if (!$oCategoria) $bOkCategoria = true;
+                else
+                $bOkCategoria = $oCategoria->esHija($oDescriptor->id_categoria);
+            }
+
+            if (!$bOnlyVisible || $oDescriptor->visible) 
+            if ($oDescriptor->tipo == $tipo)
+            if ($oDescriptor->tipo_valor == "formula")
+            if ($bOkCategoria)
+                $aResult[] = $oDescriptor->nombre;
+        }
+        return $aResult;
+    }
+    
+    public function afterSave() {
+        if ($this->isNewRecord) {
+            $this->_crearEstadosDePedido();
+        }
+    }
+    
+    private function _crearEstadosDePedido () {
+        $this->_crearEstado("Realizado");
+        $this->_crearEstado("En progreso");
+        $this->_crearEstado("Finalizado");
+    }
+    private function _crearEstado($sNombre) {
+        $oEstado = new TipoEstadoPedido();
+        $oEstado->id_empresa = $this->id;
+        $oEstado->nombre = $sNombre;
+        $oEstado->save();
     }
 }

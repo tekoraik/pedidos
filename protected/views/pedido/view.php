@@ -23,12 +23,7 @@ $this->menu=array(
 	'htmlOptions' => array("class" => "detail-view-pedido"),
 	'attributes'=>array(
 		'id',
-		'persona.nombre',
-		array(
-            'label' => 'Iva',
-            'type' => 'raw',
-            'value' => ($model["iva"] * 100) . "%"
-        ),
+		'usuario.nombre',
 	),
 )); ?>
 </div>

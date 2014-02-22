@@ -24,6 +24,12 @@
 		<?php echo $form->textField($model,'nombre',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'nombre'); ?>
 	</div>
+	
+	<div class="row">
+        <?php echo $form->labelEx($model,'host'); ?>
+        <?php echo $form->textField($model,'host',array('size'=>50,'maxlength'=>50)); ?>
+        <?php echo $form->error($model,'host'); ?>
+    </div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'slug'); ?>
@@ -36,6 +42,18 @@
 		<?php echo $form->error($model,'slug'); ?>
 	</div>
 
+    <div class="row">
+        <?php echo $form->labelEx($model,'id_usuario_administrador'); ?>
+        <?php echo $form->dropDownList(
+            $model, 
+            'id_usuario_administrador', 
+            CHtml::listData(Usuario::model()->findAll(), "id", "email"),
+            array('prompt'=>'Selecciona usuario administrador')
+        ); ?>
+        
+        <?php echo $form->error($model,'id_usuario_administrador'); ?>
+    </div>
+    
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

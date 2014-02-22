@@ -109,22 +109,7 @@ class ReglaValidacion extends CActiveRecord
 		return parent::model($className);
 	}
     
-    public function evaluar($oValor) {
-
-        switch ($this->tipo){
-            case 'rango':
-                return floatval($oValor) >= floatval($this->desde) && floatval($oValor) <= floatval($this->hasta);
-            break;
-            case 'longitud':
-                return strlen($oValor) <= intval($this->valor);
-            break;
-            case 'formula':
-                $sFormula = $this->valor;
-                $sFormula = str_replace('valor', '$oValor', $sFormula);
-                $sFormula .= ";";
-                $oResult = eval("return " . $sFormula);
-                return $oResult ? true : false;
-            break;
-        }
+    public function evaluar($oValor, $oDescribible) {
+        
     }
 }

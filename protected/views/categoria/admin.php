@@ -49,11 +49,12 @@ $('.search-form form').submit(function(){
           'htmlOptions'=>array('width'=>'40px')
         ),
 		'nombre',
-		'estado.nombre',
 		array(
-		  "name" => "id_padre",
-		  "value" => function ($data, $row) { return $data->getNombrePadre(); }
-		),
+          "name" => 'padre_nombre',
+          "value" => function ($data, $row) {return isset($data->padre) ? $data->padre->nombre : ""; },
+          'htmlOptions'=>array('width'=>'200px')
+        ),
+		
 		array(
             'class'=>'CButtonColumn',
             'htmlOptions'=>array('width'=>'100px')

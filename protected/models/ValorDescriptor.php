@@ -100,4 +100,40 @@ class ValorDescriptor extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    
+    public function evaluarReglaValidacion($oDescribible) {
+        $oValor = $this->valor;
+        if ($this->descriptor && $this->descriptor->hasReglaValidacion()) {
+            switch ($this->descriptor->getTipoReglaValidacion()){
+                case 'cadena':
+                    return strlen($oValor) <= $this->descriptor->getValorReglaValidacion();
+                    break;
+                case 'rango':
+                    return floatval($oValor) >= floatval($this->descriptor->getDesdeReglaValidacion()) && floatval($oValor) <= floatval($this->descriptor->getHastaReglaValidacion()->hasta);
+                break;
+                case 'longitud':
+                    return strlen($oValor) <= intval($this->descriptor->getValorReglaValidacion());
+                break;
+                case 'formula':
+                    $sFormula = $this->descriptor->getValorReglaValidacion();
+                    $sFormula = str_replace('valor', '$oValor', $sFormula);
+                    $aCampos = $oDescribible->getNombresCampos();
+                    foreach ($aCampos as $sNombre) {
+                        $sFormula = str_replace($sNombre, $oDescribible->getValor($sNombre), $sFormula);
+                    }
+                    $sFormula .= ";";
+                    $oResult = eval("return " . $sFormula);
+                    return $oResult ? true : false;
+                break;
+            }
+        }
+    }
+
+    public function getNombreDescriptor() {
+        return $this->descriptor ? $this->descriptor->nombre : "";
+    }
+    
+    public function isVisibleDescriptor() {
+        return $this->descriptor->visible;
+    }
 }

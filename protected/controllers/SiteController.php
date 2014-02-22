@@ -28,9 +28,10 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
 	    if (!Yii::app()->empresa->getModel()) {
-	        die("Empresa no encontrada");
-	    } else
-		$this->forward('producto/index');
+	        $this->redirect(Yii::app()->getBaseUrl()."/admin");
+	    } else {
+		  $this->forward('producto/index');
+        }
 	}
 
 	/**
@@ -38,6 +39,7 @@ class SiteController extends Controller
 	 */
 	public function actionError()
 	{
+	    $this->layout = false;
 		if($error=Yii::app()->errorHandler->error)
 		{
 			if(Yii::app()->request->isAjaxRequest)
@@ -64,10 +66,11 @@ class SiteController extends Controller
 					"Reply-To: {$model->email}\r\n".
 					"MIME-Version: 1.0\r\n".
 					"Content-type: text/plain; charset=UTF-8";
-
-				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
-				$this->refresh();
+                
+				mail(Yii::app()->empresa->getModel()->administrador->email ,$subject,$model->body,$headers);
+				Yii::app()->user->setFlash('contact','Gracias por contactar con nosotros, nos pondremos en contacto contigo lo antes posible');
+				//$this->refresh();
+				die();
 			}
 		}
 		$this->render('contact',array('model'=>$model));
@@ -79,7 +82,9 @@ class SiteController extends Controller
 	public function actionLogin()
 	{
 		$model=new LoginForm;
-
+        if (!Yii::app()->empresa->getModel()) {
+            $this->layout = "column2";
+        }
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
 		{
@@ -103,7 +108,7 @@ class SiteController extends Controller
 		{
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
+			if($model->validate() && $model->login()) 
 				$this->redirect(Yii::app()->user->returnUrl);
 		}
 		// display the login form
@@ -116,7 +121,12 @@ class SiteController extends Controller
 	 */
 	public function actionLogout()
 	{
+	    $sReturnUrl = Yii::app()->homeUrl;
+	    if (!Yii::app()->empresa->getModel()) {
+            $this->layout = "column2";
+            $sReturnUrl = Yii::app()->getBaseUrl() . '/admin';
+        }
 		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
+		$this->redirect($sReturnUrl);
 	}
 }

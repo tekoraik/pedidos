@@ -39,7 +39,7 @@ class ProductoController extends Controller
      */
     public function allowedActions()
     {
-        return 'index, REST.GET, REST.PUT, REST.POST, REST.DELETE';
+        return 'index, view, search, REST.GET, REST.PUT, REST.POST, REST.DELETE';
     }
     
     public function actions() {
@@ -48,6 +48,24 @@ class ProductoController extends Controller
          );
     }
 
+    public function actionSearch() {
+        $model=new Producto('partialSearch');
+        $this->layout = "//layouts/2columnas";
+        $model->unsetAttributes();  // clear any default values
+        $model->id_empresa = Yii::app()->empresa->getModel()->id;
+        $sBuscarCriterio = "";
+        if(isset($_GET['buscar-criterio'])){
+            $sBuscarCriterio = $_GET['buscar-criterio'];
+            $model->nombre=$sBuscarCriterio;
+            $model->descripcion_corta=$sBuscarCriterio;
+            $model->descripcion_larga=$sBuscarCriterio;
+            $model->id_empresa = Yii::app()->empresa->getModel()->id;
+            $this->buscarCriterio = $sBuscarCriterio;
+        }
+        $this->render('index', array(
+            'dataProvider'=>$model->partialSearch(),
+        ));
+    }
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
@@ -96,7 +114,7 @@ class ProductoController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+        
 		if(isset($_POST['Producto']))
 		{  
 			$model->attributes=$_POST['Producto'];
@@ -168,11 +186,22 @@ class ProductoController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+	    $model = $this->loadModel($id);
+        
+		$model->delete();
+        
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+        if ($model->hasErrors() && isset($_GET['ajax'])) {
+             echo "Se han producido los siguientes errores: ";
+             http_response_code (500);
+             $aErrors = $model->getErrors();
+             foreach ($aErrors as $oError) {
+                 echo $oError[0];
+             }
+        };
 	}
 
 	/**
@@ -187,6 +216,7 @@ class ProductoController extends Controller
 		$model->id_empresa = Yii::app()->empresa->getModel()->id;
 		$this->render('index',array(
 			'dataProvider'=>$model->search(),
+			'categoria' => $model->categoria,
 		));
 	}
 

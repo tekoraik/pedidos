@@ -18,6 +18,7 @@
  */
 class Categoria extends CActiveRecord
 {
+    public $padre_nombre;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -39,7 +40,7 @@ class Categoria extends CActiveRecord
 			array('nombre, slug', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nombre, slug, id_padre, id_empresa', 'safe', 'on'=>'search'),
+			array('id, nombre, slug, id_padre, id_empresa, padre_nombre', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -69,6 +70,7 @@ class Categoria extends CActiveRecord
 			'slug' => 'Slug',
 			'id_padre' => 'Categoria Padre',
 			'id_empresa' => 'Empresa',
+			'padre_nombre' => 'Categoria Padre',
 		);
 	}
 
@@ -77,7 +79,6 @@ class Categoria extends CActiveRecord
      */
     protected function beforeValidate() {
         parent::beforeValidate();
-        var_dump("before save");
         $this->calculateSlug();
         return true;
     }
@@ -98,15 +99,24 @@ class Categoria extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
+        $criteria->with = array('padre');
 		$criteria->compare('id',$this->id);
-		$criteria->compare('nombre',$this->nombre,true);
-		$criteria->compare('slug',$this->slug,true);
-		$criteria->compare('id_padre',$this->id_padre);
-		$criteria->compare('id_empresa',$this->id_empresa);
-
+		$criteria->compare('t.nombre',$this->nombre,true);
+		$criteria->compare('t.slug',$this->slug,true);
+		$criteria->compare('t.id_padre',$this->id_padre);
+		$criteria->compare('t.id_empresa',$this->id_empresa);
+        $criteria->compare('padre.nombre', $this->padre_nombre);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+            'attributes'=>array(
+                'padre_nombre'=>array(
+                    'asc'=>'padre.nombre',
+                    'desc'=>'padre.nombre DESC',
+                ),
+                '*',
+            ),
+    ),
 		));
 	}
 
@@ -114,7 +124,7 @@ class Categoria extends CActiveRecord
      * Calculate slug for this model
      */
     public function calculateSlug() {
-        $this->slug = strtolower(str_replace(array(" ", "_"), array("-", "-"), $this->nombre)).rand(1, 100);
+        $this->slug = strtolower(str_replace(array(" ", "_", "á", "é", "í", "ó", "ú", "Á", "É", "Í", "Ó", "Ú", "ñ", "Ñ", '.'), array("-", "-", "a", "e", "i", "o", "u", "A", "E", "U", "O", "U", "n", "N", ""), $this->nombre)).rand(1, 100);
     }
 	/**
 	 * Returns the static model of the specified AR class.
@@ -135,5 +145,15 @@ class Categoria extends CActiveRecord
     public function getNombrePadre() {
         if ($this->padre) return $this->padre->nombre;
         return "";
+    }
+    
+    public function esHija($id_categoria) {
+        $oCategoria = $this->padre;
+        while ($oCategoria) {
+            if ($oCategoria->id == $id_categoria)
+                return true;
+            $oCategoria = $oCategoria->padre;
+        }
+        return false;
     }
 }

@@ -68,6 +68,8 @@ class UsuarioController extends Controller
 			$model->attributes=$_POST['Usuario'];
             $model->id_empresa = Yii::app()->empresa->getModel()->id;
 			if($model->save()) {
+			    $authorizer = Yii::app()->getModule("rights")->getAuthorizer();
+                $authorizer->authManager->assign('Cliente', $model->id);
 			    Yii::app()->user->setFlash('success','Registro completado con éxito.');
 				$this->redirect(Yii::app()->getBaseUrl());
             }

@@ -22,7 +22,7 @@ class PedidoController extends Controller
     
     public function allowedActions()
     {
-        return 'index, view, addProducto, verPedidoActual, REST.GET, REST.PUT, REST.POST, REST.DELETE';
+        return 'view, addProducto, verPedidoActual, incCantidad, REST.GET, REST.PUT, REST.POST, REST.DELETE';
     }
 
     public function actions() {
@@ -93,6 +93,10 @@ class PedidoController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
+    
+    public function actionIncCantidad($id_producto, $inc = 1) {
+        Yii::app()->pedido->getModel()->incCantidad($id_producto, $inc);
+    }
 
 	/**
 	 * Creates a new model.
@@ -135,7 +139,9 @@ class PedidoController extends Controller
 
 		if(isset($_POST['Pedido']))
 		{
+		    $model->cambiarTipoEstado(TipoEstadoPedido::model()->findByPk($_POST['Pedido']['id_tipo_estado']));
 			$model->attributes=$_POST['Pedido'];
+            
             if (isset($_POST['ValoresDescriptor'])) {
                 $model->addValores($_POST['ValoresDescriptor']);
             }
@@ -171,7 +177,12 @@ class PedidoController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Pedido');
+	    $oPedido = new Pedido();
+        $oPedido->unsetAttributes();  // clear any default values
+        if (Yii::app()->user->getId() == null)
+            throw new CHttpException(401,'El usuario no está logueado');
+        $oPedido->id_usuario = Yii::app()->user->getId();
+		$dataProvider=$oPedido->search();
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -215,6 +226,7 @@ class PedidoController extends Controller
         $oLinea = new LineaPedido();
         $oLinea->id_producto = $oProducto->id;
         $oLinea->precio = $oProducto->precio;
+        $oLinea->iva = $oProducto->getIva();
         $oPedido->addLinea($oLinea);
         $oPedido->refresh();
         if (isset($_SERVER["HTTP_ACCEPT"]) && strpos($_SERVER["HTTP_ACCEPT"], "json") !== FALSE) {
@@ -227,7 +239,7 @@ class PedidoController extends Controller
             echo json_encode($aResponse);
             Yii::app()->end();
         }
-        if ($oLinea->hasErrors()) var_dump($oLinea->getErrors());
+        
         $this->redirect('verPedidoActual');
     }
     
@@ -241,7 +253,7 @@ class PedidoController extends Controller
      */
     public function actionRealizar($id, $actual = false) {
         $oPedido = Pedido::model()->findByPk($id);
-        $oPedido->realizar();
+        $oPedido->realizar(Yii::app()->user->getId());
         $oPedido->save();
         if ($actual)
             Yii::app()->pedido->nuevoPedido();

@@ -19,8 +19,12 @@ class UserIdentity extends CUserIdentity
 	
     public function authenticate()
     {
+        $sEmpresaCondition = "";
+        if (Yii::app()->empresa->getModel()) {
+            $sEmpresaCondition =  "AND (id_empresa =". Yii::app()->empresa->getModel()->id. " OR id_empresa IS NULL)";
+        }
         $oUsuario=Usuario::model()->find(
-            array('condition' => "email='".$this->username . "' AND (id_empresa =". Yii::app()->empresa->getModel()->id . " OR id_empresa IS NULL)")
+                array('condition' => "email='".$this->username . "' " . $sEmpresaCondition)
         );
         if($oUsuario===null)
             $this->errorCode=self::ERROR_USERNAME_INVALID;

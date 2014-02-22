@@ -17,12 +17,25 @@ $this->menu=array(
 ?>
 
 <h1>View Empresa #<?php echo $model->id; ?></h1>
-
+<?php 
+$attributes = array(
+        'id',
+        'nombre',
+        'host',
+        
+        'slug',
+);
+if ($model->id_usuario_administrador) {
+    $attributes[] = array(
+            'label'=>'Usuario administrador',
+            'type'=>'raw',
+            'value'=>CHtml::link(CHtml::encode($model->administrador->email),
+                                 array('emprea/view','id'=>$model->administrador->id)),
+        );
+    
+}
+?>
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'nombre',
-		'slug',
-	),
+	'attributes'=> $attributes,
 )); ?>

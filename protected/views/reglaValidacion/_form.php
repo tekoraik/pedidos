@@ -31,6 +31,7 @@
 	<div class="row">
 		<?php echo $form->labelEx($model,'tipo'); ?>
 		<select id="ReglaValidacion_tipo" name="ReglaValidacion[tipo]">
+		    <option value="cadena" <?php echo $model->tipo == "cadena" ? "selected" : ""; ?>>Cadena</option>
 		    <option value="rango" <?php echo $model->tipo == "rango" ? "selected" : ""; ?>>Rango</option>
 		    <option value="longitud" <?php echo $model->tipo == "longitud" ? "selected" : ""; ?>>Longitud</option>
 		    <option value="formula" <?php echo $model->tipo == "formula" ? "selected" : ""; ?>>Formula</option>
@@ -56,7 +57,7 @@
     <?php endif; ?>
     <?php endif; ?>
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -19,15 +19,15 @@ $this->breadcrumbs=array(
         <tbody>
             <tr>
                 <td>Precio:</td>
-                <td><?php echo $model->getFormattedPrecio(); ?></td>
+                <td><?php echo $model["FormattedPrecio"]; ?></td>
             </tr>
             <tr>
                 <td>IVA:</td>
-                <td><?php echo $model->getFormattedIva(); ?></td>
+                <td><?php echo $model["FormattedIva"]; ?></td>
             </tr>
             <tr class="precio-total">
                 <td>Precio total:</td>
-                <td><?php echo $model->getFormattedTotal(); ?></td>
+                <td><?php echo $model["FormattedTotal"]; ?></td>
             </tr>
         </tbody>
     </table>
@@ -36,17 +36,20 @@ $this->breadcrumbs=array(
 <div class="detail">
     <h2>Descripción</h2>
     <p><?php echo $model["descripcion_larga"] ? $model["descripcion_larga"] : $model["descripcion_corta"]; ?></p>
-    <?php if ($model->hasValores()): ?>
+    <?php $aCamposAdicionales = $model->getNombresCampos(true, true); ?>
+    <?php if (count($aCamposAdicionales)): ?>
     <h3>Información adicional</h3>
-    <?php foreach ($model->valores as $oValor): ?>
+    
+    <?php foreach ($aCamposAdicionales as $sNombre): ?>
     <p class="field-label">
-        <?php echo $oValor->descriptor->nombre; ?>
+        <?php echo $sNombre; ?>
     </p>
+    
     <p class="field-value">
-        <?php $sValor = $model->getValor($oValor->descriptor->nombre); ?>
+        <?php $sValor = $model->getValor($sNombre); ?>
         <?php echo $sValor ? $sValor : "[Sin valor]" ?>
     </p>
-    <?php endforeach; ?>
+    <?php endforeach; ?> 
     <?php endif; ?>
 </div>
 
