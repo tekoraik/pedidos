@@ -1333,3 +1333,511 @@ Stack trace:
 REQUEST_URI=/pedidos/assets/a7c54131/css/default.css
 HTTP_REFERER=http://localhost/pedidos/rights
 ---
+2014/02/23 22:44:15 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /var/www/pedidos/yii/framework/db/CDbConnection.php:382
+Stack trace:
+#0 /var/www/pedidos/yii/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /var/www/pedidos/yii/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /var/www/pedidos/yii/framework/base/CModule.php(387): CDbConnection->init()
+#3 /var/www/pedidos/yii/framework/base/CApplication.php(450): CModule->getComponent('db')
+#4 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(637): CApplication->getDb()
+#5 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(1431): CActiveRecord->getDbConnection()
+#6 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(1520): CActiveRecord->getTableAlias(true)
+#7 /var/www/pedidos/protected/components/model/EmpresaComponent.php(45): CActiveRecord->findByAttributes(Array)
+#8 /var/www/pedidos/protected/components/model/EmpresaComponent.php(22): EmpresaComponent->_getFromHostName()
+#9 /var/www/pedidos/protected/components/model/EmpresaComponent.php(17): EmpresaComponent->getModel()
+#10 /var/www/pedidos/yii/framework/base/CModule.php(387): EmpresaComponent->init()
+#11 /var/www/pedidos/yii/framework/base/CModule.php(523): CModule->getComponent('empresa')
+#12 /var/www/pedidos/yii/framework/base/CApplication.php(163): CModule->preloadComponents()
+#13 /var/www/pedidos/yii/framework/YiiBase.php(125): CApplication->__construct('/var/www/pedido...')
+#14 /var/www/pedidos/yii/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/pedido...')
+#15 /var/www/pedidos/index.php(14): YiiBase::createWebApplication('/var/www/pedido...')
+#16 {main}
+REQUEST_URI=/pedidos/site/logout
+HTTP_REFERER=http://localhost/pedidos/admin
+---
+2014/02/23 22:45:40 [error] [php] Division by zero (/var/www/pedidos/protected/components/model/CategoriaComponent.php:22)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#1 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(76): ProductoController->renderFile()
+#2 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /var/www/pedidos/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /var/www/pedidos/yii/framework/web/CBaseController.php(214): CContentDecorator->run()
+#5 /var/www/pedidos/yii/framework/web/CBaseController.php(308): ProductoController->endWidget()
+#6 /var/www/pedidos/protected/views/layouts/2columnas.php(25): ProductoController->endContent()
+#7 /var/www/pedidos/yii/framework/web/CBaseController.php(126): require()
+#8 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#9 /var/www/pedidos/yii/framework/web/CController.php(785): ProductoController->renderFile()
+#10 /var/www/pedidos/protected/controllers/ProductoController.php(220): ProductoController->render()
+#11 unknown(0): ProductoController->actionIndex()
+#12 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#13 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#14 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#15 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#16 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/pedidos/protected/modules/rights/components/RController.php(36): RightsFilter->filter()
+#18 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterRights()
+#19 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#20 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/pedidos/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#22 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#23 /var/www/pedidos/yii/framework/web/CController.php(753): CWebApplication->runController()
+#24 /var/www/pedidos/protected/controllers/SiteController.php(33): SiteController->forward()
+#25 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#26 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#27 /var/www/pedidos/yii/framework/web/CController.php(286): SiteController->runAction()
+#28 /var/www/pedidos/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#29 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#30 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#31 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#32 /var/www/pedidos/index.php(14): CWebApplication->run()
+REQUEST_URI=/pedidos/
+in /var/www/pedidos/protected/components/model/CategoriaComponent.php (22)
+in /var/www/pedidos/protected/views/layouts/default.php (87)
+in /var/www/pedidos/protected/views/layouts/2columnas.php (25)
+2014/02/23 22:45:53 [error] [php] Division by zero (/var/www/pedidos/protected/components/model/CategoriaComponent.php:22)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#1 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(76): ProductoController->renderFile()
+#2 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /var/www/pedidos/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /var/www/pedidos/yii/framework/web/CBaseController.php(214): CContentDecorator->run()
+#5 /var/www/pedidos/yii/framework/web/CBaseController.php(308): ProductoController->endWidget()
+#6 /var/www/pedidos/protected/views/layouts/2columnas.php(25): ProductoController->endContent()
+#7 /var/www/pedidos/yii/framework/web/CBaseController.php(126): require()
+#8 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#9 /var/www/pedidos/yii/framework/web/CController.php(785): ProductoController->renderFile()
+#10 /var/www/pedidos/protected/controllers/ProductoController.php(220): ProductoController->render()
+#11 unknown(0): ProductoController->actionIndex()
+#12 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#13 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#14 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#15 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#16 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/pedidos/protected/modules/rights/components/RController.php(36): RightsFilter->filter()
+#18 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterRights()
+#19 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#20 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/pedidos/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#22 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#23 /var/www/pedidos/yii/framework/web/CController.php(753): CWebApplication->runController()
+#24 /var/www/pedidos/protected/controllers/SiteController.php(33): SiteController->forward()
+#25 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#26 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#27 /var/www/pedidos/yii/framework/web/CController.php(286): SiteController->runAction()
+#28 /var/www/pedidos/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#29 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#30 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#31 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#32 /var/www/pedidos/index.php(14): CWebApplication->run()
+REQUEST_URI=/pedidos/site
+in /var/www/pedidos/protected/components/model/CategoriaComponent.php (22)
+in /var/www/pedidos/protected/views/layouts/default.php (87)
+in /var/www/pedidos/protected/views/layouts/2columnas.php (25)
+2014/02/23 22:46:44 [error] [php] Division by zero (/var/www/pedidos/protected/components/model/CategoriaComponent.php:22)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#1 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(76): ProductoController->renderFile()
+#2 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /var/www/pedidos/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /var/www/pedidos/yii/framework/web/CBaseController.php(214): CContentDecorator->run()
+#5 /var/www/pedidos/yii/framework/web/CBaseController.php(308): ProductoController->endWidget()
+#6 /var/www/pedidos/protected/views/layouts/2columnas.php(25): ProductoController->endContent()
+#7 /var/www/pedidos/yii/framework/web/CBaseController.php(126): require()
+#8 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#9 /var/www/pedidos/yii/framework/web/CController.php(785): ProductoController->renderFile()
+#10 /var/www/pedidos/protected/controllers/ProductoController.php(220): ProductoController->render()
+#11 unknown(0): ProductoController->actionIndex()
+#12 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#13 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#14 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#15 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#16 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/pedidos/protected/modules/rights/components/RController.php(36): RightsFilter->filter()
+#18 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterRights()
+#19 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#20 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/pedidos/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#22 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#23 /var/www/pedidos/yii/framework/web/CController.php(753): CWebApplication->runController()
+#24 /var/www/pedidos/protected/controllers/SiteController.php(33): SiteController->forward()
+#25 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#26 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#27 /var/www/pedidos/yii/framework/web/CController.php(286): SiteController->runAction()
+#28 /var/www/pedidos/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#29 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#30 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#31 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#32 /var/www/pedidos/index.php(14): CWebApplication->run()
+REQUEST_URI=/pedidos/site
+in /var/www/pedidos/protected/components/model/CategoriaComponent.php (22)
+in /var/www/pedidos/protected/views/layouts/default.php (87)
+in /var/www/pedidos/protected/views/layouts/2columnas.php (25)
+2014/02/23 22:48:03 [error] [php] Division by zero (/var/www/pedidos/protected/components/model/CategoriaComponent.php:22)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#1 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(76): ProductoController->renderFile()
+#2 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /var/www/pedidos/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /var/www/pedidos/yii/framework/web/CBaseController.php(214): CContentDecorator->run()
+#5 /var/www/pedidos/yii/framework/web/CBaseController.php(308): ProductoController->endWidget()
+#6 /var/www/pedidos/protected/views/layouts/2columnas.php(25): ProductoController->endContent()
+#7 /var/www/pedidos/yii/framework/web/CBaseController.php(126): require()
+#8 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#9 /var/www/pedidos/yii/framework/web/CController.php(785): ProductoController->renderFile()
+#10 /var/www/pedidos/protected/controllers/ProductoController.php(220): ProductoController->render()
+#11 unknown(0): ProductoController->actionIndex()
+#12 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#13 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#14 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#15 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#16 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/pedidos/protected/modules/rights/components/RController.php(36): RightsFilter->filter()
+#18 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterRights()
+#19 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#20 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/pedidos/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#22 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#23 /var/www/pedidos/yii/framework/web/CController.php(753): CWebApplication->runController()
+#24 /var/www/pedidos/protected/controllers/SiteController.php(33): SiteController->forward()
+#25 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#26 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#27 /var/www/pedidos/yii/framework/web/CController.php(286): SiteController->runAction()
+#28 /var/www/pedidos/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#29 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#30 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#31 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#32 /var/www/pedidos/index.php(14): CWebApplication->run()
+REQUEST_URI=/pedidos/site
+in /var/www/pedidos/protected/components/model/CategoriaComponent.php (22)
+in /var/www/pedidos/protected/views/layouts/default.php (87)
+in /var/www/pedidos/protected/views/layouts/2columnas.php (25)
+2014/02/23 22:48:04 [error] [php] Division by zero (/var/www/pedidos/protected/components/model/CategoriaComponent.php:22)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#1 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(76): ProductoController->renderFile()
+#2 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /var/www/pedidos/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /var/www/pedidos/yii/framework/web/CBaseController.php(214): CContentDecorator->run()
+#5 /var/www/pedidos/yii/framework/web/CBaseController.php(308): ProductoController->endWidget()
+#6 /var/www/pedidos/protected/views/layouts/2columnas.php(25): ProductoController->endContent()
+#7 /var/www/pedidos/yii/framework/web/CBaseController.php(126): require()
+#8 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#9 /var/www/pedidos/yii/framework/web/CController.php(785): ProductoController->renderFile()
+#10 /var/www/pedidos/protected/controllers/ProductoController.php(220): ProductoController->render()
+#11 unknown(0): ProductoController->actionIndex()
+#12 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#13 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#14 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#15 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#16 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/pedidos/protected/modules/rights/components/RController.php(36): RightsFilter->filter()
+#18 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterRights()
+#19 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#20 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/pedidos/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#22 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#23 /var/www/pedidos/yii/framework/web/CController.php(753): CWebApplication->runController()
+#24 /var/www/pedidos/protected/controllers/SiteController.php(33): SiteController->forward()
+#25 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#26 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#27 /var/www/pedidos/yii/framework/web/CController.php(286): SiteController->runAction()
+#28 /var/www/pedidos/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#29 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#30 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#31 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#32 /var/www/pedidos/index.php(14): CWebApplication->run()
+REQUEST_URI=/pedidos/site
+in /var/www/pedidos/protected/components/model/CategoriaComponent.php (22)
+in /var/www/pedidos/protected/views/layouts/default.php (87)
+in /var/www/pedidos/protected/views/layouts/2columnas.php (25)
+2014/02/23 22:48:04 [error] [php] Division by zero (/var/www/pedidos/protected/components/model/CategoriaComponent.php:22)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#1 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(76): ProductoController->renderFile()
+#2 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /var/www/pedidos/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /var/www/pedidos/yii/framework/web/CBaseController.php(214): CContentDecorator->run()
+#5 /var/www/pedidos/yii/framework/web/CBaseController.php(308): ProductoController->endWidget()
+#6 /var/www/pedidos/protected/views/layouts/2columnas.php(25): ProductoController->endContent()
+#7 /var/www/pedidos/yii/framework/web/CBaseController.php(126): require()
+#8 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#9 /var/www/pedidos/yii/framework/web/CController.php(785): ProductoController->renderFile()
+#10 /var/www/pedidos/protected/controllers/ProductoController.php(220): ProductoController->render()
+#11 unknown(0): ProductoController->actionIndex()
+#12 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#13 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#14 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#15 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#16 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/pedidos/protected/modules/rights/components/RController.php(36): RightsFilter->filter()
+#18 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterRights()
+#19 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#20 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/pedidos/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#22 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#23 /var/www/pedidos/yii/framework/web/CController.php(753): CWebApplication->runController()
+#24 /var/www/pedidos/protected/controllers/SiteController.php(33): SiteController->forward()
+#25 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#26 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#27 /var/www/pedidos/yii/framework/web/CController.php(286): SiteController->runAction()
+#28 /var/www/pedidos/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#29 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#30 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#31 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#32 /var/www/pedidos/index.php(14): CWebApplication->run()
+REQUEST_URI=/pedidos/site
+in /var/www/pedidos/protected/components/model/CategoriaComponent.php (22)
+in /var/www/pedidos/protected/views/layouts/default.php (87)
+in /var/www/pedidos/protected/views/layouts/2columnas.php (25)
+2014/02/23 22:49:00 [error] [php] Division by zero (/var/www/pedidos/protected/components/model/CategoriaComponent.php:22)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#1 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(76): ProductoController->renderFile()
+#2 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /var/www/pedidos/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /var/www/pedidos/yii/framework/web/CBaseController.php(214): CContentDecorator->run()
+#5 /var/www/pedidos/yii/framework/web/CBaseController.php(308): ProductoController->endWidget()
+#6 /var/www/pedidos/protected/views/layouts/2columnas.php(25): ProductoController->endContent()
+#7 /var/www/pedidos/yii/framework/web/CBaseController.php(126): require()
+#8 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#9 /var/www/pedidos/yii/framework/web/CController.php(785): ProductoController->renderFile()
+#10 /var/www/pedidos/protected/controllers/ProductoController.php(220): ProductoController->render()
+#11 unknown(0): ProductoController->actionIndex()
+#12 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#13 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#14 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#15 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#16 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/pedidos/protected/modules/rights/components/RController.php(36): RightsFilter->filter()
+#18 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterRights()
+#19 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#20 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/pedidos/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#22 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#23 /var/www/pedidos/yii/framework/web/CController.php(753): CWebApplication->runController()
+#24 /var/www/pedidos/protected/controllers/SiteController.php(33): SiteController->forward()
+#25 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#26 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#27 /var/www/pedidos/yii/framework/web/CController.php(286): SiteController->runAction()
+#28 /var/www/pedidos/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#29 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#30 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#31 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#32 /var/www/pedidos/index.php(14): CWebApplication->run()
+REQUEST_URI=/pedidos/site
+in /var/www/pedidos/protected/components/model/CategoriaComponent.php (22)
+in /var/www/pedidos/protected/views/layouts/default.php (87)
+in /var/www/pedidos/protected/views/layouts/2columnas.php (25)
+2014/02/23 22:49:55 [error] [php] Division by zero (/var/www/pedidos/protected/components/model/CategoriaComponent.php:22)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#1 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(76): ProductoController->renderFile()
+#2 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /var/www/pedidos/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /var/www/pedidos/yii/framework/web/CBaseController.php(214): CContentDecorator->run()
+#5 /var/www/pedidos/yii/framework/web/CBaseController.php(308): ProductoController->endWidget()
+#6 /var/www/pedidos/protected/views/layouts/2columnas.php(25): ProductoController->endContent()
+#7 /var/www/pedidos/yii/framework/web/CBaseController.php(126): require()
+#8 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#9 /var/www/pedidos/yii/framework/web/CController.php(785): ProductoController->renderFile()
+#10 /var/www/pedidos/protected/controllers/ProductoController.php(220): ProductoController->render()
+#11 unknown(0): ProductoController->actionIndex()
+#12 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#13 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#14 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#15 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#16 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/pedidos/protected/modules/rights/components/RController.php(36): RightsFilter->filter()
+#18 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterRights()
+#19 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#20 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/pedidos/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#22 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#23 /var/www/pedidos/yii/framework/web/CController.php(753): CWebApplication->runController()
+#24 /var/www/pedidos/protected/controllers/SiteController.php(33): SiteController->forward()
+#25 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#26 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#27 /var/www/pedidos/yii/framework/web/CController.php(286): SiteController->runAction()
+#28 /var/www/pedidos/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#29 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#30 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#31 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#32 /var/www/pedidos/index.php(14): CWebApplication->run()
+REQUEST_URI=/pedidos/site
+in /var/www/pedidos/protected/components/model/CategoriaComponent.php (22)
+in /var/www/pedidos/protected/views/layouts/default.php (87)
+in /var/www/pedidos/protected/views/layouts/2columnas.php (25)
+2014/02/23 22:50:43 [error] [php] Division by zero (/var/www/pedidos/protected/components/model/CategoriaComponent.php:22)
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#1 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(76): ProductoController->renderFile()
+#2 /var/www/pedidos/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /var/www/pedidos/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /var/www/pedidos/yii/framework/web/CBaseController.php(214): CContentDecorator->run()
+#5 /var/www/pedidos/yii/framework/web/CBaseController.php(308): ProductoController->endWidget()
+#6 /var/www/pedidos/protected/views/layouts/2columnas.php(25): ProductoController->endContent()
+#7 /var/www/pedidos/yii/framework/web/CBaseController.php(126): require()
+#8 /var/www/pedidos/yii/framework/web/CBaseController.php(95): ProductoController->renderInternal()
+#9 /var/www/pedidos/yii/framework/web/CController.php(785): ProductoController->renderFile()
+#10 /var/www/pedidos/protected/controllers/ProductoController.php(220): ProductoController->render()
+#11 unknown(0): ProductoController->actionIndex()
+#12 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#13 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#14 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#15 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): ProductoController->runAction()
+#16 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /var/www/pedidos/protected/modules/rights/components/RController.php(36): RightsFilter->filter()
+#18 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): ProductoController->filterRights()
+#19 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#20 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#21 /var/www/pedidos/yii/framework/web/CController.php(265): ProductoController->runActionWithFilters()
+#22 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): ProductoController->run()
+#23 /var/www/pedidos/yii/framework/web/CController.php(753): CWebApplication->runController()
+#24 /var/www/pedidos/protected/controllers/SiteController.php(33): SiteController->forward()
+#25 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#26 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#27 /var/www/pedidos/yii/framework/web/CController.php(286): SiteController->runAction()
+#28 /var/www/pedidos/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#29 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#30 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#31 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#32 /var/www/pedidos/index.php(14): CWebApplication->run()
+REQUEST_URI=/pedidos/site
+in /var/www/pedidos/protected/components/model/CategoriaComponent.php (22)
+in /var/www/pedidos/protected/views/layouts/default.php (87)
+in /var/www/pedidos/protected/views/layouts/2columnas.php (25)
+2014/02/23 22:51:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site
+---
+2014/02/23 22:51:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site/login
+---
+2014/02/23 22:52:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site/login
+---
+2014/02/23 22:52:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site/login
+---
+2014/02/23 22:52:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site/login
+---
+2014/02/23 22:52:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site/login
+---
+2014/02/23 22:52:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---
+2014/02/23 22:52:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---
+2014/02/23 22:52:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site/login
+---
+2014/02/23 22:52:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---
+2014/02/23 22:52:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/producto/admin
+---
+2014/02/23 22:52:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/pedido/admin
+---
+2014/02/23 22:52:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/descriptor/admin
+---
+2014/02/23 22:52:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/tipoIva/admin
+---
+2014/02/23 22:52:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---

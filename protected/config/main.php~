@@ -133,7 +133,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=pedidos',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '32p64r',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		
