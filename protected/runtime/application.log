@@ -1059,3 +1059,277 @@ Stack trace:
 REQUEST_URI=/pedidos/
 HTTP_REFERER=http://localhost/pedidos/site/login
 ---
+2014/02/18 21:28:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/a7c54131/js/rights.js"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/a7c54131...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/a7c54131/js/rights.js
+HTTP_REFERER=http://localhost/pedidos/rights
+---
+2014/02/18 21:28:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/a7c54131/css/core.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/a7c54131...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/a7c54131/css/core.css
+HTTP_REFERER=http://localhost/pedidos/rights
+---
+2014/02/18 21:28:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/a7c54131/css/default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/a7c54131...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/a7c54131/css/default.css
+HTTP_REFERER=http://localhost/pedidos/rights
+---
+2014/02/18 21:28:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---
+2014/02/18 21:28:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site/login
+---
+2014/02/18 21:29:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site/login
+---
+2014/02/18 21:29:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---
+2014/02/18 21:29:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/site
+---
+2014/02/18 21:29:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/7303f70/menu_default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/7303f70/...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/7303f70/menu_default.css
+HTTP_REFERER=http://home.livetin.com/pedidos/
+---
+2014/02/23 20:54:21 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`pedidos`.`empresa`, CONSTRAINT `fk_empresa_usuario` FOREIGN KEY (`id_usuario_administrador`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: DELETE FROM `empresa` WHERE `empresa`.`id`=5.
+in /var/www/pedidos/protected/modules/admin/controllers/EmpresaController.php (94)
+in /var/www/pedidos/protected/modules/rights/components/RController.php (36)
+in /var/www/pedidos/index.php (14)
+2014/02/23 20:54:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`pedidos`.`empresa`, CONSTRAINT `fk_empresa_usuario` FOREIGN KEY (`id_usuario_administrador`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: DELETE FROM `empresa` WHERE `empresa`.`id`=5' in /var/www/pedidos/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(1805): CDbCommand->execute()
+#1 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(1225): CActiveRecord->deleteByPk('5')
+#2 /var/www/pedidos/protected/modules/admin/controllers/EmpresaController.php(94): CActiveRecord->delete()
+#3 [internal function]: EmpresaController->actionDelete('5')
+#4 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(EmpresaController), Array)
+#5 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(EmpresaController), Object(ReflectionMethod), Array)
+#6 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/pedidos/protected/modules/rights/components/RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/pedidos/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): CController->run('delete')
+#15 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/empresa/d...')
+#16 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/pedidos/index.php(14): CApplication->run()
+#18 {main}
+REQUEST_URI=/pedidos/admin/empresa/delete/id/5?ajax=empresa-grid
+HTTP_REFERER=http://localhost/pedidos/admin/empresa/admin
+---
+2014/02/23 20:54:47 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`pedidos`.`empresa`, CONSTRAINT `fk_empresa_usuario` FOREIGN KEY (`id_usuario_administrador`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: DELETE FROM `empresa` WHERE `empresa`.`id`=5.
+in /var/www/pedidos/protected/modules/admin/controllers/EmpresaController.php (94)
+in /var/www/pedidos/protected/modules/rights/components/RController.php (36)
+in /var/www/pedidos/index.php (14)
+2014/02/23 20:54:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`pedidos`.`empresa`, CONSTRAINT `fk_empresa_usuario` FOREIGN KEY (`id_usuario_administrador`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: DELETE FROM `empresa` WHERE `empresa`.`id`=5' in /var/www/pedidos/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(1805): CDbCommand->execute()
+#1 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(1225): CActiveRecord->deleteByPk('5')
+#2 /var/www/pedidos/protected/modules/admin/controllers/EmpresaController.php(94): CActiveRecord->delete()
+#3 [internal function]: EmpresaController->actionDelete('5')
+#4 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(EmpresaController), Array)
+#5 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(EmpresaController), Object(ReflectionMethod), Array)
+#6 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/pedidos/protected/modules/rights/components/RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/pedidos/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): CController->run('delete')
+#15 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/empresa/d...')
+#16 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/pedidos/index.php(14): CApplication->run()
+#18 {main}
+REQUEST_URI=/pedidos/admin/empresa/delete/id/5?ajax=empresa-grid
+HTTP_REFERER=http://localhost/pedidos/admin/empresa/admin
+---
+2014/02/23 20:55:21 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`pedidos`.`empresa`, CONSTRAINT `fk_empresa_usuario` FOREIGN KEY (`id_usuario_administrador`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: DELETE FROM `empresa` WHERE `empresa`.`id`=5.
+in /var/www/pedidos/protected/modules/admin/controllers/EmpresaController.php (94)
+in /var/www/pedidos/protected/modules/rights/components/RController.php (36)
+in /var/www/pedidos/index.php (14)
+2014/02/23 20:55:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`pedidos`.`empresa`, CONSTRAINT `fk_empresa_usuario` FOREIGN KEY (`id_usuario_administrador`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: DELETE FROM `empresa` WHERE `empresa`.`id`=5' in /var/www/pedidos/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(1805): CDbCommand->execute()
+#1 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(1225): CActiveRecord->deleteByPk('5')
+#2 /var/www/pedidos/protected/modules/admin/controllers/EmpresaController.php(94): CActiveRecord->delete()
+#3 [internal function]: EmpresaController->actionDelete('5')
+#4 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(EmpresaController), Array)
+#5 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(EmpresaController), Object(ReflectionMethod), Array)
+#6 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/pedidos/protected/modules/rights/components/RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/pedidos/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): CController->run('delete')
+#15 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/empresa/d...')
+#16 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/pedidos/index.php(14): CApplication->run()
+#18 {main}
+REQUEST_URI=/pedidos/admin/empresa/delete/id/5?ajax=empresa-grid
+HTTP_REFERER=http://localhost/pedidos/admin/empresa/admin
+---
+2014/02/23 20:55:48 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`pedidos`.`descriptor`, CONSTRAINT `fk_descriptor_categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: DELETE FROM `empresa` WHERE `empresa`.`id`=3.
+in /var/www/pedidos/protected/modules/admin/controllers/EmpresaController.php (94)
+in /var/www/pedidos/protected/modules/rights/components/RController.php (36)
+in /var/www/pedidos/index.php (14)
+2014/02/23 20:55:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`pedidos`.`descriptor`, CONSTRAINT `fk_descriptor_categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: DELETE FROM `empresa` WHERE `empresa`.`id`=3' in /var/www/pedidos/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(1805): CDbCommand->execute()
+#1 /var/www/pedidos/yii/framework/db/ar/CActiveRecord.php(1225): CActiveRecord->deleteByPk('3')
+#2 /var/www/pedidos/protected/modules/admin/controllers/EmpresaController.php(94): CActiveRecord->delete()
+#3 [internal function]: EmpresaController->actionDelete('3')
+#4 /var/www/pedidos/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(EmpresaController), Array)
+#5 /var/www/pedidos/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(EmpresaController), Object(ReflectionMethod), Array)
+#6 /var/www/pedidos/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /var/www/pedidos/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /var/www/pedidos/protected/modules/rights/components/RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 /var/www/pedidos/yii/framework/web/filters/CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 /var/www/pedidos/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/pedidos/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /var/www/pedidos/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/pedidos/yii/framework/web/CWebApplication.php(282): CController->run('delete')
+#15 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/empresa/d...')
+#16 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/pedidos/index.php(14): CApplication->run()
+#18 {main}
+REQUEST_URI=/pedidos/admin/empresa/delete/id/3?ajax=empresa-grid
+HTTP_REFERER=http://localhost/pedidos/admin/empresa/admin
+---
+2014/02/23 20:57:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/a7c54131/css/core.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/a7c54131...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/a7c54131/css/core.css
+HTTP_REFERER=http://localhost/pedidos/rights
+---
+2014/02/23 20:57:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/a7c54131/css/default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/a7c54131...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/a7c54131/css/default.css
+HTTP_REFERER=http://localhost/pedidos/rights
+---
+2014/02/23 20:57:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/a7c54131/js/rights.js"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/a7c54131...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/a7c54131/js/rights.js
+HTTP_REFERER=http://localhost/pedidos/rights
+---
+2014/02/23 20:57:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/a7c54131/js/rights.js"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/a7c54131...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/a7c54131/js/rights.js
+HTTP_REFERER=http://localhost/pedidos/rights/authItem/roles
+---
+2014/02/23 20:57:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/a7c54131/css/default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/a7c54131...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/a7c54131/css/default.css
+HTTP_REFERER=http://localhost/pedidos/rights/authItem/roles
+---
+2014/02/23 20:57:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/a7c54131/css/core.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/a7c54131...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/a7c54131/css/core.css
+HTTP_REFERER=http://localhost/pedidos/rights/authItem/roles
+---
+2014/02/23 20:57:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/a7c54131/css/core.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/a7c54131...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/a7c54131/css/core.css
+HTTP_REFERER=http://localhost/pedidos/rights
+---
+2014/02/23 20:57:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/a7c54131/js/rights.js"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/a7c54131...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/a7c54131/js/rights.js
+HTTP_REFERER=http://localhost/pedidos/rights
+---
+2014/02/23 20:57:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "assets/a7c54131/css/default.css"' in /var/www/pedidos/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/pedidos/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/a7c54131...')
+#1 /var/www/pedidos/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pedidos/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/pedidos/assets/a7c54131/css/default.css
+HTTP_REFERER=http://localhost/pedidos/rights
+---
