@@ -19,7 +19,7 @@ class CategoriaComponent extends CApplicationComponent
         return new Categoria();
     }
     
-    function getWidthItem($aCategorias, $nAdd = 0) { return round(720/ ($this->_countRoots($aCategorias) + $nAdd)); }
+    function getWidthItem($aCategorias, $nAdd = 0) { $div=$this->_countRoots($aCategorias) + $nAdd; return round(720/ ($div == 0 ? 1 : $div)); }
     
     function getMenu($aCategorias) {
         return $this->_createMenu($aCategorias, true);
